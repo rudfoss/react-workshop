@@ -9,7 +9,7 @@ import ViewUser from "../components/ViewUser"
  * Why not PureComponent?
  *
  * It might seem like this component could be Pure. It uses no props or state of any kind and just renders a router
- * Switch that picks a route based on the current location. But have you stopped to consider HOw it knows the current
+ * Switch that picks a route based on the current location. But have you stopped to consider HOW it knows the current
  * location. React components normally get their "outside information" from props. These are defined like "path" and
  * "component" below. The Switch however does not appear to have any props on it so how can it tell when the location
  * changes and respond to it? The answer is Context.
