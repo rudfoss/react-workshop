@@ -1,5 +1,6 @@
 import React from "react"
 import PropTypes from "prop-types"
+import UserListItem from "./UserListItem"
 
 import classes from "./UserList.scss"
 import columnClasses from "./UserListColumns.scss"
@@ -19,6 +20,9 @@ export class UserList extends React.PureComponent{
 						</tr>
 					</thead>
 					<tbody>
+						{this.props.users.map((user) => (
+							<UserListItem key={user.id} {...user}/>
+						))}
 					</tbody>
 				</table>
 				<div className={classes.newBtnContainer}>
@@ -31,13 +35,10 @@ export class UserList extends React.PureComponent{
 	}
 
 	static propTypes = {
-		users: PropTypes.arrayOf(PropTypes.shape({
-			avatar: PropTypes.string,
-			id: PropTypes.string,
-			name: PropTypes.string,
-			type: PropTypes.string,
-			created: PropTypes.string
-		})).isRequired,
+		users: PropTypes.arrayOf(
+			PropTypes.shape(
+				UserListItem.propTypes
+			)).isRequired,
 		onNewClick: PropTypes.func.isRequired
 	}
 }
