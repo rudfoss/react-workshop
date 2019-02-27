@@ -4,12 +4,13 @@ import Field from "../Field"
 import DescriptionField from "../DescriptionField"
 import Controls from "../Controls"
 import Avatar from "../Avatar"
+import omit from "lodash/omit"
 
 export class NewUser extends React.PureComponent{
 	state = {
 		avatar: "",
 		name: "",
-		type: "",
+		type: "Admin",
 		description: "",
 		types: ["Admin", "Elevated", "User", "Guest"]
 	}
@@ -25,7 +26,7 @@ export class NewUser extends React.PureComponent{
 					<input type="text" autoFocus value={avatar} onChange={this.onChangeEvt("avatar")}/>
 				</Field>
 				<Field label="User name" id="new-user-name">
-					<input type="text" autoFocus value={name} onChange={this.onChangeEvt("name")}/>
+					<input type="text" value={name} onChange={this.onChangeEvt("name")}/>
 				</Field>
 				<Field label="Type" id="new-user-type">
 					<select value={type} onChange={this.onChangeEvt("type")}>
@@ -51,7 +52,7 @@ export class NewUser extends React.PureComponent{
 	onSubmit = (e) => {
 		e.preventDefault()
 		// eslint-disable-next-line no-console
-		console.log(this.state)
+		console.log(omit(this.state, ["types"]))
 	}
 	onChangeEvt = (name) => (evt) => {
 		this.setState({

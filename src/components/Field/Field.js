@@ -1,7 +1,7 @@
 import React from "react"
 import PropTypes from "prop-types"
 
-import classes from "./Field"
+import classes from "./Field.scss"
 
 export class Field extends React.PureComponent{
 	render(){
