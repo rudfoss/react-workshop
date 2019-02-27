@@ -1,28 +1,21 @@
 import React from "react"
-import InputTest from "./InputTest"
+import UserList from "./components/UserList"
+
+import "./styles/App.scss"
 
 export class App extends React.PureComponent {
 	state = {
-		name: ""
+		users: []
 	}
 
-	onNameChange = (name) => {
-		this.setState({
-			name
-		})
+	onNewUser = (newUser) => {
+		// eslint-disable-next-line no-console
+		console.log(newUser)
 	}
 
 	render() {
 		return (
-			<>
-				<h2>Enter your name</h2>
-				<p>Hello {this.state.name}</p>
-				<div>
-					<InputTest
-						name={this.state.name}
-						onChange={this.onNameChange}/>
-				</div>
-			</>
+			<UserList users={this.state.users} onNewClick={this.onNewUser}/>
 		)
 	}
 }
