@@ -12,10 +12,10 @@ html, body{
 	align-items: stretch;
 }
 
-.list{
+:global .list{
 	flex: 1 1 auto;
 }
-.frame{
+:global .frame{
 	flex: 0 0 450px;
 }
 

@@ -7,7 +7,7 @@ import {load, save} from "./store/persistent"
 
 import Routes from "./routes"
 
-import "./styles/App.global.scss"
+import "./styles/App.scss"
 
 export class App extends React.PureComponent{
 	constructor(props){
@@ -24,10 +24,6 @@ export class App extends React.PureComponent{
 	}
 	get dispatch() {
 		return this.store.dispatch
-	}
-
-	async test() {
-		await fetch("/")
 	}
 
 	setupRedux(){

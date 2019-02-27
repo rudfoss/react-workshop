@@ -8,7 +8,7 @@ import columnClasses from "./UserListColumns.scss"
 
 export class name extends React.PureComponent{
 	static propTypes = {
-		users: PropTypes.arrayOf(PropTypes.object),
+		users: PropTypes.arrayOf(PropTypes.shape(UserListItem.propTypes)),
 		onNewClick: PropTypes.func
 	}
 	static defaultProps = {
