@@ -3,7 +3,7 @@ import PropTypes from "prop-types"
 
 import classes from "./Controls.scss"
 
-export class name extends React.PureComponent{
+export class Controls extends React.PureComponent{
 	static propTypes = {
 		children: PropTypes.node
 	}
@@ -16,4 +16,4 @@ export class name extends React.PureComponent{
 		)
 	}
 }
-export default name
+export default Controls

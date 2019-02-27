@@ -9,7 +9,7 @@ export class Avatar extends React.PureComponent{
 		value: PropTypes.string,
 		canChange: PropTypes.bool,
 		size: PropTypes.string,
-		onClick: PropTypes.func
+		onChange: PropTypes.func
 	}
 
 	render(){
@@ -32,7 +32,7 @@ export class Avatar extends React.PureComponent{
 		if (!this.props.canChange) return
 		const promptValue = prompt("Paste an image url", this.props.value)
 		if (promptValue != null) {
-			this.props.onClick(promptValue)
+			this.props.onChange(promptValue)
 		}
 	}
 }

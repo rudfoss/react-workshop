@@ -1,5 +1,6 @@
 import {connect} from "react-redux"
 import NewUser from "./NewUser"
+import NewUserHook from "./NewUserHook"
 import {push} from "connected-react-router"
 
 import * as newUserDuck from "../../ducks/newUser.duck"

@@ -6,3 +6,6 @@ node_modules
 
 # Distribution folder
 dist
+
+# Ignores Parcel cache
+.cache

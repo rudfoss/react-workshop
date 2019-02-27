@@ -6,7 +6,7 @@ html, body{
 	height: 100vh;
 }
 
-#react-app {
+:global #react-app {
 	display: flex;
 	height: 100%;
 	align-items: stretch;
