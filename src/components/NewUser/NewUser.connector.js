@@ -9,7 +9,7 @@ const mapStateToProp = (state) => {
 		name: newUserDuck.getPropValue(state, "name"),
 		type: newUserDuck.getPropValue(state, "type"),
 		description: newUserDuck.getPropValue(state, "description"),
-		types: newUserDuck.getPropValue(state, "types")
+		types: newUserDuck.getTypes(state)
 	}
 }
 const mapDispatchToProps = (dispatch) => {
@@ -20,4 +20,4 @@ const mapDispatchToProps = (dispatch) => {
 		onNewUser: () => null // TODO: Impl onNewUser
 	}
 }
-export default connect(mapStateToProp)(NewUser)
+export default connect(mapStateToProp, mapDispatchToProps)(NewUser)

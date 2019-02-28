@@ -2,6 +2,7 @@ import React from "react"
 import UserList from "./components/UserList"
 import NewUser from "./components/NewUser"
 import { createStore } from "./store/createStore"
+import {Provider} from "react-redux"
 
 import "./styles/App.scss"
 
@@ -40,10 +41,12 @@ export class App extends React.PureComponent {
 
 	render() {
 		return (
-			<>
-				<UserList users={this.state.users} onNewClick={this.onNewUser}/>
-				<NewUser/>
-			</>
+			<Provider store={this.store}>
+				<>
+					<UserList users={this.state.users} onNewClick={this.onNewUser}/>
+					<NewUser/>
+				</>
+			</Provider>
 		)
 	}
 }
