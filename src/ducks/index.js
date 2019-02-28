@@ -1,5 +1,3 @@
-import {combineReducers} from "redux"
-
 import * as newUser from "./newUser.duck"
 import * as users from "./users.duck"
 
@@ -13,4 +11,4 @@ const rootReducer = {
 	users: users.reducer
 }
 
-export default combineReducers(rootReducer)
+export default rootReducer

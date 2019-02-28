@@ -4,6 +4,7 @@ import UserListItem from "./UserListItem"
 
 import classes from "./UserList.scss"
 import columnClasses from "./UserListColumns.scss"
+import Routes from "../../routes"
 
 export class UserList extends React.PureComponent{
 	render(){

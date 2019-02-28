@@ -1,8 +1,8 @@
 import React from "react"
-import UserList from "./components/UserList"
-import NewUser from "./components/NewUser"
-import { createStore } from "./store/createStore"
+import { createStore, history } from "./store/createStore"
 import {Provider} from "react-redux"
+import {ConnectedRouter} from "connected-react-router"
+import Routes from "./routes"
 
 import {ducks} from "./ducks"
 
@@ -22,8 +22,9 @@ export class App extends React.PureComponent {
 	render() {
 		return (
 			<Provider store={this.store}>
-				<UserList/>
-				<NewUser/>
+				<ConnectedRouter history={history}>
+					<Routes/>
+				</ConnectedRouter>
 			</Provider>
 		)
 	}
