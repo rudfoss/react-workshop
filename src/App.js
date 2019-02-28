@@ -4,6 +4,8 @@ import NewUser from "./components/NewUser"
 import { createStore } from "./store/createStore"
 import {Provider} from "react-redux"
 
+import {ducks} from "./ducks"
+
 import "./styles/App.scss"
 
 export class App extends React.PureComponent {
@@ -11,6 +13,10 @@ export class App extends React.PureComponent {
 		super()
 		this.store = createStore()
 		window.app = this
+	}
+
+	get ducks() {
+		return ducks
 	}
 
 	render() {

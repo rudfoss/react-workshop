@@ -16,7 +16,7 @@ export const reducer = handleActions({
 	[addNewUser]: (state, {payload}) => {
 		return {
 			...state,
-			order: [...state.order, payload.id],
+			order: [...(state.order || []), payload.id],
 			byId: {
 				...(state.byId || {}),
 				[payload.id]: payload
