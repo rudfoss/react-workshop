@@ -7,18 +7,10 @@ import Avatar from "../Avatar"
 import omit from "lodash/omit"
 
 export class NewUser extends React.PureComponent{
-	state = {
-		avatar: "",
-		name: "",
-		type: "Admin",
-		description: "",
-		types: ["Admin", "Elevated", "User", "Guest"]
-	}
-
 	render(){
 		const {
 			avatar, name, type, description, types
-		} = this.state
+		} = this.props
 
 		return (
 			<form onSubmit={this.onSubmit}>
@@ -51,18 +43,13 @@ export class NewUser extends React.PureComponent{
 
 	onSubmit = (e) => {
 		e.preventDefault()
-		// eslint-disable-next-line no-console
-		console.log(omit(this.state, ["types"]))
+		this.props.onNewUser()
 	}
 	onChangeEvt = (name) => (evt) => {
-		this.setState({
-			[name]: evt.target.value
-		})
+		this.props.onPropChange(name, evt.target.value)
 	}
 	onDescriptionChange = (newDescription) => {
-		this.setState({
-			description: newDescription
-		})
+		this.props.onPropChange("description", newDescription)
 	}
 
 	static propTypes = {
@@ -70,7 +57,10 @@ export class NewUser extends React.PureComponent{
 		name: PropTypes.string,
 		type: PropTypes.string,
 		description: PropTypes.string,
-		types: PropTypes.arrayOf(PropTypes.string)
+		types: PropTypes.arrayOf(PropTypes.string),
+
+		onPropChange: PropTypes.func.isRequired,
+		onNewUser: PropTypes.func.isRequired
 	}
 }
 export default NewUser
