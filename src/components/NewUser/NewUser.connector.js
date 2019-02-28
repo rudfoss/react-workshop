@@ -1,5 +1,6 @@
 import {connect} from "react-redux"
 
+import { addNewUser } from "../../ducks/user.combiner"
 import * as newUserDuck from "../../ducks/newUser.duck"
 import NewUser from "./NewUser"
 
@@ -17,7 +18,9 @@ const mapDispatchToProps = (dispatch) => {
 		onPropChange: (propName, propValue) =>
 			dispatch(newUserDuck.setPropValue(propName, propValue)),
 
-		onNewUser: () => null // TODO: Impl onNewUser
+		onNewUser: () => {
+			dispatch(addNewUser())
+		}
 	}
 }
 export default connect(mapStateToProp, mapDispatchToProps)(NewUser)
