@@ -1,54 +1,21 @@
 import React from "react"
-import {Provider} from "react-redux"
-import {ConnectedRouter} from "connected-react-router"
-import {createStore, history} from "./store"
-import {ducks} from "./ducks"
-import {load, save} from "./store/persistent"
+import PropTypes from "prop-types"
+import Users from "./features/users";
 
-import Routes from "./routes"
-
-import "./styles/App.scss"
+const users = [
+	{id: "test", name: "test", type: "test", created: new Date()}
+]
 
 export class App extends React.PureComponent{
-	constructor(props){
-		super(props)
-		this.setup()
-		window.app = this
-	}
-
-	get ducks() {
-		return ducks
-	}
-	get storeState() {
-		return this.store.getState()
-	}
-	get dispatch() {
-		return this.store.dispatch
-	}
-
-	setupRedux(){
-		this.store = createStore(load())
-		this.store.subscribe(this.saveState)
-		this.history = history
-		window.app = this
-	}
-	saveState = () => {
-		const state = this.store.getState()
-		save(state)
-	}
-	setup(){
-		this.setupRedux()
-	}
-
 	render(){
 		return (
-			<Provider store={this.store}>
-				<ConnectedRouter history={this.history}>
-					<Routes/>
-				</ConnectedRouter>
-			</Provider>
+			<div>
+				<Users users={users}/>
+			</div>	
 		)
 	}
-}
 
+	static propTypes = {
+	}
+}
 export default App
