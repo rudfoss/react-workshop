@@ -1,6 +1,6 @@
 import React from "react"
 import PropTypes from "prop-types"
-import { userEntity } from "../../entities/user"
+import { userEntity } from "../../entities/userEntity"
 import UserItem from "./UserItem"
 
 export class Users extends React.PureComponent{
@@ -25,8 +25,7 @@ export class Users extends React.PureComponent{
 							user={user}
 							onEdit={this.onEdit(user.id)}
 							onRemove={this.onRemove(user.id)}/>
-						)
-					)}
+					))}
 				</tbody>
 			</table>
 		)

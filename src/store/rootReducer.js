@@ -1,9 +1,11 @@
 import { combineReducers } from "redux"
 
 import * as users from "../features/users/users.duck"
+import * as userForm from "../features/userForm/userForm.duck"
 
 export const ducks = {
-	users
+	users,
+	userForm
 }
 
 const baseReducerState =

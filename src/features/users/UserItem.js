@@ -1,5 +1,5 @@
 import React from "react"
-import { userEntity } from "../../entities/user"
+import { userEntity } from "../../entities/userEntity"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faEdit, faMinusSquare } from "@fortawesome/free-solid-svg-icons"
 import PropTypes from "prop-types"
