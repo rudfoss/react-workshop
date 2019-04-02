@@ -9,5 +9,6 @@ const mapStateToProps = (state) => {
 	}
 }
 const mapDispatchToProps = (dispatch) => ({
+	onRemoveUser: (id) => dispatch(users.removeUserById(id))
 })
 export default connect(mapStateToProps, mapDispatchToProps)(Users)
