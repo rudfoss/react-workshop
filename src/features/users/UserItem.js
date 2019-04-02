@@ -6,7 +6,7 @@ import PropTypes from "prop-types"
 
 export class UserItem extends React.PureComponent{
 	render(){
-		const {user} = this.props
+		const {user, onEdit, onRemove} = this.props
 		return (
 			<tr>
 				<td>{user.id}</td>
@@ -14,8 +14,16 @@ export class UserItem extends React.PureComponent{
 				<td>{user.type}</td>
 				<td>{user.created.toISOString()}</td>
 				<td>
-					<FontAwesomeIcon icon={faEdit}/>
-					<FontAwesomeIcon icon={faMinusSquare}/>
+					{onEdit && (
+						<button type="button" onClick={onEdit}>
+							<FontAwesomeIcon icon={faEdit}/>
+						</button>
+					)}
+					{onRemove && (
+						<button type="button" onClick={onRemove}>
+							<FontAwesomeIcon icon={faMinusSquare}/>
+						</button>
+					)}
 				</td>
 			</tr>
 		)

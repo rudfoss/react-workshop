@@ -1,17 +1,29 @@
 import React from "react"
 import PropTypes from "prop-types"
-import Users from "./features/users";
-
-const users = [
-	{id: "test", name: "test", type: "test", created: new Date()}
-]
+import { Provider } from "react-redux"
+import { BrowserRouter } from "react-router-dom"
+import { configureStore } from "./store/createStore"
+import Routes from "./routes"
+import { initialState } from "./store/initialState"
 
 export class App extends React.PureComponent{
+	constructor(props) {
+		super(props)
+		this.store = configureStore(initialState)
+		window.app = this
+	}
+
+	get reduxStore() {
+		return this.store.getState()
+	}
+
 	render(){
 		return (
-			<div>
-				<Users users={users}/>
-			</div>	
+			<Provider store={this.store}>
+				<BrowserRouter>
+					<Routes/>
+				</BrowserRouter>
+			</Provider>
 		)
 	}
 

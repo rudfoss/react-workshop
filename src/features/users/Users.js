@@ -19,17 +19,35 @@ export class Users extends React.PureComponent{
 					</tr>
 				</thead>
 				<tbody>
-					{users.map(user => <UserItem key={user.id} user={user}/>)}
+					{users.map(user => (
+						<UserItem
+							key={user.id}
+							user={user}
+							onEdit={this.onEdit(user.id)}
+							onRemove={this.onRemove(user.id)}/>
+						)
+					)}
 				</tbody>
 			</table>
 		)
+	}
+
+	onEdit = (id) => {
+		if (!this.props.onEditUser) return
+		return () => this.props.onEditUser(id)
+	}
+	onRemove = (id) => {
+		if (!this.props.onRemoveUser) return
+		return () => this.props.onRemoveUser(id)
 	}
 
 	static defaultProps = {
 		users: []
 	}
 	static propTypes = {
-		users: PropTypes.arrayOf(userEntity)
+		users: PropTypes.arrayOf(userEntity),
+		onEditUser: PropTypes.func,
+		onRemoveUser: PropTypes.func
 	}
 }
 export default Users
