@@ -9,14 +9,21 @@ export class LabelledField extends React.PureComponent{
 			<div>
 				<label htmlFor={id}>{label}</label>
 				{this.childWithId()}
-				{Array.isArray(children) && children.slice(1)}
+				{this.remainingChildren}
 			</div>
 		)
 	}
 
+	get firstChild() {
+		return Array.isArray(this.props.children) ? this.props.children[0] : this.props.children
+	}
+	get remainingChildren() {
+		return Array.isArray(this.props.children) ? this.props.children.slice(1) : []
+	}
+
 	childWithId() {
 		const {children} = this.props
-		const firstChild = Array.isArray(children) ? children[0] : children
+		const firstChild = this.firstChild
 		return React.cloneElement(firstChild, {
 			...firstChild.props,
 			id: firstChild.props.id || this.props.id

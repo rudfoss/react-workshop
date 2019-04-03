@@ -1,16 +1,17 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { Link } from "react-router-dom"
+import classes from "./headerFooterFrame.scss"
 
 export class HeaderFooterFrame extends React.PureComponent{
 	render(){
 		const {children} = this.props
 		return (
 			<>
-				<header>
+				<header className={classes.header}>
 					<h1>Next-gen user database v2.0 final</h1>
 				</header>
-				<nav>
+				<nav className={classes.nav}>
 					<ul>
 						<li>
 							<Link to="/new">New</Link>
@@ -23,11 +24,11 @@ export class HeaderFooterFrame extends React.PureComponent{
 						</li>
 					</ul>
 				</nav>
-				<div>
+				<div className={classes.content}>
 					{children}
 				</div>
-				<footer>
-					Footer
+				<footer className={classes.footer}>
+					There are currently {this.props.userCount} users in the system
 				</footer>
 			</>
 		)
@@ -38,6 +39,7 @@ export class HeaderFooterFrame extends React.PureComponent{
 			PropTypes.node,
 			PropTypes.arrayOf(PropTypes.node)
 		]),
+		userCount: PropTypes.number,
 
 		onSave: PropTypes.func.isRequired,
 		onLoad: PropTypes.func.isRequired

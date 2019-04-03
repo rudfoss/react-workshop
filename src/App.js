@@ -6,6 +6,8 @@ import Routes from "./routes"
 import { initialState } from "./store/initialState"
 import { ducks } from "./store/rootReducer"
 
+import "./App.scss"
+
 export class App extends React.PureComponent{
 	constructor(props) {
 		super(props)

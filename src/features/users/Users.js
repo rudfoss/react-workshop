@@ -2,6 +2,7 @@ import React from "react"
 import PropTypes from "prop-types"
 import { userProps } from "../../entities/user"
 import UserItem from "./UserItem"
+import classes from "./Users.scss"
 
 export class Users extends React.PureComponent{
 	render(){
@@ -14,7 +15,7 @@ export class Users extends React.PureComponent{
 		}
 
 		return (
-			<table>
+			<table className={classes.usersTable}>
 				<thead>
 					<tr>
 						<th>Name</th>

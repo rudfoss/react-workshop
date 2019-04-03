@@ -4,7 +4,9 @@ import HeaderFooterFrame from "./HeaderFooterFrame"
 import * as users from "../users/users.duck"
 
 const mapStateToProps = (state) => {
-	return {}
+	return {
+		userCount: users.getUsers(state).length
+	}
 }
 const mapDispatchToProps = (dispatch) => ({
 	onSave: () => {
