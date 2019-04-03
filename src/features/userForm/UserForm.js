@@ -3,27 +3,31 @@ import PropTypes from "prop-types"
 
 export class UserForm extends React.PureComponent{
 	state = {
-		counter: 0,
-		name: ""
+		name: "",
+		email: "",
+		password: "",
+		disabled: false
 	}
 
 	render(){
 		return (
 			<form>
-				<input type="text" value={this.state.name} onChange={this.onNameChange}/>
-				<button type="button" onClick={this.onCounterClick}>Counted {this.state.counter} times</button>
+				<input type="text" value={this.state.name} onChange={this.onChange("name")}/>
+				<input type="email" value={this.state.email} onChange={this.onChange("email")}/>
+				<input type="password" value={this.state.password} onChange={this.onChange("password")}/>
+				<input type="checkbox" checked={this.state.disabled} onChange={this.onCheckedChange("disabled")}/>
 			</form>
 		)
 	}
 
-	onCounterClick = () => {
+	onChange = (propName) => (evt) => {
 		this.setState({
-			counter: this.state.counter + 1,
+			[propName]: evt.target.value
 		})
 	}
-	onNameChange = (evt) => {
+	onCheckedChange = (propName) => (evt) => {
 		this.setState({
-			name: evt.target.value
+			[propName]: evt.target.checked
 		})
 	}
 
