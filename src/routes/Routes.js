@@ -12,7 +12,7 @@ export class Routes extends React.Component{
 			<HeaderFooterFrame>
 				<Switch>
 					<Route path="/" exact component={Users}/>
-					<Route path="/:id/edit" component={UserForm}/>
+					<Route path="/:id/:mode" component={UserForm}/>
 					<Route path="/new" component={UserForm}/>
 					<Route component={NotFound}/>
 				</Switch>

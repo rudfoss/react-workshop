@@ -11,10 +11,10 @@ export class Users extends React.PureComponent{
 			<table>
 				<thead>
 					<tr>
-						<th>Avatar</th>
 						<th>Name</th>
 						<th>Type</th>
 						<th>Created</th>
+						<th>Last modified</th>
 						<th>Controls</th>
 					</tr>
 				</thead>

@@ -9,10 +9,10 @@ export class UserItem extends React.PureComponent{
 		const {user, onEdit, onRemove} = this.props
 		return (
 			<tr>
-				<td>{user.id}</td>
 				<td>{user.name}</td>
 				<td>{user.type}</td>
-				<td>{user.created.toISOString()}</td>
+				<td>{new Date(user.created).toISOString()}</td>
+				<td>{new Date(user.modified).toISOString()}</td>
 				<td>
 					{onEdit && (
 						<button type="button" onClick={onEdit}>

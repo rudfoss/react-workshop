@@ -1,8 +1,6 @@
 import PropTypes from "prop-types"
 import { uniqueId } from "../utils/uniqeId"
 
-const newId = uniqueId("user")
-
 export const userProps = PropTypes.shape({
 	id: PropTypes.string.isRequired,
 	name: PropTypes.string,
@@ -11,18 +9,18 @@ export const userProps = PropTypes.shape({
 	password: PropTypes.string,
 	disabled: PropTypes.bool,
 	comments: PropTypes.string,
-	created: PropTypes.instanceOf(Date),
-	modified: PropTypes.instanceOf(Date)
+	created: PropTypes.number,
+	modified: PropTypes.number
 })
 
 export const newUser = () => ({
-	id: newId(),
+	id: uniqueId(),
 	name: "",
 	email: "",
 	type: "User",
 	password: "",
 	disabled: false,
 	comments: "",
-	created: new Date(),
-	modified: new Date()
+	created: Date.now(),
+	modified: Date.now()
 })

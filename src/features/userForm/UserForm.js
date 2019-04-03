@@ -5,11 +5,22 @@ import { LabelledField } from "../fields"
 
 export class UserForm extends React.PureComponent{
 	render(){
-		const {user = {}, mode, types} = this.props
+		const {user, mode, types} = this.props
+		if (!user) {
+			return null
+		}
+
 		return (
 			<form onSubmit={this.onSubmit}>
-				<h2>{mode} user</h2>
-				<span>{user.id}</span>
+				<h2>{mode === "new" ? "New" : "Edit"} user</h2>
+				<div>
+					ID: {user.id}
+				</div>
+				{mode === "edit" && (
+					<div>
+						Created: {new Date(user.created).toISOString()}
+					</div>
+				)}
 				<LabelledField id="name" label="Name">
 					<input type="text" value={user.name} onChange={this.onValueChange("name")}/>
 				</LabelledField>
@@ -38,6 +49,22 @@ export class UserForm extends React.PureComponent{
 		)
 	}
 
+	componentDidMount() {
+		this._applyUser()
+	}
+	componentDidUpdate(prevProps) {
+		if (this.props.mode !== prevProps.mode) {
+			this._applyUser()
+		}
+	}
+	_applyUser() {
+		if (this.props.mode === "edit") {
+			this.props.setUser()
+			return
+		}
+		this.props.setNewUser()
+	}
+
 	onCheckboxChange = (name) => (evt) => {
 		this.props.onFieldChange(name, evt.target.checked)
 	}
@@ -50,14 +77,18 @@ export class UserForm extends React.PureComponent{
 	}
 
 	static defaultProps = {
-		mode: "New",
+		mode: "new",
 		types: []
 	}
 	static propTypes = {
 		user: userProps,
 		types: PropTypes.arrayOf(PropTypes.string),
-		mode: PropTypes.oneOf(["New", "Edit"]),
+		mode: PropTypes.oneOf(["new", "edit"]),
 		onFieldChange: PropTypes.func.isRequired,
+
+		setUser: PropTypes.func.isRequired,
+		setNewUser: PropTypes.func.isRequired,
+
 		onSave: PropTypes.func.isRequired,
 		onCancel: PropTypes.func.isRequired
 	}

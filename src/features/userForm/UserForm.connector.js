@@ -4,18 +4,29 @@ import UserForm from "./UserForm"
 import * as userCombiner from "./userForm.combiner"
 import * as userForm from "./userForm.duck"
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state, ownProps) => {
 	return {
 		user: userForm.getEditingUser(state),
-		types: userForm.getTypes(state)
+		types: userForm.getTypes(state),
+		mode: ownProps.match.params.mode || "new"
 	}
 }
 const mapDispatchToProps = (dispatch, ownProps) => ({
 	onFieldChange: (fieldName, newValue) => {
 		dispatch(userForm.setEditingUserField(fieldName, newValue))
 	},
+
+	setUser: () => {
+		const id = ownProps.match.params.id
+		dispatch(userCombiner.setEditUserById(id))
+	},
+	setNewUser: () => {
+		dispatch(userForm.setNewUser())
+	},
+
 	onSave: () => {
 		const {history} = ownProps
+		dispatch(userForm.setModified())
 		dispatch(userCombiner.setUser())
 		history.push("/")
 	},
