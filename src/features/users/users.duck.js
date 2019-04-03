@@ -10,6 +10,7 @@ export const getUserById = (globalState, id) => (getState(globalState).byId || {
 export const getUsers = (globalState) => {
 	return getUserIds(globalState).map(id => getUserById(globalState, id))
 }
+export const setUsers = action("SET_USERS")
 
 export const removeUserById = action("REMOVE_USER_BY_ID")
 export const setUser = action("SET_USER")
@@ -30,6 +31,14 @@ export const reducer = handleActions({
 				[payload.id]: payload
 			}
 		}
-	}
+	},
+	[setUsers]: (state, {payload}) => ({
+		...state,
+		order: payload.map(user => user.id),
+		byId: payload.reduce((acc, user) => {
+			acc[user.id] = user
+			return acc
+		}, {})
+	})
 }, {})
 export default reducer

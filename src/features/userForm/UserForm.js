@@ -4,6 +4,10 @@ import { userProps } from "../../entities/user"
 import { LabelledField } from "../fields"
 
 export class UserForm extends React.PureComponent{
+	state = {
+		showPassword: false
+	}
+
 	render(){
 		const {user, mode, types} = this.props
 		if (!user) {
@@ -35,7 +39,8 @@ export class UserForm extends React.PureComponent{
 					</select>
 				</LabelledField>
 				<LabelledField id="password" label="Password">
-					<input type="password" value={user.password} onChange={this.onValueChange("password")}/>
+					<input type={this.state.showPassword ? "text" : "password"} value={user.password} onChange={this.onValueChange("password")}/>
+					<input type="checkbox" checked={this.state.showPassword} onChange={this.togglePasswordShow}/>
 				</LabelledField>
 				<LabelledField id="disabled" label="Disabled">
 					<input type="checkbox" checked={user.disabled} onChange={this.onCheckboxChange("disabled")}/>
@@ -74,6 +79,11 @@ export class UserForm extends React.PureComponent{
 	onSubmit = (evt) => {
 		evt.preventDefault()
 		this.props.onSave()
+	}
+	togglePasswordShow = () => {
+		this.setState({
+			showPassword: !this.state.showPassword
+		})
 	}
 
 	static defaultProps = {
