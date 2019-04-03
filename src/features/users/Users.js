@@ -6,12 +6,15 @@ import classes from "./Users.scss"
 
 export class Users extends React.PureComponent{
 	render(){
-		const {users, isWorking = false} = this.props
+		const {users, isWorking = false, error} = this.props
 
 		if (isWorking) {
 			return (
 				<div>working...</div>
 			)
+		}
+		if (error) {
+			return <div>{error}</div>
 		}
 
 		return (
@@ -54,7 +57,8 @@ export class Users extends React.PureComponent{
 		users: PropTypes.arrayOf(userProps),
 		isWorking: PropTypes.bool,
 		onEditUser: PropTypes.func,
-		onRemoveUser: PropTypes.func
+		onRemoveUser: PropTypes.func,
+		error: PropTypes.string
 	}
 }
 export default Users

@@ -17,7 +17,7 @@ export const setUser = action("SET_USER")
 
 export const isWorking = (globalState) => !!getState(globalState).working
 export const setWorking = action("SET_IS_WORKING", (flag = true) => (flag || false))
-export const isFailed = (globalState) => !!getState(globalState).error
+export const getWorkError = (globalState) => getState(globalState).error
 export const setError = action("SET_ERROR")
 
 export const fetchUsers = () => async (dispatch, getState) => {
@@ -84,9 +84,11 @@ export const reducer = handleActions({
 		...state,
 		working: payload
 	}),
-	[setError]: (state, {payload}) => ({
-		...state,
-		error: payload
-	})
+	[setError]: (state, {payload, error}) => {
+		return {
+			...state,
+			error: error ? payload.message : payload
+		}
+	}
 }, {})
 export default reducer

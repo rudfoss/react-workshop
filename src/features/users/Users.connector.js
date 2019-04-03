@@ -6,7 +6,8 @@ import * as users from "./users.duck"
 const mapStateToProps = (state) => {
 	return {
 		users: users.getUsers(state),
-		isWorking: users.isWorking(state)
+		isWorking: users.isWorking(state),
+		error: users.getWorkError(state)
 	}
 }
 const mapDispatchToProps = (dispatch, ownProps) => ({
