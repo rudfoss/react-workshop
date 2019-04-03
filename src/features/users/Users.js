@@ -5,7 +5,13 @@ import UserItem from "./UserItem"
 
 export class Users extends React.PureComponent{
 	render(){
-		const {users} = this.props
+		const {users, isWorking = false} = this.props
+
+		if (isWorking) {
+			return (
+				<div>working...</div>
+			)
+		}
 
 		return (
 			<table>
@@ -45,6 +51,7 @@ export class Users extends React.PureComponent{
 	}
 	static propTypes = {
 		users: PropTypes.arrayOf(userProps),
+		isWorking: PropTypes.bool,
 		onEditUser: PropTypes.func,
 		onRemoveUser: PropTypes.func
 	}
