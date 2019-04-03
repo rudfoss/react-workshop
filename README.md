@@ -18,7 +18,7 @@ The clean project without any code files (yet) should now be on your machine. Yo
 
 The last thing we need to do before staring is to install all the necessary dependencies. Open a terminal in your project root folder and run:
 ```
-npm i
+npm install
 ``` 
 
 ## VSCode extensions
