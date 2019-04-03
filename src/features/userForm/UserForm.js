@@ -8,7 +8,7 @@ export class UserForm extends React.PureComponent{
 		const {user = {}, mode, types} = this.props
 		return (
 			<form onSubmit={this.onSubmit}>
-				<h1>{mode} user</h1>
+				<h2>{mode} user</h2>
 				<span>{user.id}</span>
 				<LabelledField id="name" label="Name">
 					<input type="text" value={user.name} onChange={this.onValueChange("name")}/>

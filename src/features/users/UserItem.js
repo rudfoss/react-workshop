@@ -20,13 +20,19 @@ export class UserItem extends React.PureComponent{
 						</button>
 					)}
 					{onRemove && (
-						<button type="button" onClick={onRemove}>
+						<button type="button" onClick={this.onRemove}>
 							<FontAwesomeIcon icon={faMinusSquare}/>
 						</button>
 					)}
 				</td>
 			</tr>
 		)
+	}
+
+	onRemove = () => {
+		if (confirm(`Really remove "${this.props.user.name}"`)) {
+			this.props.onRemove()
+		}
 	}
 
 	static propTypes = {
