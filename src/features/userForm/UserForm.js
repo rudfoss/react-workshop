@@ -13,11 +13,6 @@ export class UserForm extends React.PureComponent{
 	render(){
 		return (
 			<form>
-				<button
-					type="button"
-					onClick={this.props.incrementCounter}>
-					{this.props.count} from above</button>
-
 				<LabelledField id="name" label="Name">
 					<input type="text" value={this.state.name} onChange={this.onChange("name")}/>
 				</LabelledField>
@@ -41,8 +36,6 @@ export class UserForm extends React.PureComponent{
 	}
 
 	static propTypes = {
-		count: PropTypes.number.isRequired,
-		incrementCounter: PropTypes.func.isRequired
 	}
 }
 export default UserForm
