@@ -5,6 +5,5 @@ module.exports = {
 	},
 	moduleFileExtensions: [
 		"js"
-	],
-	testURL: "http://localhost"
+	]
 }

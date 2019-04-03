@@ -7,5 +7,6 @@
 		"**/.DS_Store": true,
 		".vs": true,
 	},
+	"files.autoSave": "off",
 	"eslint.autoFixOnSave": true
 }
