@@ -22,7 +22,6 @@ export class LabelledField extends React.PureComponent{
 	}
 
 	childWithId() {
-		const {children} = this.props
 		const firstChild = this.firstChild
 		return React.cloneElement(firstChild, {
 			...firstChild.props,
