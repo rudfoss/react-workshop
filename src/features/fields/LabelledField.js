@@ -7,14 +7,26 @@ export class LabelledField extends React.PureComponent{
 			<div>
 				<label htmlFor={this.props.id}>{this.props.label}</label>
 				{this.childWithId()}
+				{this.remainingChildren}
 			</div>
 		)
 	}
 
+	get firstChild() {
+		return Array.isArray(this.props.children) ?
+			this.props.children[0] :
+			this.props.children
+	}
+	get remainingChildren() {
+		return Array.isArray(this.props.children) ?
+			this.props.children.slice(1) : []
+	}
+
 	childWithId() {
-		const {children, id} = this.props
-		return React.cloneElement(children, {
-			...children.props,
+		const {id} = this.props
+		const firstChild = this.firstChild
+		return React.cloneElement(firstChild, {
+			...firstChild.props,
 			id
 		})
 	}
@@ -22,7 +34,10 @@ export class LabelledField extends React.PureComponent{
 	static propTypes = {
 		id: PropTypes.string.isRequired,
 		label: PropTypes.string.isRequired,
-		children: PropTypes.element.isRequired
+		children: PropTypes.oneOfType([
+			PropTypes.element,
+			PropTypes.arrayOf(PropTypes.element)
+		]).isRequired
 	}
 }
 export default LabelledField

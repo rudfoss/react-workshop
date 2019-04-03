@@ -13,7 +13,8 @@ export class UserForm extends React.PureComponent{
 		created: Date.now(),
 		modified: Date.now(),
 		type: "",
-		types: ["Read-only", "User", "Manager", "Administrator", "Sysadmin"]
+		types: ["Read-only", "User", "Manager", "Administrator", "Sysadmin"],
+		showPassword: false
 	}
 
 	render(){
@@ -42,7 +43,8 @@ export class UserForm extends React.PureComponent{
 					</select>
 				</LabelledField>
 				<LabelledField id="password" label="Password">
-					<input type="password" value={this.state.password} onChange={this.onChange("password")}/>
+					<input type={this.state.showPassword ? "text" : "password"} value={this.state.password} onChange={this.onChange("password")}/>
+					<input type="checkbox" checked={this.state.showPassword} onChange={this.onCheckedChange("showPassword")}/>
 				</LabelledField>
 				<LabelledField id="disabled" label="Disabled">
 					<input type="checkbox" checked={this.state.disabled} onChange={this.onCheckedChange("disabled")}/>
