@@ -1,6 +1,6 @@
 import React from "react"
 import PropTypes from "prop-types"
-import { userEntity } from "../../entities/userEntity"
+import { userProps } from "../../entities/user"
 import UserItem from "./UserItem"
 
 export class Users extends React.PureComponent{
@@ -44,7 +44,7 @@ export class Users extends React.PureComponent{
 		users: []
 	}
 	static propTypes = {
-		users: PropTypes.arrayOf(userEntity),
+		users: PropTypes.arrayOf(userProps),
 		onEditUser: PropTypes.func,
 		onRemoveUser: PropTypes.func
 	}

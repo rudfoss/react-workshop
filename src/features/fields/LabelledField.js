@@ -1,8 +1,5 @@
 import React from "react"
 import PropTypes from "prop-types"
-import {uniqueId} from "../../utils/uniqeId"
-
-const idGenerator = uniqueId("labelledfield")
 
 export class LabelledField extends React.PureComponent{
 	render(){
@@ -24,11 +21,8 @@ export class LabelledField extends React.PureComponent{
 		})
 	}
 
-	static defaultProps = {
-		id: idGenerator()
-	}
 	static propTypes = {
-		id: PropTypes.string,
+		id: PropTypes.string.isRequired,
 		label: PropTypes.string,
 		children: PropTypes.element.isRequired
 	}

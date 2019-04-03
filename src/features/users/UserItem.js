@@ -1,5 +1,5 @@
 import React from "react"
-import { userEntity } from "../../entities/userEntity"
+import { userProps } from "../../entities/user"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faEdit, faMinusSquare } from "@fortawesome/free-solid-svg-icons"
 import PropTypes from "prop-types"
@@ -30,7 +30,7 @@ export class UserItem extends React.PureComponent{
 	}
 
 	static propTypes = {
-		user: userEntity.isRequired,
+		user: userProps.isRequired,
 		onEdit: PropTypes.func,
 		onRemove: PropTypes.func
 	}

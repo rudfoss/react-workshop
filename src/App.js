@@ -1,10 +1,10 @@
 import React from "react"
-import PropTypes from "prop-types"
 import { Provider } from "react-redux"
 import { BrowserRouter } from "react-router-dom"
 import { configureStore } from "./store/createStore"
 import Routes from "./routes"
 import { initialState } from "./store/initialState"
+import { ducks } from "./store/rootReducer"
 
 export class App extends React.PureComponent{
 	constructor(props) {
@@ -13,6 +13,9 @@ export class App extends React.PureComponent{
 		window.app = this
 	}
 
+	get ducks() {
+		return ducks
+	}
 	get reduxStore() {
 		return this.store.getState()
 	}
