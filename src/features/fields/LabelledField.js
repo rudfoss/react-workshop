@@ -3,7 +3,7 @@ import PropTypes from "prop-types"
 
 export class LabelledField extends React.PureComponent{
 	render(){
-		const {id, label, children} = this.props
+		const {id, label} = this.props
 
 		return (
 			<div>
