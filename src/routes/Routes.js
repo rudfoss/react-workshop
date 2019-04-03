@@ -3,7 +3,7 @@ import { Switch, Route } from "react-router"
 import NotFound from "../features/notFound"
 import Users from "../features/users"
 import UserForm from "../features/userForm"
-import HeaderFooterFrame from "../features/headerFooterFrame/HeaderFooterFrame"
+import HeaderFooterFrame from "../features/headerFooterFrame"
 
 
 export class Routes extends React.Component{

@@ -15,6 +15,12 @@ export class HeaderFooterFrame extends React.PureComponent{
 						<li>
 							<Link to="/new">New</Link>
 						</li>
+						<li>
+							<button onClick={this.props.onSave}>Save</button>
+						</li>
+						<li>
+							<button onClick={this.props.onLoad}>Load</button>
+						</li>
 					</ul>
 				</nav>
 				<div>
@@ -31,7 +37,10 @@ export class HeaderFooterFrame extends React.PureComponent{
 		children: PropTypes.oneOfType([
 			PropTypes.node,
 			PropTypes.arrayOf(PropTypes.node)
-		])
+		]),
+
+		onSave: PropTypes.func.isRequired,
+		onLoad: PropTypes.func.isRequired
 	}
 }
 export default HeaderFooterFrame
