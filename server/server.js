@@ -11,8 +11,10 @@ app.use(cors())
 let users = {}
 
 app.get("/", (req, res) => {
-	console.log("loading...")
-	res.send(users)
+	console.log("Sending", users)
+	setTimeout(() => { // fake timeout to simulate loading
+		res.send(users)
+	}, 3000)
 })
 app.post("/", bodyParser.json(), (req, res) => {
 	console.log("saving", req.body)

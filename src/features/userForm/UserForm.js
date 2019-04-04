@@ -2,6 +2,7 @@ import React from "react"
 import PropTypes from "prop-types"
 import { userProps } from "../../entities/user"
 import { LabelledField } from "../fields"
+import classes from "./UserForm.scss"
 
 export class UserForm extends React.PureComponent{
 	state = {
@@ -15,14 +16,12 @@ export class UserForm extends React.PureComponent{
 		}
 
 		return (
-			<form onSubmit={this.onSubmit}>
+			<form onSubmit={this.onSubmit} className={classes.form}>
 				<h2>{mode === "new" ? "New" : "Edit"} user</h2>
-				<div>
-					ID: {user.id}
-				</div>
+				<div className={classes.id}>{user.id}</div>
 				{mode === "edit" && (
 					<div>
-						Created: {new Date(user.created).toISOString()}
+						Created: {new Date(user.created).toLocaleString("nb-no")}
 					</div>
 				)}
 				<LabelledField id="name" label="Name">
@@ -49,7 +48,6 @@ export class UserForm extends React.PureComponent{
 					<textarea value={user.comments} onChange={this.onValueChange("comments")}/>
 				</LabelledField>
 				<button type="submit">Save</button>
-				<button type="button" onClick={this.props.onCancel}>Back</button>
 			</form>
 		)
 	}
@@ -99,8 +97,7 @@ export class UserForm extends React.PureComponent{
 		setUser: PropTypes.func.isRequired,
 		setNewUser: PropTypes.func.isRequired,
 
-		onSave: PropTypes.func.isRequired,
-		onCancel: PropTypes.func.isRequired
+		onSave: PropTypes.func.isRequired
 	}
 }
 export default UserForm

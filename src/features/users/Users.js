@@ -21,11 +21,11 @@ export class Users extends React.PureComponent{
 			<table className={classes.usersTable}>
 				<thead>
 					<tr>
-						<th>Name</th>
-						<th>Type</th>
-						<th>Created</th>
-						<th>Last modified</th>
-						<th>Controls</th>
+						<th className={classes.name}>Name</th>
+						<th className={classes.type}>Type</th>
+						<th className={classes.created}>Created</th>
+						<th className={classes.lastModified}>Last modified</th>
+						<th className={classes.controls}></th>
 					</tr>
 				</thead>
 				<tbody>

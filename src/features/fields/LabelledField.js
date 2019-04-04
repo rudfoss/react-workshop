@@ -1,12 +1,13 @@
 import React from "react"
 import PropTypes from "prop-types"
+import classes from "./LabelledField.scss"
 
 export class LabelledField extends React.PureComponent{
 	render(){
 		const {id, label} = this.props
 
 		return (
-			<div>
+			<div className={classes.field}>
 				<label htmlFor={id}>{label}</label>
 				{this.childWithId()}
 				{this.remainingChildren}

@@ -1,3 +1,44 @@
 .usersTable {
 	width: 100%;
+	border-spacing: 0;
+	border-collapse: collapse;
+	td, th{
+		padding: 0;
+	}
+}
+
+.name{
+	text-align: left;
+}
+.type{
+	text-align: center;
+	width: 100px;
+}
+.created, .lastModified{
+	text-align: center;
+	width: 150px;
+}
+.controls{
+	width: 70px;
+	> div{
+		box-sizing: border-box;
+		width: 100%;
+		text-align: right;
+		display: flex;
+		justify-content: flex-end;
+		padding: 0 6px;
+		button{
+			display: block;
+			text-align: center;
+			cursor: pointer;
+			color: inherit;
+			font-size: inherit;
+			border: 0;
+			margin: 0;
+			padding: 0;
+			background: transparent;
+			font-family: inherit;
+			margin-left: 6px;
+		}
+	}
 }

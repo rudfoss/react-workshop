@@ -1,6 +1,6 @@
 import React from "react"
 import PropTypes from "prop-types"
-import { Link } from "react-router-dom"
+import { NavLink } from "react-router-dom"
 import classes from "./headerFooterFrame.scss"
 
 export class HeaderFooterFrame extends React.PureComponent{
@@ -14,7 +14,10 @@ export class HeaderFooterFrame extends React.PureComponent{
 				<nav className={classes.nav}>
 					<ul>
 						<li>
-							<Link to="/new">New</Link>
+							<NavLink to="/" exact activeClassName={classes.active}>Home</NavLink>
+						</li>
+						<li>
+							<NavLink to="/new" activeClassName={classes.active}>New</NavLink>
 						</li>
 						<li>
 							<button onClick={this.props.onSave}>Save</button>
@@ -28,7 +31,9 @@ export class HeaderFooterFrame extends React.PureComponent{
 					{children}
 				</div>
 				<footer className={classes.footer}>
-					There are currently {this.props.userCount} users in the system
+					<span>
+						{this.props.userCount} users
+					</span>
 				</footer>
 			</>
 		)
