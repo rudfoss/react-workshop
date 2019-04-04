@@ -1,8 +1,8 @@
+/* eslint-disable no-unused-vars */
 import { connect } from "react-redux"
 import Counter from "./Counter"
 
 // This is equivalent to the function below
-// eslint-disable-next-line no-unused-vars
 const mapStateToProps = (state) => {
 	return {
 		count: state.counter
@@ -19,4 +19,6 @@ const mapDispatchToProps = (dispatch) => ({
 	}
 })
 
-export default connect(mapStateToPropsShort, mapDispatchToProps)(Counter)
+export default connect(
+	mapStateToPropsShort, mapDispatchToProps
+)(Counter)
