@@ -23,8 +23,7 @@ export class Users extends React.PureComponent{
 					<tr>
 						<th className={classes.name}>Name</th>
 						<th className={classes.type}>Type</th>
-						<th className={classes.created}>Created</th>
-						<th className={classes.lastModified}>Last modified</th>
+						<th className={classes.disabled}>Disabled</th>
 						<th className={classes.controls}></th>
 					</tr>
 				</thead>

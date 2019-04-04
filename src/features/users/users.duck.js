@@ -62,12 +62,13 @@ export const reducer = handleActions({
 		byId: omit(state.byId, payload)
 	}),
 	[setUser]: (state, {payload}) => {
-		const userIndex = state.order.indexOf(payload.id)
-		const order = userIndex >= 0 ? state.order : state.order.slice()
-		order.push(payload.id)
+		let newOrder = state.order || []
+		if (newOrder.indexOf(payload.id) === -1) {
+			newOrder.push(payload.id)
+		}
 		return {
 			...state,
-			order,
+			order: newOrder,
 			byId: {
 				...(state.byId || {}),
 				[payload.id]: payload

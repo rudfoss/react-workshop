@@ -12,8 +12,7 @@ export class UserItem extends React.PureComponent{
 			<tr>
 				<td className={classes.name}>{user.name}</td>
 				<td className={classes.type}>{user.type}</td>
-				<td className={classes.created}>{new Date(user.created).toLocaleString("nb-no")}</td>
-				<td className={classes.lastModified}>{new Date(user.modified).toLocaleString("nb-no")}</td>
+				<td className={classes.disabled}>{user.disabled ? "Yes" : ""}</td>
 				<td className={classes.controls}>
 					<div>
 						{onEdit && (
