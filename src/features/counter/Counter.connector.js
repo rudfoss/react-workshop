@@ -11,5 +11,12 @@ const mapStateToProps = (state) => {
 const mapStateToPropsShort = (state) => ({
 	count: state.counter
 })
+const mapDispatchToProps = (dispatch) => ({
+	onIncrement: () => {
+		dispatch({
+			type: "INCREMENT_COUNTER"
+		})
+	}
+})
 
-export default connect(mapStateToPropsShort)(Counter)
+export default connect(mapStateToPropsShort, mapDispatchToProps)(Counter)

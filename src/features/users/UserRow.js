@@ -1,6 +1,7 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { userEntity } from "../../entities/userEntity"
+import Counter from "../counter"
 
 export class UserRow extends React.PureComponent{
 	render(){
@@ -11,6 +12,7 @@ export class UserRow extends React.PureComponent{
 				<td>{user.type}</td>
 				<td>{user.disabled ? "Yes" : ""}</td>
 				<td>
+					<Counter buttonText="Increment"/>
 					<button onClick={onEdit}>Edit</button>
 					<button onClick={onRemove}>Remove</button>
 				</td>

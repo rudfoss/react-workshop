@@ -36,6 +36,9 @@ export class Users extends React.PureComponent{
 		this.props.onRemoveUser(userId)
 	}
 
+	static defaultProps = {
+		users: []
+	}
 	static propTypes = {
 		onEditUser: PropTypes.func,
 		onRemoveUser: PropTypes.func,
