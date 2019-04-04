@@ -1,6 +1,10 @@
 import React from "react"
+import PropTypes from "prop-types"
 
 export const Counter = (props) => (
-	<span>New count {props.count}</span>
+	<div>New count {props.count}</div>
 )
+Counter.propTypes = {
+	count: PropTypes.number
+}
 export default Counter
