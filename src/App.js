@@ -5,6 +5,7 @@ import UserForm from "./features/userForm"
 import Users from "./features/users"
 import { configureStore } from "./store/createStore"
 import { Provider } from "react-redux"
+import Counter from "./features/counter"
 
 const onEdit = (userId) => {
 	console.log("You want to edit", userId)
@@ -34,6 +35,7 @@ export class App extends React.PureComponent {
 		return (
 			<Provider store={this.store}>
 				<div>
+					<Counter buttonText="Increment state counter"/>
 					<h1>Hello world</h1>
 					<UserForm onSave={this.onUserFormSave}/>
 					<hr/>
