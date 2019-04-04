@@ -4,22 +4,23 @@ import {LabelledField} from "../fields/LabelledField"
 
 export class UserForm extends React.PureComponent{
 	state = {
+		id: "id",
 		name: "",
 		email: "",
 		password: "",
 		disabled: false,
-		id: "id",
 		comments: "",
 		created: Date.now(),
 		modified: Date.now(),
 		type: "",
+
 		types: ["Read-only", "User", "Manager", "Administrator", "Sysadmin"],
 		showPassword: false
 	}
 
 	render(){
 		return (
-			<form>
+			<form onSubmit={this.onSubmit}>
 				<div>
 					Id: {this.state.id}
 				</div>
@@ -52,10 +53,27 @@ export class UserForm extends React.PureComponent{
 				<LabelledField id="comments" label="Comments">
 					<textarea value={this.state.comments} onChange={this.onChange("comments")}/>
 				</LabelledField>
+				<button>Save</button>
 			</form>
 		)
 	}
 
+	onSubmit = (evt) => {
+		evt.preventDefault()
+
+		const data = {
+			id: this.state.id,
+			name: this.state.name,
+			email: this.state.email,
+			password: this.state.password,
+			disabled: this.state.disabled,
+			comments: this.state.comments,
+			created: this.state.created,
+			modified: this.state.modified,
+		}
+
+		this.props.onSave(data)
+	}
 	onChange = (propName) => (evt) => {
 		this.setState({
 			[propName]: evt.target.value
@@ -68,6 +86,7 @@ export class UserForm extends React.PureComponent{
 	}
 
 	static propTypes = {
+		onSave: PropTypes.func
 	}
 }
 export default UserForm

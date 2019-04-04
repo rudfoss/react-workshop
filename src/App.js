@@ -13,24 +13,27 @@ const onRemove = (userId) => {
 
 export class App extends React.PureComponent {
 	state = {
-		users: [{
-			id: "a-unique-id",
-			name: "name",
-			type: "type",
-			disabled: false
-		}]
+		users: []
 	}
 
 	render() {
 		return (
 			<div>
 				<h1>Hello world</h1>
-				<UserForm/>
+				<UserForm onSave={this.onUserFormSave}/>
+				<hr/>
 				<Users
 					users={this.state.users}
 					onEditUser={onEdit}
 					onRemoveUser={onRemove}/>
 			</div>
 		)
+	}
+
+	onUserFormSave = (userData) => {
+		console.log(userData)
+		const newUsers = this.state.users.slice()
+		newUsers.push(userData)
+		this.setState({ users: newUsers })
 	}
 }

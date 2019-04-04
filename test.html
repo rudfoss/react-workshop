@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Test</title>
+</head>
+<body>
+	<button>Click A</button>
+	<button>Click B</button>
+	<button>Click C</button>
+	<script>
+		const buttons = document.querySelectorAll("button")
+		const showHandler = (text) => {
+			return () => {
+				console.log(text)
+			}
+		}
+
+		buttons[0].addEventListener("click", showHandler("A"))
+		buttons[1].addEventListener("click", showHandler("B"))
+		buttons[2].addEventListener("click", showHandler("C"))
+	</script>
+</body>
+</html>
