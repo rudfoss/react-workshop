@@ -10,9 +10,6 @@ import Counter from "./features/counter"
 const onEdit = (userId) => {
 	console.log("You want to edit", userId)
 }
-const onRemove = (userId) => {
-	console.log("You want to remove", userId)
-}
 
 export class App extends React.PureComponent {
 	constructor() {
@@ -40,8 +37,7 @@ export class App extends React.PureComponent {
 					<UserForm onSave={this.onUserFormSave}/>
 					<hr/>
 					<Users
-						onEditUser={onEdit}
-						onRemoveUser={onRemove}/>
+						onEditUser={onEdit}/>
 				</div>
 			</Provider>
 		)

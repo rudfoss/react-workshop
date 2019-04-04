@@ -4,4 +4,14 @@ import Users from "./Users"
 const mapStateToProps = (state) => ({
 	users: state.users
 })
-export default connect(mapStateToProps)(Users)
+const mapDispatchToProps = (dispatch) => ({
+	onRemoveUser: (userId) => {
+		dispatch({
+			type: "REMOVE_USER_BY_ID",
+			payload: userId
+		})
+	}
+})
+export default connect(
+	mapStateToProps, mapDispatchToProps
+)(Users)
