@@ -1,5 +1,6 @@
 import React from "react"
 import PropTypes from "prop-types"
+import { userEntity } from "../../entities/userEntity"
 
 export class UserRow extends React.PureComponent{
 	render(){
@@ -19,7 +20,8 @@ export class UserRow extends React.PureComponent{
 
 	static propTypes = {
 		onEdit: PropTypes.func,
-		onRemove: PropTypes.func
+		onRemove: PropTypes.func,
+		user: userEntity
 	}
 }
 export default UserRow

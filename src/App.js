@@ -3,6 +3,8 @@
 import React from "react"
 import UserForm from "./features/userForm"
 import Users from "./features/users"
+import { configureStore } from "./store/createStore"
+import { Counter } from "./Counter"
 
 const onEdit = (userId) => {
 	console.log("You want to edit", userId)
@@ -16,9 +18,17 @@ export class App extends React.PureComponent {
 		users: []
 	}
 
+	constructor() {
+		super()
+		this.store = configureStore()
+		window.app = this
+	}
+
 	render() {
 		return (
 			<div>
+				<button onClick={this.incrementCounter}>Count up</button>
+				<Counter count={0}/>
 				<h1>Hello world</h1>
 				<UserForm onSave={this.onUserFormSave}/>
 				<hr/>
@@ -28,6 +38,12 @@ export class App extends React.PureComponent {
 					onRemoveUser={onRemove}/>
 			</div>
 		)
+	}
+
+	incrementCounter = () => {
+		this.store.dispatch({
+			type: "INCREMENT_COUNTER"
+		})
 	}
 
 	onUserFormSave = (userData) => {
