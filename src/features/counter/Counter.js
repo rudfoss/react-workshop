@@ -8,6 +8,7 @@ export const Counter = (props) => (
 )
 Counter.propTypes = {
 	count: PropTypes.number,
+	buttonText: PropTypes.string,
 	onIncrement: PropTypes.func.isRequired
 }
 export default Counter
