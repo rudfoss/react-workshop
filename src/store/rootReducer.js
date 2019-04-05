@@ -11,5 +11,14 @@ export const rootReducer = (state = {}, action) => {
 			users: (state.users || []).filter((user) => user.id !== action.payload)
 		}
 	}
+	if (action.type === "CREATE_NEW_USER") {
+		return {
+			...state,
+			userForm: {
+				...(state.userForm || {}),
+				editingUser: action.payload
+			}
+		}
+	}
 	return state
 }

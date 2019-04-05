@@ -1,57 +1,63 @@
 import React from "react"
 import PropTypes from "prop-types"
 import {LabelledField} from "../fields/LabelledField"
+import { userEntity } from "../../entities/userEntity"
 
 export class UserForm extends React.PureComponent{
 	state = {
-		id: "id",
-		name: "",
-		email: "",
-		password: "",
-		disabled: false,
-		comments: "",
-		created: Date.now(),
-		modified: Date.now(),
-		type: "",
-
-		types: ["Read-only", "User", "Manager", "Administrator", "Sysadmin"],
 		showPassword: false
 	}
 
+	componentDidMount(){
+		if (!this.props.user) this._applyUser()
+	}
+	componentDidUpdate(prevProps){
+		if (prevProps.user) {
+			if (!this.props.user) this._applyUser()
+		}
+	}
+	_applyUser(){
+		this.props.setNewUser()
+	}
+
 	render(){
+		const {user, types} = this.props
+
+		if (!user) return null
+
 		return (
 			<form onSubmit={this.onSubmit}>
 				<div>
-					Id: {this.state.id}
+					Id: {user.id}
 				</div>
 				<div>
-					Created: {new Date(this.state.created).toLocaleString("nb-no")}
+					Created: {new Date(user.created).toLocaleString("nb-no")}
 				</div>
 				<div>
-					Modified: {new Date(this.state.modified).toLocaleString("nb-no")}
+					Modified: {new Date(user.modified).toLocaleString("nb-no")}
 				</div>
 				<LabelledField id="name" label="Name">
-					<input type="text" value={this.state.name} onChange={this.onChange("name")}/>
+					<input type="text" value={user.name} onChange={this.onChange("name")}/>
 				</LabelledField>
 				<LabelledField id="email" label="Email">
-					<input type="email" value={this.state.email} onChange={this.onChange("email")}/>
+					<input type="email" value={user.email} onChange={this.onChange("email")}/>
 				</LabelledField>
 				<LabelledField id="type" label="Type">
-					<select value={this.state.type} onChange={this.onChange("type")}>
-						{this.state.types.map((aType) => (
+					<select value={user.type} onChange={this.onChange("type")}>
+						{types.map((aType) => (
 							<option key={aType} value={aType}>{aType}</option>
 						))}
 					</select>
 				</LabelledField>
 				<LabelledField id="password" label="Password">
-					<input type={this.state.showPassword ? "text" : "password"} value={this.state.password} onChange={this.onChange("password")}/>
-					<input type="checkbox" checked={this.state.showPassword} onChange={this.onCheckedChange("showPassword")}/>
+					<input type={user.showPassword ? "text" : "password"} value={user.password} onChange={this.onChange("password")}/>
+					<input type="checkbox" checked={user.showPassword} onChange={this.onCheckedChange("showPassword")}/>
 				</LabelledField>
 				<LabelledField id="disabled" label="Disabled">
-					<input type="checkbox" checked={this.state.disabled} onChange={this.onCheckedChange("disabled")}/>
+					<input type="checkbox" checked={user.disabled} onChange={this.onCheckedChange("disabled")}/>
 				</LabelledField>
 				<LabelledField id="comments" label="Comments">
-					<textarea value={this.state.comments} onChange={this.onChange("comments")}/>
+					<textarea value={user.comments} onChange={this.onChange("comments")}/>
 				</LabelledField>
 				<button>Save</button>
 			</form>
@@ -86,7 +92,11 @@ export class UserForm extends React.PureComponent{
 	}
 
 	static propTypes = {
-		onSave: PropTypes.func
+		user: userEntity,
+		types: PropTypes.arrayOf(PropTypes.string).isRequired,
+
+		onSave: PropTypes.func,
+		setNewUser: PropTypes.func
 	}
 }
 export default UserForm

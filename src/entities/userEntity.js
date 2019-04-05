@@ -1,4 +1,5 @@
 import PropTypes from "prop-types"
+import uid from "uuid/v4"
 
 export const userEntity = PropTypes.shape({
 	id: PropTypes.string.isRequired,
@@ -13,7 +14,7 @@ export const userEntity = PropTypes.shape({
 })
 
 export const newUser = () => ({
-	id: "",
+	id: uid(),
 	name: "",
 	type: "User",
 	password: "",
