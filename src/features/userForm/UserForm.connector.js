@@ -8,10 +8,12 @@ const mapStateToProps = (state) => ({
 	user: userForm.getEditingUser(state),
 	types: (state.userForm || {}).types || ["Read-only", "User", "Manager", "Administrator", "Sysadmin"]
 })
-const mapDispatchToProps = (dispatch) => ({
+const mapDispatchToProps = (dispatch, ownProps) => ({
 	onSave: () => {
+		const {history} = ownProps
 		dispatch(userCombiner.createUser())
 		dispatch(userForm.newUser())
+		history.push("/")
 	},
 	setNewUser: () => {
 		dispatch(userForm.newUser())

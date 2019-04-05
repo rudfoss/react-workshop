@@ -1,18 +1,11 @@
-/* eslint-disable no-console */
-
 import React from "react"
-import UserForm from "./features/userForm"
-import Users from "./features/users"
 import { configureStore } from "./store/createStore"
 import { Provider } from "react-redux"
-import Counter from "./features/counter"
 import { ducks } from "./store/rootReducer"
+import { BrowserRouter } from "react-router-dom"
+import Routes from "./routes"
 
 import "./App.scss"
-
-const onEdit = (userId) => {
-	console.log("You want to edit", userId)
-}
 
 export class App extends React.PureComponent {
 	constructor() {
@@ -41,22 +34,10 @@ export class App extends React.PureComponent {
 	render() {
 		return (
 			<Provider store={this.store}>
-				<div>
-					<Counter buttonText="Increment state counter"/>
-					<h1>Hello world</h1>
-					<UserForm/>
-					<hr/>
-					<Users
-						onEditUser={onEdit}/>
-				</div>
+				<BrowserRouter>
+					<Routes/>
+				</BrowserRouter>
 			</Provider>
 		)
-	}
-
-	onUserFormSave = (userData) => {
-		console.log(userData)
-		const newUsers = this.state.users.slice()
-		newUsers.push(userData)
-		this.setState({ users: newUsers })
 	}
 }

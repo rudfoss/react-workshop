@@ -1,8 +1,1 @@
 @import "normalize.css";
-
-:global(#app){
-	display: flex;
-	> * {
-		flex: 1 1 auto;
-	}
-}
