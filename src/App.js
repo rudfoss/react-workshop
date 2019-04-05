@@ -6,6 +6,7 @@ import Users from "./features/users"
 import { configureStore } from "./store/createStore"
 import { Provider } from "react-redux"
 import Counter from "./features/counter"
+import { ducks } from "./store/rootReducer"
 
 import "./App.scss"
 
@@ -17,17 +18,24 @@ export class App extends React.PureComponent {
 	constructor() {
 		super()
 		this.store = configureStore({
-			users: [
-				{
-					id: "test-user",
-					name: "Test name",
-					email: "test@email",
-					disabled: false,
-					comments: "no comments"
+			users: {
+				order: ["test-user"],
+				byId: {
+					"test-user": {
+						id: "test-user",
+						name: "Test name",
+						email: "test@email",
+						disabled: false,
+						comments: "no comments"
+					}
 				}
-			]
+			}
 		})
 		window.app = this
+	}
+
+	get ducks() {
+		return ducks
 	}
 
 	render() {

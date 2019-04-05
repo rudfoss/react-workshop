@@ -1,8 +1,15 @@
 import { combineReducers } from "redux"
-import userForm from "../features/userForm/userForm.duck"
 
+import * as userForm from "../features/userForm/userForm.duck"
+import * as users from "../features/users/users.duck"
+
+export const ducks = {
+	userForm,
+	users
+}
 export const rootReducer = combineReducers({
-	userForm
+	userForm: userForm.reducer,
+	users: userForm.reducer
 })
 
 const oldReducer = (state = {}, action) => {
