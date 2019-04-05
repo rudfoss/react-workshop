@@ -20,9 +20,10 @@ connect user list
 --day 3
 CSS Styling with modules
 code structure (ducks)
-Routing (with passing of props)
+combining two ducks
+load/save from/to server
+Routing
 testing
 
 packaging for production
-persist to server
 build system
