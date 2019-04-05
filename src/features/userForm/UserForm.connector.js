@@ -12,6 +12,14 @@ const mapDispatchToProps = (dispatch) => ({
 			type: "CREATE_NEW_USER",
 			payload: newUser()
 		})
+	},
+	onPropChange: (propName, propValue) => {
+		dispatch({
+			type: "SET_EDITING_USER_PROP",
+			payload: {
+				propName, propValue
+			}
+		})
 	}
 })
 export default connect(mapStateToProps, mapDispatchToProps)(UserForm)

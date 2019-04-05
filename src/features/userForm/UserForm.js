@@ -81,19 +81,17 @@ export class UserForm extends React.PureComponent{
 		this.props.onSave(data)
 	}
 	onChange = (propName) => (evt) => {
-		this.setState({
-			[propName]: evt.target.value
-		})
+		this.props.onPropChange(propName, evt.target.value)
 	}
 	onCheckedChange = (propName) => (evt) => {
-		this.setState({
-			[propName]: evt.target.checked
-		})
+		this.props.onPropChange(propName, evt.target.checked)
 	}
 
 	static propTypes = {
 		user: userEntity,
 		types: PropTypes.arrayOf(PropTypes.string).isRequired,
+
+		onPropChange: PropTypes.func,
 
 		onSave: PropTypes.func,
 		setNewUser: PropTypes.func

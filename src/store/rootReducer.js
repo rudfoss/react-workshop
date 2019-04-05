@@ -20,5 +20,17 @@ export const rootReducer = (state = {}, action) => {
 			}
 		}
 	}
+	if (action.type === "SET_EDITING_USER_PROP") {
+		return {
+			...state,
+			userForm: {
+				...state.userForm,
+				editingUser: {
+					...state.userForm.editingUser,
+					[action.payload.propName]: action.payload.propValue
+				}
+			}
+		}
+	}
 	return state
 }

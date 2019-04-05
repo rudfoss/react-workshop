@@ -17,6 +17,7 @@ export const newUser = () => ({
 	id: uid(),
 	name: "",
 	type: "User",
+	email: "",
 	password: "",
 	disabled: false,
 	comments: "",
