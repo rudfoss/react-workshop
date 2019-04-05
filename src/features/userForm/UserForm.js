@@ -50,8 +50,8 @@ export class UserForm extends React.PureComponent{
 					</select>
 				</LabelledField>
 				<LabelledField id="password" label="Password">
-					<input type={user.showPassword ? "text" : "password"} value={user.password} onChange={this.onChange("password")}/>
-					<input type="checkbox" checked={user.showPassword} onChange={this.onCheckedChange("showPassword")}/>
+					<input type={this.state.showPassword ? "text" : "password"} value={user.password} onChange={this.onChange("password")}/>
+					<input type="checkbox" checked={this.state.showPassword} onChange={this.onShowPasswordChange}/>
 				</LabelledField>
 				<LabelledField id="disabled" label="Disabled">
 					<input type="checkbox" checked={user.disabled} onChange={this.onCheckedChange("disabled")}/>
@@ -85,6 +85,11 @@ export class UserForm extends React.PureComponent{
 	}
 	onCheckedChange = (propName) => (evt) => {
 		this.props.onPropChange(propName, evt.target.checked)
+	}
+	onShowPasswordChange = (evt) => {
+		this.setState({
+			showPassword: evt.target.checked
+		})
 	}
 
 	static propTypes = {

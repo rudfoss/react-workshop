@@ -21,6 +21,15 @@ export const reducer = handleActions({
 			...state,
 			editingUser: action.payload
 		}
+	},
+	[setEditingUserField]: (state, action) => {
+		return {
+			...state,
+			editingUser: {
+				...(state.editingUser || {}),
+				[action.payload.propName]: action.payload.propValue
+			}
+		}
 	}
 }, {})
 export default reducer
