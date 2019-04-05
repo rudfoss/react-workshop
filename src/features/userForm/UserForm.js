@@ -39,7 +39,7 @@ export class UserForm extends React.PureComponent{
 				</LabelledField>
 				<LabelledField id="password" label="Password">
 					<input type={this.state.showPassword ? "text" : "password"} value={user.password} onChange={this.onValueChange("password")}/>
-					<input type="checkbox" checked={this.state.showPassword} onChange={this.togglePasswordShow}/>
+					<input type="checkbox" checked={this.state.showPassword} onChange={this.onTogglePasswordShow}/>
 				</LabelledField>
 				<LabelledField id="disabled" label="Disabled">
 					<input type="checkbox" checked={user.disabled} onChange={this.onCheckboxChange("disabled")}/>
@@ -78,7 +78,7 @@ export class UserForm extends React.PureComponent{
 		evt.preventDefault()
 		this.props.onSave()
 	}
-	togglePasswordShow = () => {
+	onTogglePasswordShow = () => {
 		this.setState({
 			showPassword: !this.state.showPassword
 		})

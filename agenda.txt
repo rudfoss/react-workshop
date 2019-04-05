@@ -1,0 +1,28 @@
+Agenda
+--day 1
+Setup IDE and quick runthrough of bundling and build system
+Initialize react
+React components
+React hierarchy
+React props
+React state
+Build react app with UserForm
+
+--day 2
+cleaning up imports
+UserList
+Create button
+
+REDUX
+connect user form
+connect user list
+
+--day 3
+CSS Styling with modules
+code structure (ducks)
+Routing (with passing of props)
+testing
+
+packaging for production
+persist to server
+build system
