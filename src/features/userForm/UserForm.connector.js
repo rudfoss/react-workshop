@@ -1,5 +1,6 @@
 import {connect} from "react-redux"
 import UserForm from "./UserForm"
+import { push } from "connected-react-router"
 
 import * as userCombiner from "../../combiners/userForm.combiner"
 import * as userForm from "./userForm.duck"
@@ -25,15 +26,9 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
 	},
 
 	onSave: () => {
-		const {history} = ownProps
 		dispatch(userForm.setModified())
 		dispatch(userCombiner.setUser())
-		history.push("/")
-	},
-	onCancel: () => {
-		const {history} = ownProps
-		dispatch(userForm.clearEditingUser())
-		history.push("/")
+		dispatch(push("/"))
 	}
 })
 export default connect(mapStateToProps, mapDispatchToProps)(UserForm)

@@ -1,5 +1,6 @@
 import {connect} from "react-redux"
 import Users from "./Users"
+import { push } from "connected-react-router"
 
 import * as users from "./users.duck"
 
@@ -10,10 +11,9 @@ const mapStateToProps = (state) => {
 		error: users.getWorkError(state)
 	}
 }
-const mapDispatchToProps = (dispatch, ownProps) => ({
+const mapDispatchToProps = (dispatch) => ({
 	onEditUser: (id) => {
-		const {history} = ownProps
-		history.push(`/${id}/edit`)
+		dispatch(push(`/${id}/edit`))
 	},
 	onRemoveUser: (id) => dispatch(users.removeUserById(id))
 })
