@@ -36,7 +36,7 @@ export class App extends React.PureComponent {
 				<div>
 					<Counter buttonText="Increment state counter"/>
 					<h1>Hello world</h1>
-					<UserForm onSave={this.onUserFormSave}/>
+					<UserForm/>
 					<hr/>
 					<Users
 						onEditUser={onEdit}/>
