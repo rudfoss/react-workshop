@@ -2,7 +2,7 @@ import {connect} from "react-redux"
 import UserForm from "./UserForm"
 import { push } from "connected-react-router"
 
-import * as userCombiner from "./userForm.combiner"
+import * as userCombiner from "../../combiners/userForm.combiner"
 import * as userForm from "./userForm.duck"
 
 const mapStateToProps = (state, ownProps) => {
