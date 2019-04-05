@@ -7,7 +7,12 @@ import classes from "./Users.scss"
 
 export class Users extends React.PureComponent{
 	render(){
-		const {users} = this.props
+		const {users, isWorking} = this.props
+
+		if (isWorking) {
+			return <div>Loading...</div>
+		}
+
 		return (
 			<table className={classes.userTable}>
 				<thead>

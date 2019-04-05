@@ -11,6 +11,26 @@ export const getUsers = (globalState) => {
 	return getUserIds(globalState).map(userId => getUserById(globalState, userId))
 }
 
+export const isWorking = (globalState) => !!getState(globalState).isWorking
+export const setIsWorking = action("SET_IS_WORKING", (flag = true) => (!!flag))
+
+export const fetchUsers = () => async (dispatch, getState) => {
+	const response = await fetch("http://localhost:1339/")
+	const data = await response.json()
+
+}
+export const saveUser = () => async (dispatch, getState) => {
+	dispatch(setIsWorking())
+	const response = await fetch("http://localhost:1339/", {
+		method: "POST",
+		headers: {
+			"Content-Type": "application/json"
+		},
+		body: JSON.stringify(getUsers(getState()))
+	})
+	dispatch(setIsWorking(false))
+}
+
 export const removeUserById = action("REMOVE_USER_BY_ID")
 export const setUser = action("SET_USER")
 
@@ -35,6 +55,12 @@ export const reducer = handleActions({
 				...(state.byId || {}),
 				[action.payload.id]: action.payload
 			}
+		}
+	},
+	[setIsWorking]: (state, {payload}) => {
+		return {
+			...state,
+			isWorking: payload
 		}
 	}
 }, {})
