@@ -1,4 +1,11 @@
-export const rootReducer = (state = {}, action) => {
+import { combineReducers } from "redux"
+import userForm from "../features/userForm/userForm.duck"
+
+export const rootReducer = combineReducers({
+	userForm
+})
+
+const oldReducer = (state = {}, action) => {
 	if (action.type === "INCREMENT_COUNTER") {
 		return {
 			...state,
