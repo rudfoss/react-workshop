@@ -1,4 +1,5 @@
 import { combineReducers } from "redux"
+import { connectRouter } from "connected-react-router"
 
 import * as users from "../features/users/users.duck"
 import * as userForm from "../features/userForm/userForm.duck"
@@ -14,6 +15,7 @@ const baseReducerState =
 		return acc
 	}, {})
 
-export const rootReducer = () => combineReducers({
-	...baseReducerState
+export const rootReducer = (history) => combineReducers({
+	...baseReducerState,
+	router: connectRouter(history)
 })
