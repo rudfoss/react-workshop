@@ -66,19 +66,7 @@ export class UserForm extends React.PureComponent{
 
 	onSubmit = (evt) => {
 		evt.preventDefault()
-
-		const data = {
-			id: this.state.id,
-			name: this.state.name,
-			email: this.state.email,
-			password: this.state.password,
-			disabled: this.state.disabled,
-			comments: this.state.comments,
-			created: this.state.created,
-			modified: this.state.modified,
-		}
-
-		this.props.onSave(data)
+		this.props.onSave()
 	}
 	onChange = (propName) => (evt) => {
 		this.props.onPropChange(propName, evt.target.value)

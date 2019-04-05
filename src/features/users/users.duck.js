@@ -12,6 +12,7 @@ export const getUsers = (globalState) => {
 }
 
 export const removeUserById = action("REMOVE_USER_BY_ID")
+export const setUser = action("SET_USER")
 
 export const reducer = handleActions({
 	[removeUserById]: (state, action) => {
@@ -19,6 +20,21 @@ export const reducer = handleActions({
 			...state,
 			order: (state.order || []).filter(orderId => orderId !== action.payload),
 			byId: omit(state.byId || {}, action.payload)
+		}
+	},
+	[setUser]: (state, action) => {
+		let newOrder = state.order || []
+		if (newOrder.indexOf(action.payload.id) === -1) {
+			newOrder = newOrder.slice()
+			newOrder.push(action.payload.id)
+		}
+		return {
+			...state,
+			order: newOrder,
+			byId: {
+				...(state.byId || {}),
+				[action.payload.id]: action.payload
+			}
 		}
 	}
 }, {})
