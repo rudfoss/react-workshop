@@ -8,10 +8,7 @@ const mapStateToProps = (state) => ({
 })
 const mapDispatchToProps = (dispatch) => ({
 	onRemoveUser: (userId) => {
-		dispatch({
-			type: "REMOVE_USER_BY_ID",
-			payload: userId
-		})
+		dispatch(usersDuck.removeUserById(userId))
 	}
 })
 export default connect(
