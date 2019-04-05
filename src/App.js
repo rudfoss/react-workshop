@@ -7,6 +7,8 @@ import { configureStore } from "./store/createStore"
 import { Provider } from "react-redux"
 import Counter from "./features/counter"
 
+import "./App.scss"
+
 const onEdit = (userId) => {
 	console.log("You want to edit", userId)
 }

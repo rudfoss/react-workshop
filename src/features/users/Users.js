@@ -3,11 +3,13 @@ import PropTypes from "prop-types"
 import UserRow from "./UserRow"
 import { userEntity } from "../../entities/userEntity"
 
+import classes from "./Users.scss"
+
 export class Users extends React.PureComponent{
 	render(){
 		const {users} = this.props
 		return (
-			<table>
+			<table className={classes.userTable}>
 				<thead>
 					<tr>
 						<th>Name</th>
