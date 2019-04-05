@@ -9,7 +9,7 @@ export const ducks = {
 }
 export const rootReducer = combineReducers({
 	userForm: userForm.reducer,
-	users: userForm.reducer
+	users: users.reducer
 })
 
 const oldReducer = (state = {}, action) => {
