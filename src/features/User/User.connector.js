@@ -1,4 +1,4 @@
-import {connect} from "react-redux"
+import { connect } from "react-redux"
 import User from "./User"
 
 import * as user from "../../ducks/user.duck"
@@ -8,7 +8,7 @@ const mapStateToProps = (state) => ({
 })
 const mapDispatchToProps = (dispatch) => ({
 	onAuthenticate: () => {
-		dispatch(user.flipAuthenticated())
+		dispatch(user.sagaAuthenticated())
 	}
 })
 export default connect(mapStateToProps, mapDispatchToProps)(User)

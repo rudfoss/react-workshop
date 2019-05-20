@@ -1,12 +1,23 @@
 import { applyMiddleware, compose as reduxCompose, createStore } from "redux"
 import thunk from "redux-thunk"
-import rootReducer from "../ducks"
+import rootReducer, { ducks } from "../ducks"
+import createSagaMiddleware from "redux-saga"
 
-const compose = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || reduxCompose
+export const newStore = (initialState = {}) => {
+	const compose = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || reduxCompose
+	const sagaMiddleware = createSagaMiddleware()
 
-export const newStore = (initialState = {}) =>
-	createStore(rootReducer(), initialState, compose(
-		applyMiddleware(thunk))
+	const store = createStore(rootReducer(), initialState, compose(
+		applyMiddleware(thunk, sagaMiddleware))
 	)
+
+	Object.values(ducks).forEach(duck => {
+		if (duck.saga) {
+			sagaMiddleware.run(duck.saga)
+		}
+	})
+
+	return store
+}
 
 export default newStore
