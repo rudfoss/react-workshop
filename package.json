@@ -6,7 +6,7 @@
   "license": "MIT",
   "scripts": {
     "build": "rimraf ./dist && parcel build ./src/index.html",
-    "start": "parcel ./src/index.html -p 1337",
+    "start": "rimraf ./cache && parcel ./src/index.html -p 1337",
     "serve": "node ./scripts/serve-static.js",
     "test:watch": "jest --watch",
     "test": "jest",
@@ -48,6 +48,7 @@
     "react-router-dom": "^5.0.0",
     "redux": "^4.0.1",
     "redux-actions": "^2.6.5",
+    "redux-saga": "^1.0.2",
     "redux-thunk": "^2.3.0",
     "uuid": "^3.3.2"
   },
