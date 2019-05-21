@@ -6,7 +6,7 @@ import classes from "./Users.scss"
 
 export class Users extends React.PureComponent{
 	render(){
-		const {users, isWorking = false, error} = this.props
+		const { users, isWorking = false, error } = this.props
 
 		if (isWorking) {
 			return (

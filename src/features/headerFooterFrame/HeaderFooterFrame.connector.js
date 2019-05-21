@@ -1,4 +1,4 @@
-import {connect} from "react-redux"
+import { connect } from "react-redux"
 import HeaderFooterFrame from "./HeaderFooterFrame"
 
 import * as users from "../users/users.duck"

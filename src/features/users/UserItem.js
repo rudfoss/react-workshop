@@ -7,7 +7,7 @@ import classes from "./Users.scss"
 
 export class UserItem extends React.PureComponent{
 	render(){
-		const {user, onEdit, onRemove} = this.props
+		const { user, onEdit, onRemove } = this.props
 		return (
 			<tr>
 				<td className={classes.name}>{user.name}</td>

@@ -1,17 +1,17 @@
 import React from "react"
 import { Provider } from "react-redux"
 import { BrowserRouter } from "react-router-dom"
-import { configureStore } from "./store/createStore"
+import newStore from "./store"
 import Routes from "./routes"
 import { initialState } from "./store/initialState"
-import { ducks } from "./store/rootReducer"
+import { ducks } from "./ducks"
 
 import "./App.scss"
 
 export class App extends React.PureComponent{
 	constructor(props) {
 		super(props)
-		this.store = configureStore(initialState)
+		this.store = newStore(initialState)
 		window.app = this
 	}
 

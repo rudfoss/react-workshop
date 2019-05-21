@@ -1,7 +1,7 @@
-import {connect} from "react-redux"
+import { connect } from "react-redux"
 import UserForm from "./UserForm"
 
-import * as userCombiner from "../../combiners/userForm.combiner"
+import * as userCombiner from "../../ducks/userForm.combiner"
 import * as userForm from "./userForm.duck"
 
 const mapStateToProps = (state, ownProps) => {
@@ -25,13 +25,13 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
 	},
 
 	onSave: () => {
-		const {history} = ownProps
+		const { history } = ownProps
 		dispatch(userForm.setModified())
 		dispatch(userCombiner.setUser())
 		history.push("/")
 	},
 	onCancel: () => {
-		const {history} = ownProps
+		const { history } = ownProps
 		dispatch(userForm.clearEditingUser())
 		history.push("/")
 	}

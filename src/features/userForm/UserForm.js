@@ -10,7 +10,7 @@ export class UserForm extends React.PureComponent{
 	}
 
 	render(){
-		const {user, mode, types} = this.props
+		const { user, mode, types } = this.props
 		if (!user) {
 			return null
 		}

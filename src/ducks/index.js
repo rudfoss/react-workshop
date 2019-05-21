@@ -8,12 +8,11 @@ export const ducks = {
 	userForm
 }
 
-const baseReducerState =
-	Object.keys(ducks).reduce((acc, item) => {
-		acc[item] = (ducks[item]).reducer
+export const rootReducer = () => {
+	const reducers = Object.keys(ducks).reduce((acc, key) => {
+		acc[key] = ducks[key].reducer
 		return acc
 	}, {})
-
-export const rootReducer = () => combineReducers({
-	...baseReducerState
-})
+	return combineReducers(reducers)
+}
+export default rootReducer

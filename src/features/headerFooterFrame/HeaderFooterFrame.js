@@ -5,7 +5,7 @@ import classes from "./headerFooterFrame.scss"
 
 export class HeaderFooterFrame extends React.PureComponent{
 	render(){
-		const {children} = this.props
+		const { children } = this.props
 		return (
 			<>
 				<header className={classes.header}>

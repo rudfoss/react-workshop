@@ -1,4 +1,4 @@
-import {createAction, handleActions} from "redux-actions"
+import { createAction, handleActions } from "redux-actions"
 import omit from "lodash/omit"
 
 const _ns = "users/"
@@ -56,12 +56,12 @@ export const storeUsers = () => async (dispatch, getState) => {
 }
 
 export const reducer = handleActions({
-	[removeUserById]: (state, {payload}) => ({
+	[removeUserById]: (state, { payload }) => ({
 		...state,
 		order: state.order.filter(orderId => orderId !== payload),
 		byId: omit(state.byId, payload)
 	}),
-	[setUser]: (state, {payload}) => {
+	[setUser]: (state, { payload }) => {
 		let newOrder = state.order || []
 		if (newOrder.indexOf(payload.id) === -1) {
 			newOrder.push(payload.id)
@@ -75,7 +75,7 @@ export const reducer = handleActions({
 			}
 		}
 	},
-	[setUsers]: (state, {payload}) => ({
+	[setUsers]: (state, { payload }) => ({
 		...state,
 		order: payload.map(user => user.id),
 		byId: payload.reduce((acc, user) => {
@@ -83,11 +83,11 @@ export const reducer = handleActions({
 			return acc
 		}, {})
 	}),
-	[setWorking]: (state, {payload}) => ({
+	[setWorking]: (state, { payload }) => ({
 		...state,
 		working: payload
 	}),
-	[setError]: (state, {payload, error}) => {
+	[setError]: (state, { payload, error }) => {
 		return {
 			...state,
 			error: error ? payload.message : payload

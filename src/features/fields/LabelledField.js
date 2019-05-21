@@ -4,7 +4,7 @@ import classes from "./LabelledField.scss"
 
 export class LabelledField extends React.PureComponent{
 	render(){
-		const {id, label} = this.props
+		const { id, label } = this.props
 
 		return (
 			<div className={classes.field}>

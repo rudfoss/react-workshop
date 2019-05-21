@@ -1,4 +1,4 @@
-import {createAction, handleActions} from "redux-actions"
+import { createAction, handleActions } from "redux-actions"
 import { newUser } from "../../entities/user"
 
 const _ns = "userForm/"
@@ -8,7 +8,7 @@ const action = (actionName, payload) => createAction(_ns+actionName, payload)
 export const getEditingUser = (globalState) => getState(globalState).editingUser
 export const setEditingUser = action("SET_EDITING_USER")
 export const clearEditingUser = () => setEditingUser()
-export const setEditingUserField = action("SET_EDITING_USER_FIELD", (name, value) => ({name, value}))
+export const setEditingUserField = action("SET_EDITING_USER_FIELD", (name, value) => ({ name, value }))
 
 export const setNewUser = () => setEditingUser(newUser())
 export const setModified = (date) => {
@@ -19,11 +19,11 @@ export const setModified = (date) => {
 export const getTypes = (globalState) => getState(globalState).types || ["Read-only", "User", "Manager", "Administrator", "Sysadmin"]
 
 export const reducer = handleActions({
-	[setEditingUser]: (state, {payload}) => ({
+	[setEditingUser]: (state, { payload }) => ({
 		...state,
 		editingUser: payload
 	}),
-	[setEditingUserField]: (state, {payload}) => ({
+	[setEditingUserField]: (state, { payload }) => ({
 		...state,
 		editingUser: {
 			...state.editingUser,
