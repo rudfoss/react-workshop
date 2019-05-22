@@ -1,4 +1,5 @@
 import React from "react"
+import { Counter } from "./Counter"
 
 export class App extends React.PureComponent {
 	constructor(props) {
@@ -8,7 +9,7 @@ export class App extends React.PureComponent {
 
 	render() {
 		return (
-			<div>Hello world</div>
+			<Counter/>
 		)
 	}
 }
