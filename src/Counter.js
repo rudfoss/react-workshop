@@ -2,12 +2,23 @@ import React from "react"
 
 export class Counter extends React.PureComponent {
 	state = {
-		count: 0
+		count: 0,
+		newCount: "0"
 	}
 
 	onIncrement = () => {
 		this.setState({
 			count: this.state.count + 1
+		})
+	}
+	onSetCount = () => {
+		this.setState({
+			count: parseFloat(this.state.newCount)
+		})
+	}
+	onNewCountChange = (evt) => {
+		this.setState({
+			newCount: evt.target.value
 		})
 	}
 	render() {
@@ -17,6 +28,11 @@ export class Counter extends React.PureComponent {
 				<button
 					type="button"
 					onClick={this.onIncrement}>Increment</button>
+				<fieldset>
+					<legend>New count</legend>
+					<input type="text" value={this.state.newCount} onChange={this.onNewCountChange}/>
+					<button type="button" onClick={this.onSetCount}>Set</button>
+				</fieldset>
 			</>
 		)
 	}
