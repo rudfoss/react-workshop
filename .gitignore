@@ -9,3 +9,6 @@ dist
 
 # Ignores Parcel cache
 .cache
+
+# Office temp files
+~$*
