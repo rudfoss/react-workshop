@@ -21,6 +21,7 @@ export class Counter extends React.PureComponent {
 		)
 	}
 }
+export default Counter
 
 /*
 export const Counter = () => {
