@@ -1,40 +1,32 @@
 import React from "react"
+import PropTypes from "prop-types"
 
 export class Counter extends React.PureComponent {
-	state = {
-		count: 0,
-		newCount: "0"
-	}
-
-	onIncrement = () => {
-		this.setState({
-			count: this.state.count + 1
-		})
-	}
-	onSetCount = () => {
-		this.setState({
-			count: parseFloat(this.state.newCount)
-		})
-	}
-	onNewCountChange = (evt) => {
-		this.setState({
-			newCount: evt.target.value
-		})
-	}
 	render() {
+		const { count, newCount, onIncrement, onNewCountChange, onSetCount } = this.props
+
 		return (
 			<>
-				<span>{this.state.count}</span>
+				<span>{count}</span>
 				<button
 					type="button"
-					onClick={this.onIncrement}>Increment</button>
+					onClick={onIncrement}>Increment</button>
 				<fieldset>
 					<legend>New count</legend>
-					<input type="text" value={this.state.newCount} onChange={this.onNewCountChange}/>
-					<button type="button" onClick={this.onSetCount}>Set</button>
+					<input type="text" value={newCount} onChange={onNewCountChange}/>
+					<button type="button" onClick={onSetCount}>Set</button>
 				</fieldset>
 			</>
 		)
+	}
+
+	static propTypes = {
+		count: PropTypes.number.isRequired,
+		newCount: PropTypes.string.isRequired,
+
+		onIncrement: PropTypes.func.isRequired,
+		onNewCountChange: PropTypes.func.isRequired,
+		onSetCount: PropTypes.func.isRequired
 	}
 }
 export default Counter
