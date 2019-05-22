@@ -1,5 +1,28 @@
-import React, { useState } from "react"
+import React from "react"
 
+export class Counter extends React.PureComponent {
+	state = {
+		count: 0
+	}
+
+	onIncrement = () => {
+		this.setState({
+			count: this.state.count + 1
+		})
+	}
+	render() {
+		return (
+			<>
+				<span>{this.state.count}</span>
+				<button
+					type="button"
+					onClick={this.onIncrement}>Increment</button>
+			</>
+		)
+	}
+}
+
+/*
 export const Counter = () => {
 	const [count, setCount] = useState(0)
 
@@ -11,4 +34,4 @@ export const Counter = () => {
 				onClick={() => setCount(count + 1)}>Increment</button>
 		</>
 	)
-}
+}*/
