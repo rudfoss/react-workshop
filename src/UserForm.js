@@ -1,4 +1,5 @@
 import React from "react"
+import LabelledField from "./LabelledField"
 
 export class UserForm extends React.PureComponent{
 	state = {
@@ -27,22 +28,18 @@ export class UserForm extends React.PureComponent{
 
 		return (
 			<form action="/">
-				<div>
-					<label htmlFor="name_field">Name</label>
+				<LabelledField id="name_field" label="Name">
 					<input
-						id="name_field"
 						type="text"
 						value={name}
 						onChange={this.onTargetValueChange("name")}/>
-				</div>
-				<div>
-					<label htmlFor="email_field">Email</label>
+				</LabelledField>
+				<LabelledField id="email_field" label="Email">
 					<input
-						id="email_field"
 						type="email"
 						value={email}
 						onChange={this.onTargetValueChange("email")}/>
-				</div>
+				</LabelledField>
 				<div>
 					<label htmlFor="type_field">Type</label>
 					<select id="type_field" value={type} onChange={this.onTargetValueChange("type")}>
