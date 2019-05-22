@@ -7,6 +7,7 @@ export class LabelledField extends React.PureComponent{
 			<div>
 				<label htmlFor={this.props.id}>{this.props.label}</label>
 				{this.childWithId()}
+				{this.remainingChildren}
 			</div>
 		)
 	}
@@ -16,6 +17,9 @@ export class LabelledField extends React.PureComponent{
 			return this.props.children[0]
 		}
 		return this.props.children
+	}
+	get remainingChildren() {
+		return Array.isArray(this.props.children) ? this.props.children.slice(1) : []
 	}
 	childWithId() {
 		const firstChild = this.firstChild

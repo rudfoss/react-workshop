@@ -50,15 +50,13 @@ export class UserForm extends React.PureComponent{
 						<option value="Sysadmin">Sysadmin</option>
 					</select>
 				</div>
-				<div>
-					<label htmlFor="password_field">Password</label>
+				<LabelledField id="password_field" label="Password">
 					<input
-						id="password_field"
 						type={showPassword ? "text" : "password"}
 						value={password}
 						onChange={this.onTargetValueChange("password")}/>
 					<input type="checkbox" checked={showPassword} onChange={this.onTargetCheckedChange("showPassword")}/>
-				</div>
+				</LabelledField>
 				<div>
 					<label htmlFor="disabled_field">Disabled</label>
 					<input
