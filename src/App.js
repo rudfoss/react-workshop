@@ -2,6 +2,8 @@ import React from "react"
 import UserForm from "./features/userForm"
 import Users from "./features/users"
 
+import "./App.scss"
+
 export class App extends React.PureComponent {
 	state = {
 		name: "",

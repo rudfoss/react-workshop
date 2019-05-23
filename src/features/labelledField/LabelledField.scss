@@ -1,0 +1,24 @@
+.field{
+	margin: 12px 0;
+	width: 400px;
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	align-items: center;
+	label{
+		display: block;
+		text-align: center;
+		margin: 6px 0;
+	}
+	input[type="text"], input[type="email"], input[type="password"], select, textarea {
+		padding: 3px 6px;
+		font-size: inherit;
+		font-family: inherit;
+		width: 100%;
+	}
+	textarea{
+		resize: vertical;
+		height: 4rem;
+		min-height: 4rem;
+	}
+}
