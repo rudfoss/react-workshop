@@ -4,9 +4,13 @@ import Users from "./Users"
 
 export class App extends React.PureComponent {
 	state = {
-		count: 0,
-		newCount: "0",
-
+		name: "",
+		email: "",
+		type: "User",
+		password: "",
+		disabled: false,
+		comments: "",
+		
 		users: [
 			{
 				name: "User 1",
@@ -31,26 +35,24 @@ export class App extends React.PureComponent {
 		window.app = this
 	}
 
-	onIncrement = () => {
+	onUserFormPropChange = (prop, newValue) => {
 		this.setState({
-			count: this.state.count + 1
-		})
-	}
-	onTargetValueChange = (stateProp) => (evt) => {
-		this.setState({
-			[stateProp]: evt.target.value
-		})
-	}
-	onSetCount = () => {
-		this.setState({
-			count: parseFloat(this.state.newCount)
+			[prop]: newValue
 		})
 	}
 
 	render() {
+		const { name, email, type, password, disabled, comments } = this.state
 		return (
 			<>
-				<UserForm/>
+				<UserForm
+					name={name}
+					email={email}
+					type={type}
+					password={password}
+					disabled={disabled}
+					comments={comments}
+					onChange={this.onUserFormPropChange}/>
 				<Users/>
 			</>
 		)

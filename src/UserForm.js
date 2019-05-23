@@ -1,30 +1,27 @@
+/* eslint-disable react/prop-types */
+
 import React from "react"
 import LabelledField from "./LabelledField"
 
 export class UserForm extends React.PureComponent{
 	state = {
-		name: "",
-		email: "",
-		type: "User",
-		password: "",
-		disabled: false,
-		comments: "",
-
 		showPassword: false
 	}
 
 	onTargetValueChange = (stateProperty) => (evt) => {
-		this.setState({
-			[stateProperty]: evt.target.value
-		})
+		this.props.onChange(stateProperty, evt.target.value)
 	}
 	onTargetCheckedChange = (stateProperty) => (evt) => {
+		this.props.onChange(stateProperty, evt.target.checked)
+	}
+	onShowPasswordChange = () => {
 		this.setState({
-			[stateProperty]: evt.target.checked
+			showPassword: !this.state.showPassword
 		})
 	}
 	render(){
-		const { name, email, type, password, showPassword, disabled, comments } = this.state
+		const { showPassword } = this.state
+		const { name, email, type, password, disabled, comments } = this.props
 
 		return (
 			<form action="/">
@@ -55,7 +52,7 @@ export class UserForm extends React.PureComponent{
 						type={showPassword ? "text" : "password"}
 						value={password}
 						onChange={this.onTargetValueChange("password")}/>
-					<input type="checkbox" checked={showPassword} onChange={this.onTargetCheckedChange("showPassword")}/>
+					<input type="checkbox" checked={showPassword} onChange={this.onShowPasswordChange}/>
 				</LabelledField>
 				<div>
 					<label htmlFor="disabled_field">Disabled</label>
