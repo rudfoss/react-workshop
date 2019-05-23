@@ -1,6 +1,7 @@
 import React from "react"
 import UserForm from "./UserForm"
 import Counter from "./Counter"
+import LoopExample from "./LoopExample"
 
 export class App extends React.PureComponent {
 	state = {
@@ -35,6 +36,7 @@ export class App extends React.PureComponent {
 		return (
 			<>
 				<UserForm/>
+				<LoopExample/>
 				<Counter
 					count={count}
 					newCount={newCount}
