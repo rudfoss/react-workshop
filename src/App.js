@@ -11,20 +11,20 @@ import Counter from "./features/examples/Counter.connector"
 import "./App.scss"
 
 export class App extends React.PureComponent {
-	state = {
-		name: "",
-		email: "",
-		type: "User",
-		password: "",
-		disabled: false,
-		comments: "",
-		
-		users: []
-	}
-
 	constructor(props) {
 		super(props)
-		this.store = newStore()
+		this.store = newStore({
+			count: 0,
+			userForm: {
+				name: "",
+				email: "",
+				type: "User",
+				password: "",
+				disabled: false,
+				comments: ""
+			},
+			users: []
+		})
 		window.app = this
 	}
 
@@ -46,21 +46,11 @@ export class App extends React.PureComponent {
 	}
 
 	render() {
-		const { name, email, type, password, disabled, comments, users } = this.state
 		return (
 			<Provider store={this.store}>
 				<Counter/>
-				<UserForm
-					name={name}
-					email={email}
-					type={type}
-					password={password}
-					disabled={disabled}
-					comments={comments}
-
-					onChange={this.onUserFormPropChange}
-					onSave={this.onUserFormSave}/>
-				<Users users={users}/>
+				<UserForm/>
+				<Users/>
 			</Provider>
 		)
 	}
