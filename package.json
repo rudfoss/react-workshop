@@ -6,7 +6,7 @@
   "license": "MIT",
   "scripts": {
     "build": "rimraf ./dist && parcel build ./src/index.html",
-    "start": "rimraf ./cache && parcel ./src/index.html -p 1337",
+    "start": "rimraf ./cache && parcel ./src/index.html -p 1338",
     "serve": "node ./scripts/serve-static.js",
     "test:watch": "jest --watch",
     "test": "jest",

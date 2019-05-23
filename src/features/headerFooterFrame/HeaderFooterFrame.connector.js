@@ -10,10 +10,10 @@ const mapStateToProps = (state) => {
 }
 const mapDispatchToProps = (dispatch) => ({
 	onSave: () => {
-		dispatch(users.storeUsers())
+		dispatch(users.storeUsersSagaAction())
 	},
 	onLoad: () => {
-		dispatch(users.fetchUsers())
+		dispatch(users.fetchUsersSagaAction())
 	}
 })
 export default connect(mapStateToProps, mapDispatchToProps)(HeaderFooterFrame)

@@ -1,5 +1,7 @@
 import { createAction, handleActions } from "redux-actions"
 import omit from "lodash/omit"
+import { call, put, select, takeLeading } from "redux-saga/effects"
+import * as usersApi from "../../api/usersApi"
 
 const _ns = "users/"
 export const getState = (globalState) => globalState.users || {}
@@ -20,21 +22,48 @@ export const setWorking = action("SET_IS_WORKING", (flag = true) => (flag || fal
 export const getWorkError = (globalState) => getState(globalState).error
 export const setError = action("SET_ERROR")
 
-export const fetchUsers = () => async (dispatch, getState) => {
+export const fetchUsersSagaAction = action("FETCH_USERS")
+export const storeUsersSagaAction = action("STORE_USERS")
+
+function* fetchUsersSaga(){ // Saga
+	yield put(setWorking())
+	yield put(setError())
+	try {
+		const loadedUsers = yield call(usersApi.fetchUsers)
+		yield put(setUsers(loadedUsers))
+	} catch (error) {
+		yield put(setError(error))
+	} finally {
+		yield put(setWorking(false))
+	}
+}
+export const fetchUsers = () => async (dispatch, getState) => { // Thunk
 	if (isWorking(getState())) return
 	dispatch(setWorking())
 	dispatch(setError())
 	try {
-		const response = await fetch("http://localhost:1339")
-		const data = await response.json()
-		dispatch(setUsers(data))
+		const loadedUsers = await usersApi.fetchUsers()
+		dispatch(setUsers(loadedUsers))
 	} catch (error) {
 		dispatch(setError(error))
 	} finally {
 		dispatch(setWorking(false))
 	}
 }
-export const storeUsers = () => async (dispatch, getState) => {
+
+function* storeUsersSaga() { // Saga
+	const users = yield select(getUsers)
+	yield put(setWorking())
+	yield put(setError())
+	try {
+		yield call(usersApi.storeUsers, users)
+	} catch (error) {
+		yield put(setError(error))
+	} finally {
+		yield put(setWorking(false))
+	}
+}
+export const storeUsers = () => async (dispatch, getState) => { // Thunk
 	const state = getState()
 	if (isWorking(state)) return
 	dispatch(setWorking())
@@ -53,6 +82,11 @@ export const storeUsers = () => async (dispatch, getState) => {
 	} finally {
 		dispatch(setWorking(false))
 	}
+}
+
+export function* saga() {
+	yield takeLeading(fetchUsersSagaAction, fetchUsersSaga)
+	yield takeLeading(storeUsersSagaAction, storeUsersSaga)
 }
 
 export const reducer = handleActions({

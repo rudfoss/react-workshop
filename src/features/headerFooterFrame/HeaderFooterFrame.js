@@ -9,7 +9,7 @@ export class HeaderFooterFrame extends React.PureComponent{
 		return (
 			<>
 				<header className={classes.header}>
-					<h1>Next-gen user database v2.0 final</h1>
+					<h1>Next-gen user database</h1>
 				</header>
 				<nav className={classes.nav}>
 					<ul>
