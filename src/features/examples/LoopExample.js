@@ -1,5 +1,4 @@
 import React from "react"
-import PropTypes from "prop-types"
 
 const users = [
 	{
@@ -13,7 +12,7 @@ const users = [
 	}
 ]
 
-export const LoopExample = (props) => {
+export const LoopExample = () => {
 	return (
 		<ul>
 			{users.map((user, index) => (

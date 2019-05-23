@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 
 import React from "react"
-import LabelledField from "./LabelledField"
+import LabelledField from "../labelledField"
 
 export class UserForm extends React.PureComponent{
 	state = {

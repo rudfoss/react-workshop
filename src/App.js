@@ -1,6 +1,6 @@
 import React from "react"
-import UserForm from "./UserForm"
-import Users from "./Users"
+import UserForm from "./features/userForm"
+import Users from "./features/users"
 
 export class App extends React.PureComponent {
 	state = {
