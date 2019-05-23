@@ -8,7 +8,7 @@ const port = 1339
 const app = express()
 app.use(cors())
 
-let users = {}
+let users = []
 
 app.get("/", (req, res) => {
 	console.log("Sending", users)
