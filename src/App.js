@@ -3,6 +3,10 @@ import UserForm from "./features/userForm"
 import Users from "./features/users"
 import omit from "lodash/omit"
 import { uniqueId } from "./utils/uniqueId"
+import newStore from "./store"
+import { Provider } from "react-redux"
+
+import Counter from "./features/examples/Counter.connector"
 
 import "./App.scss"
 
@@ -20,6 +24,7 @@ export class App extends React.PureComponent {
 
 	constructor(props) {
 		super(props)
+		this.store = newStore()
 		window.app = this
 	}
 
@@ -43,7 +48,8 @@ export class App extends React.PureComponent {
 	render() {
 		const { name, email, type, password, disabled, comments, users } = this.state
 		return (
-			<>
+			<Provider store={this.store}>
+				<Counter/>
 				<UserForm
 					name={name}
 					email={email}
@@ -55,7 +61,7 @@ export class App extends React.PureComponent {
 					onChange={this.onUserFormPropChange}
 					onSave={this.onUserFormSave}/>
 				<Users users={users}/>
-			</>
+			</Provider>
 		)
 	}
 }
