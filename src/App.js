@@ -1,12 +1,29 @@
 import React from "react"
 import UserForm from "./UserForm"
-import Counter from "./Counter"
-import LoopExample from "./LoopExample"
+import Users from "./Users"
 
 export class App extends React.PureComponent {
 	state = {
 		count: 0,
-		newCount: "0"
+		newCount: "0",
+
+		users: [
+			{
+				name: "User 1",
+				type: "User",
+				disabled: false
+			},
+			{
+				name: "User 2",
+				type: "Administrator",
+				disabled: true
+			},
+			{
+				name: "User 3",
+				type: "User",
+				disabled: false
+			}
+		]
 	}
 
 	constructor(props) {
@@ -31,18 +48,10 @@ export class App extends React.PureComponent {
 	}
 
 	render() {
-		const { count, newCount } = this.state
-		
 		return (
 			<>
 				<UserForm/>
-				<LoopExample/>
-				<Counter
-					count={count}
-					newCount={newCount}
-					onIncrement={this.onIncrement}
-					onNewCountChange={this.onTargetValueChange("newCount")}
-					onSetCount={this.onSetCount}/>
+				<Users/>
 			</>
 		)
 	}
