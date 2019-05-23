@@ -29,5 +29,15 @@ export default (state, action) => {
 			}
 		}
 	}
+	if (action.type === "REMOVE_USER_BY_ID") {
+		const newUserList = state.users.filter((user) => {
+			return user.id !== action.payload
+		})
+
+		return {
+			...state,
+			users: newUserList
+		}
+	}
 	return state
 }

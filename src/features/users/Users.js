@@ -2,6 +2,10 @@ import React from "react"
 import PropTypes from "prop-types"
 
 export class Users extends React.PureComponent{
+	onRemoveById = (userId) => () => {
+		this.props.onRemove(userId)
+	}
+
 	render(){
 		const { users } = this.props
 
@@ -27,7 +31,7 @@ export class Users extends React.PureComponent{
 							<td>{user.name}</td>
 							<td>{user.type}</td>
 							<td>{user.disabled ? "Yes" : "No"}</td>
-							<td></td>
+							<td><button onClick={this.onRemoveById(user.id)}>Remove</button></td>
 						</tr>
 					))}
 				</tbody>
@@ -44,7 +48,9 @@ export class Users extends React.PureComponent{
 			email: PropTypes.string,
 			type: PropTypes.string,
 			disabled: PropTypes.bool
-		}))
+		})),
+
+		onRemove: PropTypes.func.isRequired
 	}
 }
 export default Users
