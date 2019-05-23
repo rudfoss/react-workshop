@@ -23,11 +23,11 @@ export class Users extends React.PureComponent{
 				</thead>
 				<tbody>
 					{users.map(user => (
-						<tr key={user.name}>
-							<td>name</td>
-							<td>type</td>
-							<td>disabled</td>
-							<td>...</td>
+						<tr key={user.id}>
+							<td>{user.name}</td>
+							<td>{user.type}</td>
+							<td>{user.disabled ? "Yes" : "No"}</td>
+							<td></td>
 						</tr>
 					))}
 				</tbody>

@@ -1,6 +1,8 @@
 import React from "react"
 import UserForm from "./features/userForm"
 import Users from "./features/users"
+import omit from "lodash/omit"
+import { uniqueId } from "./utils/uniqueId"
 
 import "./App.scss"
 
@@ -13,23 +15,7 @@ export class App extends React.PureComponent {
 		disabled: false,
 		comments: "",
 		
-		users: [
-			{
-				name: "User 1",
-				type: "User",
-				disabled: false
-			},
-			{
-				name: "User 2",
-				type: "Administrator",
-				disabled: true
-			},
-			{
-				name: "User 3",
-				type: "User",
-				disabled: false
-			}
-		]
+		users: []
 	}
 
 	constructor(props) {
@@ -42,9 +28,20 @@ export class App extends React.PureComponent {
 			[prop]: newValue
 		})
 	}
+	onUserFormSave = () => {
+		const newUser = omit(this.state, "users")
+		newUser.id = uniqueId()
+
+		this.setState({
+			users: [
+				...this.state.users,
+				newUser
+			]
+		})
+	}
 
 	render() {
-		const { name, email, type, password, disabled, comments } = this.state
+		const { name, email, type, password, disabled, comments, users } = this.state
 		return (
 			<>
 				<UserForm
@@ -54,8 +51,10 @@ export class App extends React.PureComponent {
 					password={password}
 					disabled={disabled}
 					comments={comments}
-					onChange={this.onUserFormPropChange}/>
-				<Users/>
+
+					onChange={this.onUserFormPropChange}
+					onSave={this.onUserFormSave}/>
+				<Users users={users}/>
 			</>
 		)
 	}

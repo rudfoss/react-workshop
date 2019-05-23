@@ -8,23 +8,27 @@ export class UserForm extends React.PureComponent{
 		showPassword: false
 	}
 
-	onTargetValueChange = (stateProperty) => (evt) => {
-		this.props.onChange(stateProperty, evt.target.value)
+	onTargetValueChange = (prop) => (evt) => {
+		this.props.onChange(prop, evt.target.value)
 	}
-	onTargetCheckedChange = (stateProperty) => (evt) => {
-		this.props.onChange(stateProperty, evt.target.checked)
+	onTargetCheckedChange = (prop) => (evt) => {
+		this.props.onChange(prop, evt.target.checked)
 	}
 	onShowPasswordChange = () => {
 		this.setState({
 			showPassword: !this.state.showPassword
 		})
 	}
+	onSubmit = (evt) => {
+		evt.preventDefault()
+		this.props.onSave()
+	}
 	render(){
 		const { showPassword } = this.state
 		const { name, email, type, password, disabled, comments } = this.props
 
 		return (
-			<form action="/">
+			<form action="/" onSubmit={this.onSubmit}>
 				<LabelledField id="name_field" label="Name">
 					<input
 						type="text"
@@ -66,6 +70,7 @@ export class UserForm extends React.PureComponent{
 					<label htmlFor="comments_field">Comments</label>
 					<textarea id="comments_field" value={comments} onChange={this.onTargetValueChange("comments")}/>
 				</div>
+				<button>Save</button>
 			</form>
 		)
 	}
