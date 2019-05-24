@@ -5,7 +5,7 @@ import * as usersDuck from "../features/users/users.duck"
 
 export default () => {
 	return combineReducers({
-		...userFormDuck.combinableReducer,
+		...userFormDuck.userFormReducer,
 		users: usersDuck.reducer
 	})
 }

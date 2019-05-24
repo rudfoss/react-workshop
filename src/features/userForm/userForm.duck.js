@@ -27,7 +27,7 @@ export const reducer = handleActions({
 	}
 }, {})
 
-export const combinableReducer = {
+export const userFormReducer = {
 	[SUBSTATE_NS]: reducer
 }
 
