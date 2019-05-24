@@ -6,10 +6,12 @@ const mapStateToProps = (state) => ({
 })
 const mapDispatchToProps = (dispatch) => ({
 	onRemove: (userId) => {
-		dispatch({
-			type: "REMOVE_USER_BY_ID",
-			payload: userId
-		})
+		if (confirm("Really remove?")) {
+			dispatch({
+				type: "REMOVE_USER_BY_ID",
+				payload: userId
+			})
+		}
 	}
 })
 export default connect(mapStateToProps, mapDispatchToProps)(Users)
