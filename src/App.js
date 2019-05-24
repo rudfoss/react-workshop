@@ -1,12 +1,11 @@
 import React from "react"
 import UserForm from "./features/userForm"
 import Users from "./features/users"
-import omit from "lodash/omit"
-import { uniqueId } from "./utils/uniqueId"
 import newStore from "./store"
 import { Provider } from "react-redux"
-
-import Counter from "./features/examples/Counter.connector"
+import { BrowserRouter } from "react-router-dom"
+import { Switch, Route } from "react-router"
+import Header from "./features/header"
 
 import "./App.scss"
 
@@ -26,17 +25,18 @@ export class App extends React.PureComponent {
 		window.app = this
 	}
 
-	onUserFormPropChange = (prop, newValue) => {
-		this.setState({
-			[prop]: newValue
-		})
-	}
-
 	render() {
 		return (
 			<Provider store={this.store}>
-				<UserForm/>
-				<Users/>
+				<BrowserRouter>
+					<Header/>
+					<Switch>
+						<Route path="/" exact component={Users}/>
+						<Route path="/new" exact component={UserForm}/>
+						<Route path="/edit/:userId" component={UserForm}/>
+						<Route render={() => (<div>Not found</div>)}/>
+					</Switch>
+				</BrowserRouter>
 			</Provider>
 		)
 	}
