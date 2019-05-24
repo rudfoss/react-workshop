@@ -5,9 +5,13 @@ import { uniqueId } from "../../utils/uniqueId"
 import * as userFormDuck from "./userForm.duck"
 
 const mapStateToProps = (state) => {
-	const { name, email, type, password, disabled, comments } = state.userForm
 	return {
-		name, email, type, password, disabled, comments
+		name: userFormDuck.getProp(state, "name"),
+		email: userFormDuck.getProp(state, "email"),
+		type: userFormDuck.getProp(state, "type"),
+		password: userFormDuck.getProp(state, "password"),
+		disabled: userFormDuck.getProp(state, "disabled"),
+		comments: userFormDuck.getProp(state, "comments"),
 	}
 }
 const mapDispatchToProps = (dispatch) => ({

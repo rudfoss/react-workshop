@@ -4,7 +4,7 @@ import * as userFormDuck from "../features/userForm/userForm.duck"
 
 export default () => {
 	return combineReducers({
-		userForm: userFormDuck.reducer
+		...userFormDuck.combinableReducer
 	})
 }
 
