@@ -2,7 +2,7 @@ import { applyMiddleware, compose as reduxCompose, createStore } from "redux"
 import thunk from "redux-thunk"
 import createSagaMiddleware from "redux-saga"
 
-import rootReducer from "./rootReducer"
+import rootReducer from "../ducks"
 
 export const newStore = (initialState = {}) => {
 	const compose = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || reduxCompose

@@ -1,4 +1,5 @@
 import { createAction, handleActions } from "redux-actions"
+import { uniqueId } from "../../utils/uniqueId"
 
 
 // First set up our helper functions and constants
@@ -10,6 +11,17 @@ const action = (actionName, payload) => createAction(SUBSTATE_NS+"/"+actionName,
 // SELECTORS
 export const getName = (state) => getState(state).name || ""
 export const getProp = (state, prop) => getState(state)[prop]
+export const getUser = (state) => {
+	return {
+		id: getProp(state, "id") || uniqueId(),
+		name: getProp(state, "name"),
+		email: getProp(state, "email"),
+		type: getProp(state, "type"),
+		password: getProp(state, "password"),
+		disabled: getProp(state, "disabled"),
+		comments: getProp(state, "comments")
+	}
+}
 
 
 // ACTION CREATORS

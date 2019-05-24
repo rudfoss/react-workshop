@@ -31,17 +31,6 @@ export class App extends React.PureComponent {
 			[prop]: newValue
 		})
 	}
-	onUserFormSave = () => {
-		const newUser = omit(this.state, "users")
-		newUser.id = uniqueId()
-
-		this.setState({
-			users: [
-				...this.state.users,
-				newUser
-			]
-		})
-	}
 
 	render() {
 		return (

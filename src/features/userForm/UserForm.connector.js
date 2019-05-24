@@ -1,8 +1,8 @@
 import { connect } from "react-redux"
 import UserForm from "./UserForm"
-import { uniqueId } from "../../utils/uniqueId"
 
 import * as userFormDuck from "./userForm.duck"
+import * as userToUserFormCombiner from "../../ducks/userToUserForm.combiner"
 
 const mapStateToProps = (state) => {
 	return {
@@ -16,10 +16,7 @@ const mapStateToProps = (state) => {
 }
 const mapDispatchToProps = (dispatch) => ({
 	onSave: () => {
-		dispatch({
-			type: "SAVE_USER_FORM",
-			payload: uniqueId()
-		})
+		dispatch(userToUserFormCombiner.setUser)
 	},
 	onChange: (prop, newValue) => {
 		const action = userFormDuck.setUserFormProp(prop, newValue)
