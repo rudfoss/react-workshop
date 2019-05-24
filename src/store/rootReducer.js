@@ -1,10 +1,12 @@
 import { combineReducers } from "redux"
 
 import * as userFormDuck from "../features/userForm/userForm.duck"
+import * as usersDuck from "../features/users/users.duck"
 
 export default () => {
 	return combineReducers({
-		...userFormDuck.combinableReducer
+		...userFormDuck.combinableReducer,
+		users: usersDuck.reducer
 	})
 }
 

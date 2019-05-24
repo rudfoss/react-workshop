@@ -13,9 +13,12 @@ export const setUserFormProp = action("SET_USER_FORM_PROP", (prop, newValue) => 
 	}
 })
 
+/**
+ * This is our new reducer that routes actions to the appropriate sub-reducer
+ * function in order to simplify the logic.
+ */
 export const reducer = handleActions({
-	[setUserFormProp]: (state, action) => {
-		// (state, { payload }) => {
+	[setUserFormProp]: (state, action) => { // This function ONLY handles one specific action
 		const { prop, newValue } = action.payload
 		return {
 			...state,
@@ -28,6 +31,10 @@ export const combinableReducer = {
 	[SUBSTATE_NS]: reducer
 }
 
+/**
+ * This is the old reducer that naively looks at actions and uses the if/else pattern to change state
+ * This is no longer used, but kept for reference.
+ */
 export const oldReducer = (state = {}, action) => {
 	if (action.type === setUserFormProp.toString()) {
 		const { prop, newValue } = action.payload

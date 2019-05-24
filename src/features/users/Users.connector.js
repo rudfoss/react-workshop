@@ -1,8 +1,10 @@
 import { connect } from "react-redux"
 import Users from "./Users"
 
+import * as usersDuck from "./users.duck"
+
 const mapStateToProps = (state) => ({
-	users: state.users
+	users: usersDuck.getUsers(state)
 })
 const mapDispatchToProps = (dispatch) => ({
 	onRemove: (userId) => {

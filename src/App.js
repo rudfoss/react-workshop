@@ -14,7 +14,6 @@ export class App extends React.PureComponent {
 	constructor(props) {
 		super(props)
 		this.store = newStore({
-			count: 0,
 			userForm: {
 				name: "",
 				email: "",
@@ -22,8 +21,7 @@ export class App extends React.PureComponent {
 				password: "",
 				disabled: false,
 				comments: ""
-			},
-			users: []
+			}
 		})
 		window.app = this
 	}
@@ -48,7 +46,6 @@ export class App extends React.PureComponent {
 	render() {
 		return (
 			<Provider store={this.store}>
-				<Counter/>
 				<UserForm/>
 				<Users/>
 			</Provider>
