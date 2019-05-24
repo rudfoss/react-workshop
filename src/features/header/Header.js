@@ -9,11 +9,12 @@ export const Header = (props) => {
 			<NavLink activeClassName="active-nav-item" to="/new">New</NavLink>
 			<NavLink activeClassName="active-nav-item" to="/edit/user-id">Edit</NavLink>
 			<button onClick={props.onSave}>Save</button>
-			<button>Load</button>
+			<button onClick={props.onLoad}>Load</button>
 		</nav>
 	)
 }
 Header.propTypes = {
-	onSave: PropTypes.func.isRequired
+	onSave: PropTypes.func.isRequired,
+	onLoad: PropTypes.func.isRequired
 }
 export default Header

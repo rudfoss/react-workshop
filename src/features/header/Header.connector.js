@@ -3,10 +3,13 @@ import Header from "./Header"
 
 import * as usersDuck from "../users/users.duck"
 
-const mapStateToProps = (state) => ({})
+const mapStateToProps = () => ({})
 const mapDispatchToProps = (dispatch) => ({
 	onSave: () => {
 		dispatch(usersDuck.storeUsers)
+	},
+	onLoad: () => {
+		dispatch(usersDuck.fetchUsers)
 	}
 })
 export default connect(mapStateToProps, mapDispatchToProps)(Header)

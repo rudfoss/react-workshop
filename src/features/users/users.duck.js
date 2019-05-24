@@ -15,7 +15,17 @@ export const isWorking = (state) => !!getState(state).isWorking
 export const setWorking = action("SET_IS_WORKING", (flag = true) => !!flag)
 
 export const setUser = action("SET_USER")
+export const setArrayOfUsers = action("SET_ARRAY_OF_USERS")
 
+export const fetchUsers = async (dispatch) => {
+	dispatch(setWorking())
+	try {
+		const users = await usersApi.fetchUsers()
+		dispatch(setArrayOfUsers(users))
+	} finally {
+		dispatch(setWorking(false))
+	}
+}
 export const storeUsers = async (dispatch, getState) => {
 	dispatch(setWorking())
 	const users = getUsers(getState())
@@ -57,6 +67,16 @@ export const reducer = handleActions({
 	[setWorking]: (state, { payload }) => ({
 		...state,
 		isWorking: payload
-	})
+	}),
+	[setArrayOfUsers]: (state, { payload }) => {
+		return {
+			...state,
+			order: payload.map((user) => user.id),
+			byId: payload.reduce((acc, user) => {
+				acc[user.id] = user
+				return acc
+			}, {})
+		}
+	}
 }, {})
 export default reducer
