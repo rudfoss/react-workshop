@@ -4,6 +4,8 @@ import createSagaMiddleware from "redux-saga"
 
 import rootReducer from "../ducks"
 
+import { saga } from "../features/users/users.duck"
+
 export const newStore = (initialState = {}) => {
 	const compose = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || reduxCompose
 	const sagaMiddleware = createSagaMiddleware()
@@ -11,6 +13,8 @@ export const newStore = (initialState = {}) => {
 	const store = createStore(rootReducer(), initialState, compose(
 		applyMiddleware(thunk, sagaMiddleware)
 	))
+
+	sagaMiddleware.run(saga)
 
 	return store
 }
