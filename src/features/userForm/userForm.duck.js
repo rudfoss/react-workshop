@@ -1,18 +1,26 @@
 import { createAction, handleActions } from "redux-actions"
 
-const SUBSTATE_NS = "userForm"
-const _ns = SUBSTATE_NS+"/"
-export const getState = (state) => state[SUBSTATE_NS] || {}
-const action = (actionName, payload) => createAction(_ns+actionName, payload)
 
+// First set up our helper functions and constants
+const SUBSTATE_NS = "userForm" // This is the only location where the name of the store and namespace of actions is stored
+export const getState = (state) => state[SUBSTATE_NS] || {} // General state getter that converst global to local state
+const action = (actionName, payload) => createAction(SUBSTATE_NS+"/"+actionName, payload) // Action creator that creates namespaced actions
+
+
+// SELECTORS
 export const getName = (state) => getState(state).name || ""
 export const getProp = (state, prop) => getState(state)[prop]
+
+
+// ACTION CREATORS
 export const setUserFormProp = action("SET_USER_FORM_PROP", (prop, newValue) => {
 	return {
 		prop, newValue
 	}
 })
 
+
+// REDUCER(s)
 /**
  * This is our new reducer that routes actions to the appropriate sub-reducer
  * function in order to simplify the logic.
