@@ -2,6 +2,8 @@ import { connect } from "react-redux"
 import UserForm from "./UserForm"
 import { uniqueId } from "../../utils/uniqueId"
 
+import * as userFormDuck from "./userForm.duck"
+
 const mapStateToProps = (state) => {
 	const { name, email, type, password, disabled, comments } = state.userForm
 	return {
@@ -16,12 +18,8 @@ const mapDispatchToProps = (dispatch) => ({
 		})
 	},
 	onChange: (prop, newValue) => {
-		dispatch({
-			type: "SET_USER_FORM_PROP",
-			payload: {
-				prop, newValue
-			}
-		})
+		const action = userFormDuck.setUserFormProp(prop, newValue)
+		dispatch(action)
 	}
 })
 export default connect(mapStateToProps, mapDispatchToProps)(UserForm)

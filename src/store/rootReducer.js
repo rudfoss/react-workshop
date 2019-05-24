@@ -1,4 +1,14 @@
-export default (state, action) => {
+import { combineReducers } from "redux"
+
+import * as userFormDuck from "../features/userForm/userForm.duck"
+
+export default () => {
+	return combineReducers({
+		userForm: userFormDuck.reducer
+	})
+}
+
+export const oldReducer = (state, action) => {
 	if (action.type === "INCREMENT_COUNT"){
 		return {
 			...state,
@@ -19,7 +29,7 @@ export default (state, action) => {
 			]
 		}
 	}
-	if (action.type === "SET_USER_FORM_PROP") {
+	if (action.type === userFormDuck.setUserFormProp.toString()) {
 		const { prop, newValue } = action.payload
 		return {
 			...state,
