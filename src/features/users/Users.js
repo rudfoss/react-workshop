@@ -7,7 +7,11 @@ export class Users extends React.PureComponent{
 	}
 
 	render(){
-		const { users } = this.props
+		const { users, isWorking } = this.props
+
+		if (isWorking) {
+			return (<p>Loading...</p>)
+		}
 
 		if (users.length === 0) {
 			return (
@@ -49,6 +53,7 @@ export class Users extends React.PureComponent{
 			type: PropTypes.string,
 			disabled: PropTypes.bool
 		})),
+		isWorking: PropTypes.bool,
 
 		onRemove: PropTypes.func.isRequired
 	}
