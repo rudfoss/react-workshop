@@ -12,3 +12,5 @@ dist
 
 # Office temp files
 ~$*
+
+coverage

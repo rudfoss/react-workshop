@@ -9,6 +9,7 @@
     "start": "parcel ./src/index.html -p 1337",
     "serve": "node ./scripts/serve-static.js",
     "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
     "test": "jest",
     "lint": "eslint --color src"
   },
