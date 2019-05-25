@@ -12,3 +12,6 @@ dist
 
 # Office temp files
 ~$*
+
+# Ignores the coverage report folder from testing
+coverage
