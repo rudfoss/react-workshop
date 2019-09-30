@@ -11,7 +11,7 @@ const ROOT_FOLDER = path.resolve(__dirname, "../")
 const SRC_FOLDER = path.resolve(ROOT_FOLDER, "src")
 const INDEX_JS_FILE = path.resolve(SRC_FOLDER, "index.js")
 const INDEX_HTML_FILE = path.resolve(SRC_FOLDER, "index.html")
-const DIST_FOLDER = path.resolve(ROOT_FOLDER, "dist-dev")
+const DIST_FOLDER = path.resolve(ROOT_FOLDER, "dist")
 
 module.exports = {
 	mode: "production",

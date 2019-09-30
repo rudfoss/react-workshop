@@ -6,8 +6,8 @@
   "license": "MIT",
   "scripts": {
     "dev": "rimraf ./dist-dev && webpack-dev-server --config webpack/webpack.dev.js --progress --hot",
-    "build:analyze": "rimraf ./dist-dev && webpack --config webpack/webpack.analyze.js --progress",
-    "build": "rimraf ./dist-dev && webpack --config webpack/webpack.prod.js --progress",
+    "build:analyze": "rimraf ./dist && webpack --config webpack/webpack.analyze.js --progress",
+    "build": "rimraf ./dist && webpack --config webpack/webpack.prod.js --progress",
     "test:coverage": "jest --coverage",
     "test:watch": "jest --watch",
     "test": "jest",
@@ -45,6 +45,7 @@
     "mini-css-extract-plugin": "^0.8.0",
     "optimize-css-assets-webpack-plugin": "^5.0.3",
     "postcss-loader": "^3.0.0",
+    "prop-types": "^15.7.2",
     "react-hot-loader": "^4.12.14",
     "rimraf": "^3.0.0",
     "sass": "^1.22.12",
@@ -58,6 +59,7 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.6.2",
+    "axios": "^0.19.0",
     "normalize.css": "^8.0.1",
     "react": "^16.10.1",
     "react-dom": "^16.10.1",

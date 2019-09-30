@@ -11,13 +11,12 @@ app.use(bodyParser.urlencoded({ extended: true }))
 
 app.get("/", (req, res) => res.send({ now: Date.now() }))
 
-app.post("/login/:userName", (req, res) => {
-	const userName = req.params.userName
-	const password = req.body.password
-	if (!users.tryPassword(userName, password)) {
+app.post("/login", (req, res) => {
+	const { username, password } = req.body
+	if (!users.tryPassword(username, password)) {
 		res.status(401).send("Unauthorized")
 	}
-	res.send(users.getUser(userName))
+	res.send(users.getUser(username))
 })
 
 app.get("/users/:id", (req, res) => {

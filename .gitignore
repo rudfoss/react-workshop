@@ -1,7 +1,8 @@
 # Node Modules
 node_modules
 
-# Distribution folder
+# Distribution folders
+dist
 dist-dev
 
 # Office temp files
