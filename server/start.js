@@ -28,6 +28,18 @@ app.get("/users/:id", (req, res) => {
 	}
 	res.send(user)
 })
+app.post("/users", (req, res) => {
+	const { name, ...rest } = req.body
+	if (users.getUser(name)) {
+		res.status(409).send("Duplicate resource")
+		return
+	}
+
+	const user = users.createUser(name, req.body.password, {
+		name, password: req.body.password, ...rest
+	})
+	res.send(user)
+})
 
 app.get("/rooms", (req, res) => res.send(rooms.getRooms()))
 app.get("/rooms/:id", (req, res) => {

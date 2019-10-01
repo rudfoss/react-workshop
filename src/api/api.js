@@ -16,3 +16,8 @@ export const login = async (username, password) => {
 	})
 	return loginResult
 }
+
+export const createUser = async (properties) => {
+	const newUser = await request("post", "users", properties)
+	return newUser
+}

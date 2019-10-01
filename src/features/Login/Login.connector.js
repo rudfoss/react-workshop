@@ -6,6 +6,10 @@ import * as users from "../../ducks/users.duck"
 export default connect((state) => ({
 	loginFailed: users.isLoginFailed(state),
 	failureMessage: users.getLoginFailedMessage(state),
-}), (dispatch) => ({
-	onLogin: (userPass) => dispatch(users.loginUser(userPass))
+}), (dispatch, ownProps) => ({
+	onLogin: (userPass) => dispatch(users.loginUser(userPass)),
+	onCreateUser: () => {
+		dispatch(users.resetCreateSuccess())
+		ownProps.history.push("/create-user")
+	}
 }))(Login)
