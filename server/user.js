@@ -1,4 +1,12 @@
 const users = new Map()
+users.set("test", {
+	name: "test",
+	email: "test@test.com",
+	password: "test",
+	
+
+	_created: Date.now()
+})
 
 const createUser = (name, password, properties) => {
 	const newUser = {
@@ -12,9 +20,7 @@ const createUser = (name, password, properties) => {
 const getUser = (name) => {
 	const user = users.get(name)
 	if (!user) return
-	// eslint-disable-next-line no-unused-vars
-	const { password, ...rest } = user
-	return rest
+	return user
 }
 const updateUser = (name, properties) => {
 	const user = getUser(name)

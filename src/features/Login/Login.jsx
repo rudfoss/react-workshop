@@ -1,8 +1,8 @@
 import React, { useState } from "react"
 import PropTypes from "prop-types"
 
-import TextInput from "../../features/ui/TextInput"
-import Button from "../../features/ui/Button"
+import TextInput from "ui/TextInput"
+import Button from "ui/Button"
 
 import classes from "./Login.scss"
 
@@ -39,7 +39,7 @@ export const Login = ({ loginFailed, failureMessage, onLogin, history }) => {
 					</p>
 				)}
 				<div className={classes.controls}>
-					<Button mode="secondary" onClick={() => history.push("/create-user")}>New user</Button>
+					<Button type="button" mode="secondary" onClick={() => history.push("/create-user")}>New user</Button>
 					<Button>Log in</Button>
 				</div>
 			</form>

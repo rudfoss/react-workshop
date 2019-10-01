@@ -17,7 +17,6 @@ module.exports = {
 	devServer: {
 		historyApiFallback: true,
 		hot: true,
-		https: true,
 		overlay: true,
 		inline: true,
 		writeToDisk: true,
@@ -40,12 +39,14 @@ module.exports = {
 	output: {
 		filename: "js/[name]-[hash].js",
 		chunkFilename: "js/[name]-[hash].js",
-		publicPath: "https://localhost:3010/",
+		publicPath: "http://localhost:3010/",
 		path: DIST_FOLDER
 	},
 	resolve: {
 		extensions: [".js", ".jsx"],
 		alias: {
+			features: path.resolve(SRC_FOLDER, "features"),
+			ui: path.resolve(SRC_FOLDER, "features/ui"),
 			"react-dom": "@hot-loader/react-dom" // https://github.com/gaearon/react-hot-loader#hot-loaderreact-dom
 		}
 	},

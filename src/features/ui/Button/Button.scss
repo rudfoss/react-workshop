@@ -18,7 +18,8 @@
 		color: #111;
 		font-size: 1rem;
 		padding: 9px 24px;
-		background: linear-gradient(to right, rgba(0, 201, 255, .2) 0%, rgba(146, 254, 157, .2) 51%, rgba(0, 201, 255, .2) 100%);
+		background: white;
+		border: 2px solid rgba(0, 92, 151, 1);
 		&:hover{
 			background: linear-gradient(to right, rgba(0, 201, 255, .3) 0%, rgba(146, 254, 157, .3) 51%, rgba(0, 201, 255, .3) 100%);
 		}
@@ -33,6 +34,15 @@
 		}
 		&:focus{
 			background-image: linear-gradient(to right, rgba(229, 57, 53, 1) 0%, rgba(227, 93, 91, 1) 51%, rgba(229, 57, 53, 1) 100%);
+		}
+	}
+	&:disabled{
+		cursor: default;
+		background: #ccc;
+		&[data-mode="secondary"]{
+			border-color: #aaa;
+			background: #efefef;
+			color: #999;
 		}
 	}
 

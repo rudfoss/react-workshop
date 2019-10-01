@@ -7,7 +7,7 @@ const users = require("./user")
 
 const app = express()
 app.use(cors())
-app.use(bodyParser.urlencoded({ extended: true }))
+app.use(bodyParser.json())
 
 app.get("/", (req, res) => res.send({ now: Date.now() }))
 
@@ -15,6 +15,7 @@ app.post("/login", (req, res) => {
 	const { username, password } = req.body
 	if (!users.tryPassword(username, password)) {
 		res.status(401).send("Unauthorized")
+		return
 	}
 	res.send(users.getUser(username))
 })

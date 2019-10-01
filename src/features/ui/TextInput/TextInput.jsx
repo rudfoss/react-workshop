@@ -2,14 +2,14 @@ import React from "react"
 import PropTypes from "prop-types"
 
 const onChangeHandler = (handler) => (evt) => handler(evt.target.value)
-const labelToId = (label) => label.replace(/[a-z0-9-_]/ig, "")
+const labelToId = (label) => label.replace(/[^a-z0-9-_]/ig, "").toLowerCase()
 
 import classes from "./TextInput.scss"
 
 export const TextInput = ({ id, label, type, value, onChange, ...rest }) => {
 	id = id || labelToId(label)
 	return (
-		<div className={classes.formfield}>
+		<div className={classes.formField}>
 			<label htmlFor={id}>{label}</label>
 			{type === "textarea" ? (
 				<textarea id={id} value={value} onChange={onChangeHandler(onChange)} {...rest}></textarea>

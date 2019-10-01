@@ -72,7 +72,9 @@
   "jest": {
     "bail": 1,
     "moduleNameMapper": {
-      "\\.(css|scss)$": "identity-obj-proxy"
+      "\\.(css|scss)$": "identity-obj-proxy",
+      "^features(.*)$": "<rootDir>/src/features$1",
+      "^ui(.*)$": "<rootDir>/src/features/ui$1"
     }
   }
 }

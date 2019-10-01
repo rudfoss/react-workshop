@@ -48,7 +48,11 @@ module.exports = {
 		path: DIST_FOLDER
 	},
 	resolve: {
-		extensions: [".js", ".jsx"]
+		extensions: [".js", ".jsx"],
+		alias: {
+			features: path.resolve(SRC_FOLDER, "features"),
+			ui: path.resolve(SRC_FOLDER, "features/ui")
+		}
 	},
 	module: {
 		rules: [
