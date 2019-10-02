@@ -14,10 +14,15 @@ export const login = async (username, password) => {
 	const loginResult = await request("post", "login", {
 		username, password
 	})
-	return loginResult
+	return loginResult.data
 }
 
 export const createUser = async (properties) => {
 	const newUser = await request("post", "users", properties)
-	return newUser
+	return newUser.data
+}
+
+export const getRooms = async () => {
+	const rooms = await request("get", "rooms")
+	return rooms.data
 }

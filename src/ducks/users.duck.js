@@ -18,6 +18,7 @@ export const getCreateFailedMessage = (state) => getState(state).createFailedMes
 export const isCreateFailed = (state) => !!getCreateFailedMessage(state)
 
 export const getUser = (state) => getState(state).user
+export const getUserName = (state) => (getUser(state) || {}).name || ""
 export const isAuthenticated = (state) => !!getUser(state)
 export const setLoggedInUser = action("SET_LOGGED_IN_USER")
 

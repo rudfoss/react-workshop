@@ -12,6 +12,8 @@ export const getObjectProp = (state, prop) => getState(state)[prop]
 export const getNumProp = (state, prop) => parseFloat(getState(state)[prop] || 0)
 export const setProp = action("SET_PROP", (name, value) => ({ name, value }))
 
+export const clearUser = action("CLEAR_USER")
+
 export const getNewUser = (state) => (({
 	name, email, password, nickname, age = 0, level = { value: "peon", name: "Peon" }
 }) => ({ name, email, password, nickname, age, level }))(getState(state))
@@ -38,6 +40,19 @@ export const reducer = handleActions({
 	[setProp]: (state, { payload }) => ({
 		...state,
 		[payload.name]: payload.value
+	}),
+	[clearUser]: (state) => ({
+		...state,
+		name: "",
+		email: "",
+		password: "",
+		repeatPassword: "",
+		nickname: "",
+		age: 0,
+		level: {
+			label: "Peon",
+			value: "peon"
+		}
 	})
 }, {})
 

@@ -4,12 +4,13 @@ import PropTypes from "prop-types"
 import classes from "./Button.scss"
 
 export const Button = ({ children, mode, ...props, }) => (
-	<button className={classes.button} data-mode={mode} {...props}>{children}</button>
+	<button {...props} className={`${classes.button} ${props.className || ""}`} data-mode={mode}>{children}</button>
 )
 Button.propTypes = {
 	mode: PropTypes.oneOf([
 		"primary", "secondary", "cancel"
 	]),
+	className: PropTypes.string,
 	children: PropTypes.node
 }
 Button.defaultProps = {

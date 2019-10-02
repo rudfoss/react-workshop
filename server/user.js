@@ -1,12 +1,4 @@
 const users = new Map()
-users.set("test", {
-	name: "test",
-	email: "test@test.com",
-	password: "test",
-	
-
-	_created: Date.now()
-})
 
 const createUser = (name, password, properties) => {
 	const newUser = {
@@ -33,6 +25,10 @@ const tryPassword = (name, password) => {
 	if (!user) return false
 	return user.password === password
 }
+
+createUser("test", "test", {
+	email: "test@test.com"
+})
 
 module.exports = {
 	createUser,

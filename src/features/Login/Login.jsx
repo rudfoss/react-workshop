@@ -1,12 +1,13 @@
 import React, { useState } from "react"
 import PropTypes from "prop-types"
+import { Redirect } from "react-router-dom"
 
 import TextInput from "ui/TextInput"
 import Button from "ui/Button"
 
 import classes from "./Login.scss"
 
-export const Login = ({ loginFailed, failureMessage, onLogin, onCreateUser }) => {
+export const Login = ({ isAuthenticated, loginFailed, failureMessage, onLogin, onCreateUser }) => {
 	const [userPass, setUserPass] = useState({
 		username: "",
 		password: ""
@@ -19,6 +20,10 @@ export const Login = ({ loginFailed, failureMessage, onLogin, onCreateUser }) =>
 	const onSubmit = (evt) => {
 		evt.preventDefault()
 		onLogin(userPass)
+	}
+
+	if (isAuthenticated) {
+		return (<Redirect to="/chat"/>)
 	}
 
 	return (
@@ -47,6 +52,7 @@ export const Login = ({ loginFailed, failureMessage, onLogin, onCreateUser }) =>
 	)
 }
 Login.propTypes = {
+	isAuthenticated: PropTypes.bool,
 	loginFailed: PropTypes.bool,
 	failureMessage: PropTypes.string,
 

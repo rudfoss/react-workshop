@@ -43,7 +43,7 @@ export const CreateUser = ({
 	onPropChange, onCreate
 }) => (
 	<div className={classes.form}>
-		{createSuccess && (<Redirect path="/"/>)}
+		{createSuccess && (<Redirect to="/"/>)}
 		<form onSubmit={onSubmit(onCreate)}>
 			<TextInput label="Name" required value={name} onChange={change(onPropChange, "name")}/>
 			<TextInput label="Email" required value={email} onChange={change(onPropChange, "email")}/>

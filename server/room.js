@@ -2,10 +2,11 @@ const nanoid = require("nanoid")
 
 const rooms = new Map()
 
-const createRoom = (name, hidden = false) => {
+const createRoom = (name, description = "", hidden = false) => {
 	if (rooms.has(name)) return rooms.get(name)
 	const newRoom = {
 		name,
+		description,
 		participants: [],
 		messages: [],
 		hidden
@@ -14,7 +15,7 @@ const createRoom = (name, hidden = false) => {
 	return newRoom
 }
 const getRooms = () => {
-	return Array.from(rooms.values)
+	return Array.from(rooms.values())
 }
 const getRoom = (name) => {
 	return rooms.get(name)
@@ -50,6 +51,9 @@ const sendMessage = (roomName, participantId, message, sentTime) => {
 		message
 	})
 }
+
+createRoom("general", "General chat")
+createRoom("hidden", "Sssshhh! Don't tell anyone")
 
 module.exports = {
 	createRoom,

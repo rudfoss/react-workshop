@@ -1,0 +1,90 @@
+{
+	"redux-duck": {
+		"prefix": "redux-duck",
+		"description": "Duck framework",
+		"body": [
+			"import { createAction, handleActions } from \"redux-actions\"",
+			"",
+			"const _ns = \"${1:namespace}\"",
+			"export const getState = state => state[_ns] || {}",
+			"const action = (actionName, payload) => createAction(_ns+\"/\"+actionName, payload)",
+			"",
+			"${0}",
+			"",
+			"export const reducer = handleActions({",
+			"",
+			"}, {})",
+			"",
+			"export const duck = {",
+			"\tns: _ns,",
+			"\treducer",
+			"}"
+		]
+	},
+	"redux-duck-saga": {
+		"prefix": "redux-duck-saga",
+		"description": "Duck framework with sagas",
+		"body": [
+			"import { createAction, handleActions } from \"redux-actions\"",
+			"import { takeLeading } from \"redux-saga/effects\"",
+			"",
+			"const _ns = \"${1:namespace}\"",
+			"export const getState = state => state[_ns] || {}",
+			"const action = (actionName, payload) => createAction(_ns+\"/\"+actionName, payload)",
+			"",
+			"${0}",
+			"",
+			"export function* saga() {",
+			"",
+			"}",
+			"",
+			"export const reducer = handleActions({",
+			"",
+			"}, {})",
+			"",
+			"export const duck = {",
+			"\tns: _ns,",
+			"\treducer",
+			"\tsaga",
+			"}"
+		]
+	},
+	"react-connect": {
+		"prefix": "react-connect",
+		"description": "React-redux connector",
+		"body": [
+			"import { connect } from \"react-redux\"",
+			"import ${1:component} from \"./${1}\"",
+			"",
+			"import * as ${2:duck} from \"${3:duckpath}/${2}.duck\"",
+			"",
+			"export default connect((state) => ({",
+			"\t${0}",
+			"}), (dispatch) => ({",
+			"\t",
+			"}))(${1})"
+		]
+	},
+	"react-func": {
+		"prefix": "react-func",
+		"description": "Create react functional component",
+		"body": [
+			"import React from \"react\"",
+			"import PropTypes from \"prop-types\"",
+			"",
+			"export const ${1:component} = () => (",
+			"\t${0}",
+			")",
+			"",
+			"export default ${1}"
+		]
+	},
+	"react-index": {
+		"prefix": "react-index",
+		"description": "React index",
+		"body": [
+			"import ${1:component} from \"./${1}\"",
+			"export default ${1}"
+		]
+	}
+}
