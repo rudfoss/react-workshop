@@ -50,7 +50,14 @@ app.get("/rooms/:name", (req, res) => {
 	}
 	res.send(room)
 })
-app.get("/rooms/:name/messages", (req, res) => res.send(rooms.getRoom(req.params.name)))
+app.get("/rooms/:name/messages", (req, res) => {
+	const room = rooms.getRoom(req.params.name)
+	res.send(room ? room.messages : [])
+})
+app.get("/rooms/:name/participants", (req, res) => {
+	const room = rooms.getRoom(req.params.name)
+	res.send(room ? room.participants : [])
+})
 
 app.listen(3011, () => {
 	console.log("Listening for connection")
