@@ -1,11 +1,12 @@
-# VSCode related folders
-.vs
-
 # Node Modules
 node_modules
 
-# Distribution folder
+# Distribution folders
 dist
+dist-dev
 
-# Ignores Parcel cache
-.cache
+# Office temp files
+~$*
+
+# Ignores the coverage report folder from testing
+coverage

@@ -1,0 +1,52 @@
+.button{
+	display: block;
+	font-size: 1.2rem;
+	color: white;
+	cursor: pointer;
+	padding: 12px 32px;
+	border-radius: 24px;
+	border: 0;
+	outline: none;
+	background: linear-gradient(to right, rgba(0, 92, 151, .8) 0%, rgba(54, 55, 149, .8) 51%, rgba(0, 92, 151, .8) 100%);
+	&:hover{
+		background: linear-gradient(to right, rgba(0, 92, 151, .7) 0%, rgba(54, 55, 149, .7) 51%, rgba(0, 92, 151, .7) 100%);
+	}
+	&:focus{
+		background: linear-gradient(to right, rgba(0, 92, 151, 1) 0%, rgba(54, 55, 149, 1) 51%, rgba(0, 92, 151, 1) 100%);
+	}
+	&[data-mode="secondary"]{
+		color: #111;
+		font-size: 1rem;
+		padding: 9px 24px;
+		background: white;
+		border: 2px solid rgba(0, 92, 151, 1);
+		&:hover{
+			background: linear-gradient(to right, rgba(0, 201, 255, .3) 0%, rgba(146, 254, 157, .3) 51%, rgba(0, 201, 255, .3) 100%);
+		}
+		&:focus{
+			background: linear-gradient(to right, rgba(0, 201, 255, .6) 0%, rgba(146, 254, 157, .6) 51%, rgba(0, 201, 255, .6) 100%);
+		}
+	}
+	&[data-mode="cancel"]{
+		background-image: linear-gradient(to right, rgba(229, 57, 53, .8) 0%, rgba(227, 93, 91, .8) 51%, rgba(229, 57, 53, .8) 100%);
+		&:hover{
+			background-image: linear-gradient(to right, rgba(229, 57, 53, .7) 0%, rgba(227, 93, 91, .7) 51%, rgba(229, 57, 53, .7) 100%);
+		}
+		&:focus{
+			background-image: linear-gradient(to right, rgba(229, 57, 53, 1) 0%, rgba(227, 93, 91, 1) 51%, rgba(229, 57, 53, 1) 100%);
+		}
+	}
+	&:disabled{
+		cursor: default;
+		background: #ccc;
+		&[data-mode="secondary"]{
+			border-color: #aaa;
+			background: #efefef;
+			color: #999;
+		}
+	}
+
+	& + button{
+		margin-left: 18px;
+	}
+}

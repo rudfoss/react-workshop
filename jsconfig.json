@@ -1,0 +1,15 @@
+{
+	"compilerOptions": {
+		"baseUrl": "./",
+		"paths": {
+			"features/*": ["src/features/features/*"],
+			"ui/*": ["src/features/ui/*"],
+			"ducks/*": ["src/ducks/*"]
+		}
+	},
+	"exclude": [
+		"node_modules",
+		"dist-dev",
+		"dist"
+	]
+}
