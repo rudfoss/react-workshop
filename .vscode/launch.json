@@ -14,7 +14,7 @@
       "type": "node",
       "request": "launch",
       "name": "Debug Server",
-      "program": "${workspaceFolder}/server/start.js"
+      "program": "${workspaceFolder}/server/server.js"
     }
   ]
 }

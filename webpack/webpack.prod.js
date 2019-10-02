@@ -51,7 +51,8 @@ module.exports = {
 		extensions: [".js", ".jsx"],
 		alias: {
 			features: path.resolve(SRC_FOLDER, "features"),
-			ui: path.resolve(SRC_FOLDER, "features/ui")
+			ui: path.resolve(SRC_FOLDER, "features/ui"),
+			ducks: path.resolve(SRC_FOLDER, "ducks")
 		}
 	},
 	module: {

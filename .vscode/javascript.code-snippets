@@ -44,7 +44,7 @@
 			"",
 			"export const duck = {",
 			"\tns: _ns,",
-			"\treducer",
+			"\treducer,",
 			"\tsaga",
 			"}"
 		]

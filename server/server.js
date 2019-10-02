@@ -42,15 +42,15 @@ app.post("/users", (req, res) => {
 })
 
 app.get("/rooms", (req, res) => res.send(rooms.getRooms()))
-app.get("/rooms/:id", (req, res) => {
-	const room = rooms.getRoom(req.params.id)
+app.get("/rooms/:name", (req, res) => {
+	const room = rooms.getRoom(req.params.name)
 	if (!room) {
 		res.status(404).end()
 		return
 	}
 	res.send(room)
 })
-app.get("/rooms/:id/messages", (req, res) => res.send(rooms.getRoom(req.params.id)))
+app.get("/rooms/:name/messages", (req, res) => res.send(rooms.getRoom(req.params.name)))
 
 app.listen(3011, () => {
 	console.log("Listening for connection")

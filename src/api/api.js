@@ -26,3 +26,8 @@ export const getRooms = async () => {
 	const rooms = await request("get", "rooms")
 	return rooms.data
 }
+
+export const getRoom = async (name) => {
+	const room = await request("get", "rooms/"+name)
+	return room.data
+}

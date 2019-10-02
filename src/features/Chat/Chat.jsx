@@ -3,6 +3,7 @@ import PropTypes from "prop-types"
 import { Switch, Route } from "react-router-dom"
 
 import RoomList from "features/RoomList"
+import Room from "features/Room"
 import NotFound from "features/NotFound"
 
 import Header from "./Header.connector"
@@ -16,6 +17,7 @@ export const Chat = ({ match }) => {
 			<Header/>
 			<Switch>
 				<Route path={subPath()} exact component={RoomList}/>
+				<Route path={subPath(":name")} component={Room}/>
 				<Route component={NotFound}/>
 			</Switch>
 		</div>

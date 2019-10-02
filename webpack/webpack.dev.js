@@ -47,6 +47,7 @@ module.exports = {
 		alias: {
 			features: path.resolve(SRC_FOLDER, "features"),
 			ui: path.resolve(SRC_FOLDER, "features/ui"),
+			ducks: path.resolve(SRC_FOLDER, "ducks"),
 			"react-dom": "@hot-loader/react-dom" // https://github.com/gaearon/react-hot-loader#hot-loaderreact-dom
 		}
 	},

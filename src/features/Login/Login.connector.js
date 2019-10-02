@@ -1,7 +1,7 @@
 import { connect } from "react-redux"
 import Login from "./Login"
 
-import * as users from "../../ducks/users.duck"
+import * as users from "ducks/users.duck"
 import * as newUser from "features/CreateUser/createUser.duck"
 
 export default connect((state) => ({

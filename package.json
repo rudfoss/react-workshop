@@ -74,7 +74,8 @@
     "moduleNameMapper": {
       "\\.(css|scss)$": "identity-obj-proxy",
       "^features(.*)$": "<rootDir>/src/features$1",
-      "^ui(.*)$": "<rootDir>/src/features/ui$1"
+      "^ui(.*)$": "<rootDir>/src/features/ui$1",
+      "^ducks(.*)$": "<rootDir>/src/ducks$1"
     }
   }
 }
