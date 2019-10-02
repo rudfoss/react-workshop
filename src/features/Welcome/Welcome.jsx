@@ -23,15 +23,15 @@ const CHOICES = [
 		value: "king"
 	}
 ]
-const defaultChoice = {
-	label: "Peon",
-	value: "peon"
-}
 
 export const Welcome = () => {
 	const [count, setCount] = useState(0)
 	const [text, setText] = useState("")
-	const [choice, setChoice] = useState(defaultChoice)
+	const [choice, setChoice] = useState({
+		label: "Peon",
+		value: "peon"
+	})
+	
 	return (
 		<div>
 			<h1>Welcome to the React Workshop Chat Application</h1>
