@@ -3,6 +3,9 @@ import PropTypes from "prop-types"
 
 import classes from "./TextInput.scss"
 
+const handleChange = (onChange) => (evt) => {
+	onChange(evt.target.value)
+}
 const labelToId = (label) =>
 	label.replace(/[^a-z0-9-_]/ig, "")
 
@@ -12,13 +15,17 @@ export const TextInput = ({ id, label, type, value, onChange }) => {
 		<div className={classes.formField}>
 			<label htmlFor={id}>{label}</label>
 			{type === "textarea" ? (
-				<div></div>
-			) : (
-				<input
+				<textarea 
 					id={id}
 					type="text"
 					value={value}
-					onChange={(evt) => onChange(evt.target.value)}/>
+					onChange={handleChange(onChange)}></textarea>
+			) : (
+				<input
+					id={id}
+					type={type}
+					value={value}
+					onChange={handleChange(onChange)}/>
 			)}
 		</div>
 	)
