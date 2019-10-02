@@ -12,7 +12,12 @@ export const Welcome = () => {
 			<h1>Welcome to the React Workshop Chat Application</h1>
 			<p><Link to="/login">Please log in to proceeed</Link></p>
 			<MyButton count={count} onClick={() => setCount(count+1)}/>
-			<TextInput value={text} onChange={setText}/>
+			<TextInput value={text} onChange={(newText) => {
+				if (newText.indexOf("e") >= 0){
+					return
+				}
+				setText(newText)
+			}}/>
 		</div>
 	)
 }
