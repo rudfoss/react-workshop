@@ -53,7 +53,7 @@ const sendMessage = (roomName, participantId, message, sentTime) => {
 }
 
 createRoom("general", "General chat")
-createRoom("hidden", "Sssshhh! Don't tell anyone")
+createRoom("hidden", "Sssshhh! Don't tell anyone", true)
 
 module.exports = {
 	createRoom,

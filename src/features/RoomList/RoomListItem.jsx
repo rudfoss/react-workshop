@@ -23,7 +23,7 @@ export const RoomListItem = ({ room, onDeleteRoom }) => (
 		)}
 		<Link to={`/chat/${room.name}`}>
 			<span className={classes.roomName}>
-				<span className={classes.roomName}>{room.name} ({room.participants.length})</span>
+				<span className={classes.roomName}>{room.hidden && ("👻")}{room.name} ({room.participants.length})</span>
 				{room.description && (<span className={classes.roomDesc}>{room.description}</span>)}
 			</span>
 		</Link>

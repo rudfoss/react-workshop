@@ -8,7 +8,7 @@ export const Button = ({ children, mode, ...props, }) => (
 )
 Button.propTypes = {
 	mode: PropTypes.oneOf([
-		"primary", "secondary", "cancel"
+		"primary", "secondary", "abort"
 	]),
 	className: PropTypes.string,
 	children: PropTypes.node

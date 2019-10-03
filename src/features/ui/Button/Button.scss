@@ -27,7 +27,7 @@
 			background: linear-gradient(to right, rgba(0, 201, 255, .6) 0%, rgba(146, 254, 157, .6) 51%, rgba(0, 201, 255, .6) 100%);
 		}
 	}
-	&[data-mode="cancel"]{
+	&[data-mode="abort"]{
 		background-image: linear-gradient(to right, rgba(229, 57, 53, .8) 0%, rgba(227, 93, 91, .8) 51%, rgba(229, 57, 53, .8) 100%);
 		&:hover{
 			background-image: linear-gradient(to right, rgba(229, 57, 53, .7) 0%, rgba(227, 93, 91, .7) 51%, rgba(229, 57, 53, .7) 100%);

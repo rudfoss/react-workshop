@@ -17,7 +17,7 @@ export const Chat = ({ match }) => {
 			<Header/>
 			<Switch>
 				<Route path={subPath()} exact component={RoomList}/>
-				<Route path={subPath(":name")} component={Room}/>
+				<Route path={subPath("/:name")} component={Room}/>
 				<Route component={NotFound}/>
 			</Switch>
 		</div>

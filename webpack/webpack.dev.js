@@ -104,7 +104,9 @@ module.exports = {
 						loader: "css-loader",
 						options: {
 							importLoaders: 2, // How many loaders should be applied to imported resources before this one
-							modules: true
+							modules: {
+								localIdentName: "[path][local]",
+							}
 						}
 					},
 					{

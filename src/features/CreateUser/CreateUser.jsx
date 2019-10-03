@@ -60,7 +60,7 @@ export const CreateUser = ({
 				</p>
 			)}
 			<div className={classes.controls}>
-				<Button type="button" mode="secondary" onClick={() => history.push("/")}>Cancel</Button>
+				<Button type="button" mode="abort" onClick={() => history.push("/")}>Cancel</Button>
 				<Button disabled={!canCreate} onClick={onCreate}>Create user</Button>
 			</div>
 		</form>
