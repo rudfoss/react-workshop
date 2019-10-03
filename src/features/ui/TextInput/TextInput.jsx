@@ -9,19 +9,21 @@ const handleChange = (onChange) => (evt) => {
 const labelToId = (label) =>
 	label.replace(/[^a-z0-9-_]/ig, "")
 
-export const TextInput = ({ id, label, type, value, onChange }) => {
+export const TextInput = ({ id, label, type, value, onChange, ...rest }) => {
 	id = id || labelToId(label)
 	return (
 		<div className={classes.formField}>
 			<label htmlFor={id}>{label}</label>
 			{type === "textarea" ? (
-				<textarea 
+				<textarea
+					{...rest}
 					id={id}
 					type="text"
 					value={value}
 					onChange={handleChange(onChange)}></textarea>
 			) : (
 				<input
+					{...rest}
 					id={id}
 					type={type}
 					value={value}
