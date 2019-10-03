@@ -1,14 +1,11 @@
 import React from "react"
 import { Link } from "react-router-dom"
 
-import CreateUser from "features/CreateUser"
-
 export const Welcome = () => {
 	return (
 		<div>
 			<h1>Welcome to the React Workshop Chat Application</h1>
-			<p><Link to="/login">Please log in to proceeed</Link></p>
-			<CreateUser/>
+			<p><Link to="/login">Please log in to proceeed</Link> or <Link to="/create-user">create a new user</Link></p>
 		</div>
 	)
 }

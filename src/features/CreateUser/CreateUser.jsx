@@ -1,4 +1,5 @@
 import React, { useState } from "react"
+import PropTypes from "prop-types"
 
 import TextInput from "ui/TextInput"
 import NumericInput from "ui/NumericInput"
@@ -33,7 +34,7 @@ import classes from "./CreateUser.scss"
 import RadioInput from "ui/RadioInput"
 import Button from "ui/Button"
 
-export const CreateUser = () => {
+export const CreateUser = ({ history }) => {
 	const [formState, setFormState] = useState({
 		name: "",
 		email: "",
@@ -84,12 +85,17 @@ export const CreateUser = () => {
 					choices={CHOICES}
 					onChange={changeProp(formState, setFormState, "level")}/>
 				<div className={classes.controls}>
-					<Button type="button" mode="secondary" onClick={() => 0}>Cancel</Button>
+					<Button type="button" mode="secondary" onClick={() => history.push("/")}>Cancel</Button>
 					<Button disabled={false} onClick={() => 0}>Create user</Button>
 				</div>
 			</form>
 		</div>
 	)
+}
+CreateUser.propTypes = {
+	history: PropTypes.shape({
+		push: PropTypes.func.isRequired
+	}).isRequired
 }
 
 export default CreateUser
