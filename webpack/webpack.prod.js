@@ -52,7 +52,9 @@ module.exports = {
 		alias: {
 			features: path.resolve(SRC_FOLDER, "features"),
 			ui: path.resolve(SRC_FOLDER, "features/ui"),
-			ducks: path.resolve(SRC_FOLDER, "ducks")
+			ducks: path.resolve(SRC_FOLDER, "ducks"),
+			"react": "preact/compat",
+			"react-dom": "preact/compat",
 		}
 	},
 	module: {
