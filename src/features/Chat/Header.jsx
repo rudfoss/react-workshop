@@ -11,7 +11,7 @@ const historyPush = (path, history) => () => {
 
 export const Header = ({ username, roomName, roomHidden, history, onLogout }) => (
 	<header className={classes.header}>
-		<div>{username}{roomName && (` - ${roomHidden ? "👻" : ""}${roomName}`)}</div>
+		<div>{roomName && (`${roomHidden ? "👻" : ""}${roomName} - `)}{username}</div>
 		<Button className={classes.right} mode="secondary" onClick={historyPush("/chat", history)}>Rooms</Button>
 		<Button mode="secondary" onClick={onLogout}>Log out</Button>
 	</header>
