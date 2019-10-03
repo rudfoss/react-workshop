@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React from "react"
 import PropTypes from "prop-types"
 
 import TextInput from "ui/TextInput"
@@ -23,67 +23,62 @@ const CHOICES = [
 	}
 ]
 
-const changeProp = (currentState, setter, prop) => (newValue) => {
-	setter({
-		...currentState,
-		[prop]: newValue
-	})
-}
-
 import classes from "./CreateUser.scss"
 import RadioInput from "ui/RadioInput"
 import Button from "ui/Button"
 
-export const CreateUser = ({ history }) => {
-	const [formState, setFormState] = useState({
-		name: "",
-		email: "",
-		password: "",
-		retypePassword: "",
-		nickname: "",
-		age: 0,
-		level: CHOICES[0]
-	})
+// (newValue) => onPropChange("name", newValue)
+const change = (onPropChange, prop) => (newValue) => {
+	onPropChange(prop, newValue)
+}
+
+export const CreateUser = ({
+	history,
+	// eslint-disable-next-line react/prop-types
+	name, email, password, retypePassword, nickname, age, level,
+	// eslint-disable-next-line react/prop-types
+	onPropChange
+}) => {
 	return (
 		<div className={classes.form}>
 			<form>
 				<TextInput
 					label="Name"
 					required
-					value={formState.name}
-					onChange={changeProp(formState, setFormState, "name")}/>
+					value={name}
+					onChange={change(onPropChange, "name")}/>
 				<TextInput
 					label="Email"
 					required
-					value={formState.email}
-					onChange={changeProp(formState, setFormState, "email")}/>
+					value={email}
+					onChange={change(onPropChange, "email")}/>
 				<hr/>
 				<TextInput
 					label="Password"
 					type="password"
 					required
-					value={formState.password}
-					onChange={changeProp(formState, setFormState, "password")}/>
+					value={password}
+					onChange={change(onPropChange, "password")}/>
 				<TextInput
 					label="Repeat password"
 					type="password"
 					required
-					value={formState.retypePassword}
-					onChange={changeProp(formState, setFormState, "retypePassword")}/>
+					value={retypePassword}
+					onChange={change(onPropChange, "retypePassword")}/>
 				<hr/>
 				<TextInput
 					label="Nickname"
-					value={formState.nickname}
-					onChange={changeProp(formState, setFormState, "nickname")}/>
+					value={nickname}
+					onChange={change(onPropChange, "nickname")}/>
 				<NumericInput
 					label="Age"
-					value={formState.age}
-					onChange={changeProp(formState, setFormState, "age")}/>
+					value={age}
+					onChange={change(onPropChange, "age")}/>
 				<RadioInput
 					label="Level"
-					value={formState.level}
+					value={level}
 					choices={CHOICES}
-					onChange={changeProp(formState, setFormState, "level")}/>
+					onChange={change(onPropChange, "level")}/>
 				<div className={classes.controls}>
 					<Button type="button" mode="secondary" onClick={() => history.push("/")}>Cancel</Button>
 					<Button disabled={false} onClick={() => 0}>Create user</Button>
