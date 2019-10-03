@@ -11,7 +11,8 @@
     "test:coverage": "jest --coverage",
     "test:watch": "jest --watch",
     "test": "jest",
-    "lint": "eslint --color src"
+    "lint": "eslint --color src",
+    "serve": "serve ./dist"
   },
   "repository": {
     "type": "git",
@@ -51,6 +52,7 @@
     "rimraf": "^3.0.0",
     "sass": "^1.22.12",
     "sass-loader": "^8.0.0",
+    "serve": "^11.2.0",
     "style-loader": "^1.0.0",
     "terser-webpack-plugin": "^2.1.2",
     "webpack": "^4.41.0",
