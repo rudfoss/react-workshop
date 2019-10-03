@@ -40,3 +40,6 @@ export const getParticipantsByRoom = async (name) => {
 	const participants = await request("get", "rooms/"+name+"/participants")
 	return participants.data
 }
+export const sendMessageToRoom = async (name, message) => {
+	await request("post", `rooms/${name}/messages`, message)
+}

@@ -9,9 +9,9 @@ const historyPush = (path, history) => () => {
 	history.push(path)
 }
 
-export const Header = ({ username, roomName, roomParticipants, history, onLogout }) => (
+export const Header = ({ username, roomName, roomHidden, history, onLogout }) => (
 	<header className={classes.header}>
-		<div>{username}{roomName && (` - ${roomName} (${roomParticipants})`)}</div>
+		<div>{username}{roomName && (` - ${roomHidden ? "👻" : ""}${roomName}`)}</div>
 		<Button className={classes.right} mode="secondary" onClick={historyPush("/chat", history)}>Rooms</Button>
 		<Button mode="secondary" onClick={onLogout}>Log out</Button>
 	</header>
@@ -19,7 +19,7 @@ export const Header = ({ username, roomName, roomParticipants, history, onLogout
 Header.propTypes = {
 	username: PropTypes.string.isRequired,
 	roomName: PropTypes.string,
-	roomParticipants: PropTypes.number,
+	roomHidden: PropTypes.bool,
 	history: PropTypes.shape({
 		push: PropTypes.func.isRequired
 	}).isRequired,

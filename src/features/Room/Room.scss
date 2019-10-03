@@ -10,14 +10,15 @@
 	flex: 0 0 150px;
 	list-style: none;
 	margin: 0;
-	padding: 0;
+	padding: 12px;
+	border-right: 1px solid #ccc;
 }
 .messages{
 	flex: 1;
 	padding: 12px;
 	list-style: none;
 	margin: 0;
-	padding: 0;
+	padding: 12px;
 }
 .chat{
 	flex: 0 0 100px;

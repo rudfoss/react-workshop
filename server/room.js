@@ -1,5 +1,3 @@
-const nanoid = require("nanoid")
-
 const rooms = new Map()
 
 const createRoom = (name, description = "", hidden = false) => {
@@ -7,7 +5,6 @@ const createRoom = (name, description = "", hidden = false) => {
 	const newRoom = {
 		name,
 		description,
-		participants: [],
 		messages: [],
 		hidden
 	}
@@ -28,30 +25,6 @@ const deleteRoom = (name) => {
 	rooms.delete(name)
 }
 
-const addParticipant = (roomName, participantId) => {
-	const room = getRoom(roomName)
-	if (!room) return
-	if (room.participants.indexOf(participantId) >= 0) return
-	room.participants.push(participantId)
-}
-const removeParticipant = (roomName, participantId) => {
-	const room = getRoom(roomName)
-	if (!room) return
-	room.participants = room.participants.filter((currentParticipant) => currentParticipant !== participantId)
-}
-
-const sendMessage = (roomName, participantId, message, sentTime) => {
-	sentTime = sentTime || Date.now()
-	const room = getRoom(roomName)
-	if (!room) return
-	room.messages.push({
-		id: nanoid(),
-		sent: sentTime,
-		author: participantId,
-		message
-	})
-}
-
 createRoom("general", "General chat")
 createRoom("hidden", "Sssshhh! Don't tell anyone", true)
 
@@ -60,9 +33,5 @@ module.exports = {
 	getRooms,
 	getRoom,
 	getMessages,
-	deleteRoom,
-
-	addParticipant,
-	removeParticipant,
-	sendMessage
+	deleteRoom
 }

@@ -1,3 +1,4 @@
+const nanoid = require("nanoid")
 const express = require("express")
 const bodyParser = require("body-parser")
 const cors = require("cors")
@@ -8,6 +9,10 @@ const users = require("./user")
 const app = express()
 app.use(cors())
 app.use(bodyParser.json())
+app.use((req, res, next) => {
+	res.set("Cache-Control", "no-cache, no-store")
+	next()
+})
 
 app.get("/", (req, res) => res.send({ now: Date.now() }))
 
@@ -54,9 +59,18 @@ app.get("/rooms/:name/messages", (req, res) => {
 	const room = rooms.getRoom(req.params.name)
 	res.send(room ? room.messages : [])
 })
-app.get("/rooms/:name/participants", (req, res) => {
+app.post("/rooms/:name/messages", (req, res) => {
 	const room = rooms.getRoom(req.params.name)
-	res.send(room ? room.participants : [])
+	if (!room) {
+		res.status(404).send("Room not found")
+		return
+	}
+	room.messages.push({
+		id: nanoid(),
+		sent: Date.now(),
+		...req.body
+	})
+	res.send(204)
 })
 
 app.listen(3011, () => {
