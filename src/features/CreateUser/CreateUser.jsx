@@ -88,9 +88,9 @@ export const CreateUser = ({
 	)
 }
 CreateUser.propTypes = {
-	history: PropTypes.shape({
-		push: PropTypes.func.isRequired
-	}).isRequired
+	// history: PropTypes.shape({
+	// 	push: PropTypes.func.isRequired
+	// }).isRequired
 }
 
 export default CreateUser

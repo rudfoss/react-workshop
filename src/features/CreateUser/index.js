@@ -1,2 +1,2 @@
-import CreateUser from "./CreateUser"
+import CreateUser from "./CreateUser.connector"
 export default CreateUser
