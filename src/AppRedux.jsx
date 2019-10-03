@@ -1,18 +1,10 @@
 import React from "react"
-import { createStore } from "redux"
 import { Provider } from "react-redux"
+import { createStore } from "./store/createStore2"
 
 import CreateUser from "features/CreateUser"
 
-const store = createStore((state, action) => {
-	if (action.type === "changeProp"){
-		return {
-			...state,
-			[action.payload.prop]: action.payload.newValue
-		}
-	}
-	return state
-}, {
+const INITIAL_STATE = {
 	name: "hello world",
 	email: "",
 	password: "",
@@ -23,20 +15,20 @@ const store = createStore((state, action) => {
 		label: "Peon",
 		value: "peon"
 	}
-})
+}
 
 import "./App.global.scss"
 
 export class AppRedux extends React.PureComponent{
 	constructor(props) {
 		super(props)
-		this.store = store
+		this.store = createStore(INITIAL_STATE)
 		window.app = this
 	}
-	
+
 	render() {
 		return (
-			<Provider store={store}>
+			<Provider store={this.store}>
 				<CreateUser/>
 			</Provider>
 		)
