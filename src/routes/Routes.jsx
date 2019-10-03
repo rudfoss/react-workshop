@@ -8,6 +8,7 @@ export const Routes = () => (
 	<Switch>
 		<Route path="/" exact component={Welcome}/>
 		<Route path="/create-user" component={CreateUser}/>
+		<Route render={() => <h1>Not found</h1>}/>
 	</Switch>
 )
 
