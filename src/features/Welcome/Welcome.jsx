@@ -3,6 +3,7 @@ import { Link } from "react-router-dom"
 
 import { MyButton } from "../../MyButton"
 import TextInput from "ui/TextInput"
+import RadioInput from "ui/RadioInput"
 import NumericInput from "ui/NumericInput"
 
 const CHOICES = [
@@ -39,7 +40,7 @@ export const Welcome = () => {
 			<MyButton count={count} onClick={() => setCount(count+1)}/>
 			<TextInput type="password" label="Text" value={text} onChange={setText}/>
 			<NumericInput label="Counter" value={count} onChange={setCount}/>
-			<RadioInput choices={CHOICES} value={choice} onChange={setChoice}/>
+			<RadioInput label="Radios" choices={CHOICES} value={choice} onChange={setChoice}/>
 		</div>
 	)
 }
