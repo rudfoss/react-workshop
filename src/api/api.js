@@ -32,6 +32,10 @@ export const getRoom = async (name) => {
 	return room.data
 }
 
+export const createRoom = async (name, properties) => {
+	return request("post", "rooms/"+name, properties)
+}
+
 export const getMessagesByRoom = async (name) => {
 	const messages = await request("get", "rooms/"+name+"/messages")
 	return messages.data

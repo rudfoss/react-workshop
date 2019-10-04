@@ -55,6 +55,12 @@ app.get("/rooms/:name", (req, res) => {
 	}
 	res.send(room)
 })
+app.post("/rooms/:name", (req, res) => {
+	const roomName = req.params.name
+	const { description = "", hidden = false } = req.body 
+	rooms.createRoom(roomName, description, hidden)
+	res.status(204).end()
+})
 app.get("/rooms/:name/messages", (req, res) => {
 	const room = rooms.getRoom(req.params.name)
 	res.send(room ? room.messages : [])
@@ -70,7 +76,7 @@ app.post("/rooms/:name/messages", (req, res) => {
 		sent: Date.now(),
 		...req.body
 	})
-	res.send(204)
+	res.status(204).end()
 })
 
 app.listen(3011, () => {

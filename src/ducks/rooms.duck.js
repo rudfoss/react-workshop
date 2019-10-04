@@ -16,8 +16,15 @@ function* fetchRoomsSaga() {
 	yield put(setRooms(rooms))
 }
 
+export const createRoom = action("CREATE_ROOM")
+function* createRoomSaga({ payload }) {
+	yield call(api.createRoom, payload)
+	yield put(fetchRooms())
+}
+
 export function* saga() {
 	yield takeLeading(fetchRooms, fetchRoomsSaga)
+	yield takeLeading(createRoom, createRoomSaga)
 }
 
 export const reducer = handleActions({

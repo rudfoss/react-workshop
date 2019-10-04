@@ -4,7 +4,6 @@ import { Switch, Route, Redirect } from "react-router-dom"
 
 import RoomList from "features/RoomList"
 import Room from "features/Room"
-import CreateRoom from "features/CreateRoom"
 import NotFound from "features/NotFound"
 
 import Header from "./Header.connector"
@@ -20,9 +19,8 @@ export const Chat = ({ isAuthenticated, match }) => {
 		<div className={classes.chat}>
 			<Header/>
 			<Switch>
-				<Route path={subPath()} exact component={RoomList}/>
-				<Route path={subPath("/new-room")} component={CreateRoom}/>
 				<Route path={subPath("/:name")} component={Room}/>
+				<Route path={subPath()} component={RoomList}/>
 				<Route component={NotFound}/>
 			</Switch>
 		</div>

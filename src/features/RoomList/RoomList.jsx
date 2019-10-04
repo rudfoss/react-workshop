@@ -2,10 +2,11 @@ import React, { useEffect } from "react"
 import PropTypes from "prop-types"
 
 import RoomListItem from "./RoomListItem"
+import CreateRoom from "./CreateRoom"
 
 import classes from "./RoomList.scss"
 
-export const RoomList = ({ rooms, onRefreshRooms, onDeleteRoom }) => {
+export const RoomList = ({ rooms, onCreateRoom, onRefreshRooms, onDeleteRoom }) => {
 	useEffect(() => {
 		onRefreshRooms()
 	}, [])
@@ -19,6 +20,7 @@ export const RoomList = ({ rooms, onRefreshRooms, onDeleteRoom }) => {
 					<li>No rooms</li>
 				)}
 			</ul>
+			<CreateRoom onCreate={onCreateRoom}/>
 		</div>
 	)
 }
@@ -30,7 +32,8 @@ RoomList.propTypes = {
 		hidden: PropTypes.bool
 	})),
 
-	onRefreshRooms: PropTypes.func,
+	onCreateRoom: PropTypes.func.isRequired,
+	onRefreshRooms: PropTypes.func.isRequired,
 	onDeleteRoom: PropTypes.func
 }
 RoomList.defaultProps = {

@@ -1,6 +1,7 @@
 .container{
 	display: flex;
-	justify-content: center;
+	align-items: center;
+	flex-direction: column;
 	padding-top: 24px;
 }
 .roomList{
@@ -9,6 +10,7 @@
 	align-items: center;
 	width: 500px;
 	list-style: none;
-	margin: 0;
-	padding: 0;
+	margin: 0 0 32px 0;
+	border-bottom: 1px dashed #ccc;
+	padding: 0 0 32px 0;
 }
