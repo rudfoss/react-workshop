@@ -1,16 +1,16 @@
 import { connect } from "react-redux"
 import CreateUser from "./CreateUser"
 
-import { changeProp } from "../../store/actions"
+import * as createUserDucks from "../../store/createUser.duck"
 
 export default connect((state) => {
 	return {
-		...state
+		...createUserDucks.getCreateUserState(state)
 	}
 }, (dispatch) => {
 	return {
 		onPropChange: (prop, newValue) => {
-			dispatch(changeProp(prop, newValue))
+			dispatch(createUserDucks.changeProp(prop, newValue))
 		}
 	}
 })(CreateUser)

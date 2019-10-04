@@ -5,15 +5,17 @@ import { createStore } from "./store/createStore2"
 import CreateUser from "features/CreateUser"
 
 const INITIAL_STATE = {
-	name: "hello world",
-	email: "",
-	password: "",
-	retypePassword: "",
-	nickname: "",
-	age: 0,
-	level: {
-		label: "Peon",
-		value: "peon"
+	createUser: {
+		name: "hello world",
+		email: "",
+		password: "",
+		retypePassword: "",
+		nickname: "",
+		age: 0,
+		level: {
+			label: "Peon",
+			value: "peon"
+		}
 	}
 }
 
