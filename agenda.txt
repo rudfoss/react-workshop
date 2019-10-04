@@ -35,6 +35,11 @@ Create reducers to control new-user form
 Connectors
 
 Day 3:
+Refactor actions and reducers into createAction and handleActions
+Move into createUser.duck
+Fill out createUser.duck
 Ducks
 Code structure
-Build-build-build
+Create login form (task)
+-lunch-
+Review login form

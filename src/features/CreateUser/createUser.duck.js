@@ -2,16 +2,22 @@ import { createAction, handleActions } from "redux-actions"
 import { takeLeading, select, put } from "redux-saga/effects"
 import * as usersDucks from "../../ducks/users.duck"
 
-
 const _ns = "createUser"
 export const getState = state => state[_ns] || {}
 const action = (actionName, payload) => createAction(_ns+"/"+actionName, payload)
 
-export const getStringProp = (state, prop) => getState(state)[prop] || ""
-export const getObjectProp = (state, prop) => getState(state)[prop]
-export const getNumProp = (state, prop) => parseFloat(getState(state)[prop] || 0)
-export const setProp = action("SET_PROP", (name, value) => ({ name, value }))
+export const getName = (state) => getState(state).name || ""
+export const getEmail = (state) => getState(state).email || ""
+export const getPassword = (state) => getState(state).password || ""
+export const getRepeatPassword = (state) => getState(state).repeatPassword || ""
+export const getNickname = (state) => getState(state).nickname || ""
+export const getAge = (state) => getState(state).age || 0
+export const getLevel = (state) => getState(state).level || {
+	label: "Peon",
+	value: "Peon"
+}
 
+export const setProp = action("SET_PROP", (name, value) => ({ name, value }))
 export const clearUser = action("CLEAR_USER")
 
 export const getNewUser = (state) => (({

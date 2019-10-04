@@ -5,13 +5,13 @@ import * as createUserDuck from "./createUser.duck"
 import * as usersDuck from "ducks/users.duck"
 
 export default connect((state) => ({
-	name: createUserDuck.getStringProp(state, "name"),
-	email: createUserDuck.getStringProp(state, "email"),
-	password: createUserDuck.getStringProp(state, "password"),
-	repeatPassword: createUserDuck.getStringProp(state, "repeatPassword"),
-	nickname: createUserDuck.getStringProp(state, "nickname"),
-	age: createUserDuck.getNumProp(state, "age"),
-	level: createUserDuck.getObjectProp(state, "level"),
+	name: createUserDuck.getName(state),
+	email: createUserDuck.getEmail(state),
+	password: createUserDuck.getPassword(state),
+	repeatPassword: createUserDuck.getRepeatPassword(state),
+	nickname: createUserDuck.getNickname(state),
+	age: createUserDuck.getAge(state),
+	level: createUserDuck.getLevel(state),
 
 	canCreate: createUserDuck.isValid(state),
 	createFailed: usersDuck.isCreateFailed(state),

@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React from "react"
 import PropTypes from "prop-types"
 import { Redirect } from "react-router-dom"
 
@@ -7,19 +7,14 @@ import Button from "ui/Button"
 
 import classes from "./Login.scss"
 
-export const Login = ({ isAuthenticated, loginFailed, failureMessage, onLogin, onCreateUser }) => {
-	const [userPass, setUserPass] = useState({
-		username: "",
-		password: ""
-	})
-
-	const changeProp = (prop) => (newValue) => setUserPass({
-		...userPass,
-		[prop]: newValue
-	})
+export const Login = ({
+	username, password,
+	onSetUsername, onSetPassword,
+	isAuthenticated, loginFailed, failureMessage, onLogin, onCreateUser
+}) => {
 	const onSubmit = (evt) => {
 		evt.preventDefault()
-		onLogin(userPass)
+		onLogin()
 	}
 
 	if (isAuthenticated) {
@@ -31,13 +26,13 @@ export const Login = ({ isAuthenticated, loginFailed, failureMessage, onLogin, o
 			<form onSubmit={onSubmit}>
 				<TextInput
 					label="User name"
-					value={userPass.username}
-					onChange={changeProp("username")}/>
+					value={username}
+					onChange={onSetUsername}/>
 				<TextInput
 					label="Password"
-					value={userPass.password}
+					value={password}
 					type="password"
-					onChange={changeProp("password")}/>
+					onChange={onSetPassword}/>
 				{loginFailed && (
 					<p className={classes.failureMessage}>
 						{failureMessage}
@@ -52,10 +47,15 @@ export const Login = ({ isAuthenticated, loginFailed, failureMessage, onLogin, o
 	)
 }
 Login.propTypes = {
+	username: PropTypes.string,
+	password: PropTypes.string,
+	
 	isAuthenticated: PropTypes.bool,
 	loginFailed: PropTypes.bool,
 	failureMessage: PropTypes.string,
 
+	onSetUsername: PropTypes.func.isRequired,
+	onSetPassword: PropTypes.func.isRequired,
 	onLogin: PropTypes.func.isRequired,
 	onCreateUser: PropTypes.func.isRequired
 }
