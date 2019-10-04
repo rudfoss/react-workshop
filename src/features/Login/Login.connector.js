@@ -9,7 +9,5 @@ export default connect((state) => ({
 }), (dispatch) => ({
 	onSetUsername: (newUsername) => dispatch(loginDuck.setUsername(newUsername)),
 	onSetPassword: (newPassword) => dispatch(loginDuck.setPassword(newPassword)),
-	onLogin: () => {
-
-	}
+	onLogin: () => dispatch(loginDuck.loginUser())
 }))(Login)

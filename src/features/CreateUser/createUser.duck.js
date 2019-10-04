@@ -35,6 +35,7 @@ export const reducer = handleActions({
 	})
 }, {})
 
-export default {
-	[_ns]: reducer
+export const duck = {
+	ns: _ns,
+	reducer
 }

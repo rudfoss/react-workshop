@@ -1,6 +1,6 @@
 import { applyMiddleware, compose as reduxCompose, createStore as reduxCreateStore, combineReducers } from "redux"
 import createSagaMiddleware from "redux-saga"
-import { ducks } from "../ducks"
+import { ducks } from "ducks"
 
 export const createStore = (initialState = {}) => {
 	const compose = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || reduxCompose

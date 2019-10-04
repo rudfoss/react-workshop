@@ -1,5 +1,5 @@
 import { createElement } from "react"
 import { render } from "react-dom"
-import AppRedux from "./AppRedux"
+import App from "./App"
 
-render(createElement(AppRedux), document.getElementById("app"))
+render(createElement(App), document.getElementById("app"))

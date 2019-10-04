@@ -9,6 +9,8 @@ export const setPassword = action("SET_PASSWORD")
 export const getUsername = (state) => getState(state).username || ""
 export const getPassword = (state) => getState(state).password || ""
 
+export const loginUser = action("LOGIN_USER")
+
 export const reducer = handleActions({
 	[setUsername]: (state, { payload }) => ({
 		...state,
