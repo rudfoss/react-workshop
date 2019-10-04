@@ -1,22 +1,27 @@
 import React from "react"
 import PropTypes from "prop-types"
-import { Switch, Route } from "react-router-dom"
+import { Switch, Route, Redirect } from "react-router-dom"
 
 import RoomList from "features/RoomList"
 import Room from "features/Room"
+import CreateRoom from "features/CreateRoom"
 import NotFound from "features/NotFound"
 
 import Header from "./Header.connector"
 
 import classes from "./Chat.scss"
 
-export const Chat = ({ match }) => {
+export const Chat = ({ isAuthenticated, match }) => {
 	const subPath = (path = "/") => `${match.url}${path}`
+	if (!isAuthenticated) {
+		return (<Redirect to="/login"/>)
+	}
 	return (
 		<div className={classes.chat}>
 			<Header/>
 			<Switch>
 				<Route path={subPath()} exact component={RoomList}/>
+				<Route path={subPath("/new-room")} component={CreateRoom}/>
 				<Route path={subPath("/:name")} component={Room}/>
 				<Route component={NotFound}/>
 			</Switch>
@@ -24,7 +29,8 @@ export const Chat = ({ match }) => {
 	)
 }
 Chat.propTypes = {
-	match: PropTypes.any
+	match: PropTypes.any,
+	isAuthenticated: PropTypes.bool
 }
 
 export default Chat

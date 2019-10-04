@@ -1,2 +1,2 @@
-import Chat from "./Chat"
+import Chat from "./Chat.connector"
 export default Chat
