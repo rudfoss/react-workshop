@@ -92,6 +92,14 @@ module.exports = {
 					},
 					"css-loader",
 					{
+						loader: "postcss-loader",
+						options: {
+							plugins: [
+								autoprefixer
+							]
+						}
+					},
+					{
 						loader: "sass-loader",
 						options: {
 							sassOptions: {
