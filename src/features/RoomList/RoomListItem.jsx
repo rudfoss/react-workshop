@@ -2,25 +2,10 @@ import React from "react"
 import PropTypes from "prop-types"
 import { Link } from "react-router-dom"
 
-import Button from "ui/Button/Button"
-
 import classes from "./RoomListItem.scss"
 
-const confirmAction = (message, onConfirm) => (...args) => {
-	if (confirm(message)) {
-		onConfirm(...args)
-	}
-}
-
-export const RoomListItem = ({ room, onDeleteRoom }) => (
+export const RoomListItem = ({ room }) => (
 	<li className={classes.room}>
-		{onDeleteRoom && (
-			<Button
-				mode="secondary"
-				onClick={confirmAction(`Really delete "${room.name}"?`, onDeleteRoom)}>
-				Delete
-			</Button>
-		)}
 		<Link to={`/chat/${room.name}`}>
 			<span className={classes.roomName}>
 				<span className={classes.roomName}>{room.hidden && ("👻")}{room.name}</span>
@@ -34,9 +19,7 @@ RoomListItem.propTypes = {
 		name: PropTypes.string.isRequired,
 		description: PropTypes.string,
 		hidden: PropTypes.bool
-	}).isRequired,
-
-	onDeleteRoom: PropTypes.func
+	}).isRequired
 }
 
 export default RoomListItem

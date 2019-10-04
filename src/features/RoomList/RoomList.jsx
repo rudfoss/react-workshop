@@ -1,12 +1,11 @@
 import React, { useEffect } from "react"
 import PropTypes from "prop-types"
 
-import Button from "ui/Button/Button"
 import RoomListItem from "./RoomListItem"
 
 import classes from "./RoomList.scss"
 
-export const RoomList = ({ rooms, onRefreshRooms, onCreateRoom, onDeleteRoom }) => {
+export const RoomList = ({ rooms, onRefreshRooms, onDeleteRoom }) => {
 	useEffect(() => {
 		onRefreshRooms()
 	}, [])
@@ -20,11 +19,6 @@ export const RoomList = ({ rooms, onRefreshRooms, onCreateRoom, onDeleteRoom }) 
 					<li>No rooms</li>
 				)}
 			</ul>
-			{onCreateRoom && (
-				<div>
-					<Button type="button" onClick={onCreateRoom}>Create room</Button>
-				</div>
-			)}
 		</div>
 	)
 }
@@ -36,7 +30,6 @@ RoomList.propTypes = {
 		hidden: PropTypes.bool
 	})),
 
-	onCreateRoom: PropTypes.func,
 	onRefreshRooms: PropTypes.func,
 	onDeleteRoom: PropTypes.func
 }
