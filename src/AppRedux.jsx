@@ -1,8 +1,9 @@
 import React from "react"
 import { Provider } from "react-redux"
 import { createStore } from "./store/createStore2"
+import { BrowserRouter } from "react-router-dom"
 
-import CreateUser from "features/CreateUser"
+import Routes from "./routes"
 
 const INITIAL_STATE = {}
 
@@ -18,7 +19,9 @@ export class AppRedux extends React.PureComponent{
 	render() {
 		return (
 			<Provider store={this.store}>
-				<CreateUser/>
+				<BrowserRouter>
+					<Routes/>
+				</BrowserRouter>
 			</Provider>
 		)
 	}
