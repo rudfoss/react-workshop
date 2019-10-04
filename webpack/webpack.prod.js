@@ -5,7 +5,7 @@ const MiniCSSExtractPlugin = require("mini-css-extract-plugin")
 const OptimizeCssAssetsPlugin = require("optimize-css-assets-webpack-plugin")
 const TerserPlugin = require("terser-webpack-plugin")
 
-const CACHE = true // Control caching for all rules/plugins and optimizers
+const CACHE = false // Control caching for all rules/plugins and optimizers
 
 const ROOT_FOLDER = path.resolve(__dirname, "../")
 const SRC_FOLDER = path.resolve(ROOT_FOLDER, "src")
@@ -88,6 +88,14 @@ module.exports = {
 				use: [
 					{
 						loader: MiniCSSExtractPlugin.loader
+					},
+					{
+						loader: "postcss-loader",
+						options: {
+							plugins: [
+								autoprefixer
+							]
+						}
 					},
 					"css-loader",
 					{
