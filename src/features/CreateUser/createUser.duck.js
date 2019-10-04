@@ -1,6 +1,6 @@
 import { createAction, handleActions } from "redux-actions"
 import { takeLeading, select, put } from "redux-saga/effects"
-import * as usersDucks from "../../ducks/users.duck"
+import * as usersDucks from "ducks/users.duck"
 
 const _ns = "createUser"
 export const getState = state => state[_ns] || {}
