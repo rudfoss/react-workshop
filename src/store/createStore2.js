@@ -1,5 +1,5 @@
 import { createStore as reduxCreateStore, compose as reduxCompose, combineReducers } from "redux"
-import createUserDuck from "./createUser.duck"
+import createUserDuck from "features/CreateUser/createUser.duck"
 
 const combinedReducer = combineReducers({
 	...createUserDuck

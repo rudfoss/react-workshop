@@ -1,7 +1,7 @@
 import { connect } from "react-redux"
 import CreateUser from "./CreateUser"
 
-import * as createUserDucks from "../../store/createUser.duck"
+import * as createUserDucks from "./createUser.duck"
 
 export default connect((state) => ({
 	name: createUserDucks.getName(state),
