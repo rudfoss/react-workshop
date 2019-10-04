@@ -34,9 +34,8 @@ const change = (onPropChange, prop) => (newValue) => {
 
 export const CreateUser = ({
 	history,
-	// eslint-disable-next-line react/prop-types
 	name, email, password, retypePassword, nickname, age, level,
-	// eslint-disable-next-line react/prop-types
+	isValid,
 	onPropChange
 }) => {
 	return (
@@ -81,7 +80,7 @@ export const CreateUser = ({
 					onChange={change(onPropChange, "level")}/>
 				<div className={classes.controls}>
 					<Button type="button" mode="secondary" onClick={() => history.push("/")}>Cancel</Button>
-					<Button disabled={false} onClick={() => 0}>Create user</Button>
+					<Button disabled={!isValid} onClick={() => 0}>Create user</Button>
 				</div>
 			</form>
 		</div>

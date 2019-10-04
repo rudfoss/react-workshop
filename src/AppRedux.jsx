@@ -4,20 +4,7 @@ import { createStore } from "./store/createStore2"
 
 import CreateUser from "features/CreateUser"
 
-const INITIAL_STATE = {
-	createUser: {
-		name: "hello world",
-		email: "",
-		password: "",
-		retypePassword: "",
-		nickname: "",
-		age: 0,
-		level: {
-			label: "Peon",
-			value: "peon"
-		}
-	}
-}
+const INITIAL_STATE = {}
 
 import "./App.global.scss"
 
