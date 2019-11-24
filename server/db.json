@@ -1,0 +1,72 @@
+{
+	"chats": [
+		{
+			"id": "33c2c826-ae88-4fa8-927f-701fd1243107",
+			"userId": "bbc39d87-a530-4a03-9a48-c048bde34465",
+			"message": "I told you. I don’t want to join your super secret boy band."
+		},
+		{
+			"id": "dd09c93e-ea45-436a-8c74-977e11dde8ce",
+			"userId": "c5df558b-4875-4793-a512-35ac05b3ae45",
+			"message": "HULK SMASH!"
+		},
+		{
+			"id": "606532ae-041b-424e-82e8-ff946d43da9b",
+			"userId": "24f00893-f792-4c01-aeef-771f11e804e3",
+			"message": "Well, I tried to start a revolution, but I didn't print enough pamphlets..."
+		},
+		{
+			"id": "dd09c93e-ea45-436a-8c74-977e11dde8ce",
+			"userId": "c5df558b-4875-4793-a512-35ac05b3ae45",
+			"message": "HULK SMASH!!"
+		},
+		{
+			"id": "221472f2-fb06-4f09-bd19-69759cb79f4d",
+			"userId": "24f00893-f792-4c01-aeef-771f11e804e3",
+			"message": "There was one time my brother transformed himself into a snake because he knows how much I like snakes, and so I picked the snake up to admire it, but then he turned back and went 'AAHH! It's me!' And then he stabbed me."
+		},
+		{
+			"id": "dd09c93e-ea45-436a-8c74-977e11dde8ce",
+			"userId": "c5df558b-4875-4793-a512-35ac05b3ae45",
+			"message": "HULK SMASH!!!"
+		}
+	],
+	"users": [
+		{
+			"id": "bbc39d87-a530-4a03-9a48-c048bde34465",
+			"name": "Tony Stark",
+			"role": "admin",
+			"password": "Iron Man"
+		},
+		{
+			"id": "c5df558b-4875-4793-a512-35ac05b3ae45",
+			"name": "Bruce Banner",
+			"role": "admin",
+			"password": "Strongest Avenger"
+		},
+		{
+			"id": "24f00893-f792-4c01-aeef-771f11e804e3",
+			"name": "Thor",
+			"role": "user",
+			"password": "Point Break"
+		},
+		{
+			"id": "4313de20-0219-4873-ad5e-81a2bdcfcc92",
+			"name": "Steve Rogers",
+			"role": "user",
+			"password": "Isicle"
+		},
+		{
+			"id": "98ef08c4-2a80-434f-ae66-df9a80e188a8",
+			"name": "Natasha Romanov",
+			"role": "user",
+			"password": "Black Widow"
+		},
+		{
+			"id": "99c12f4b-9b8f-4229-8a95-cd52a826f24e",
+			"name": "Wendy Lawson",
+			"role": "user",
+			"password": "Marvel"
+		}
+	]
+}

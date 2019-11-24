@@ -1,3 +1,5 @@
+// This config is for jest, the one in webpack config files is for the builds.
+
 module.exports = {
 	presets: [
 		// Adds dynamic imports of the necessary polyfills (see .browserslistrc for spec)
