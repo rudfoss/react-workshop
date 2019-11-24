@@ -3,7 +3,7 @@ import PropTypes from "prop-types"
 
 import classes from "./Button.scss"
 
-export const Button = ({ children, mode, ...props, }) => (
+export const Button = ({ children, mode, ...props }) => (
 	<button {...props} className={`${classes.button} ${props.className}`} data-mode={mode}>{children}</button>
 )
 Button.propTypes = {
