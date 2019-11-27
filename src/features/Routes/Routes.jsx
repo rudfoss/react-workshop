@@ -4,7 +4,7 @@ import { Route, Switch } from "react-router"
 import Home from "features/Home"
 import NotFound from "features/NotFound"
 
-import Increment from "../Increment/Increment"
+import Increment from "features/Increment"
 
 export const Routes = () => (
 	<Switch>
