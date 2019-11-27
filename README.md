@@ -2,31 +2,34 @@
 This is the code used in the course **Robust web applications with React/Redux**.
 
 ## Getting started
-Prerequisites:
+**Prerequisites**
 
-- [VSCode](https://code.visualstudio.com/)
 - [Node.js](https://nodejs.org/en/)
 - [Git](https://git-scm.com/downloads)
 
-Once you have the necessary tools you can clone the repository to a working directory on your machine by running:
 
-```
-git clone https://github.com/rudfoss/react-workshop.git ./
-```
-
-The clean project without any code files (yet) should now be on your machine. You can now open VSCode in that folder by running `code .` from the terminal.
-
-The last thing we need to do before staring is to install all the necessary dependencies. Open a terminal in your project root folder and run:
-```
-npm install
+Open a terminal and clone this repository into a local folder.
+```bash
+git clone https://github.com/rudfoss/react-workshop.git
 ```
 
-## Server
-Server is implemented using [json-server](https://github.com/typicode/json-server). Start it by running `npm run rest`. The database can be found in the folder `server`.
+The last thing we need to do before we begin is to install all the necessary dependencies. Open a terminal in your project root folder and run:
+```bash
+npm i # short for npm install
+```
 
-## VSCode extensions
-Allthough these are not technically required you might consider installing some of these extensions. You can find them by searcing for them by name in the Extensions palette in VSCode
+## Recommended tools
+Throughout the course we will be using [Visual Studio Code](https://code.visualstudio.com/). You are free to use any IDE you like, but the project is set up with some additional tools that will seamlessly integrate with VSCode should you decide to use it.
+
+If you are using VSCode you should also consider installing these extensions:
 
 - ESLint
-- Settings Sync
 - vscode-icons
+- Emojisense 😆
+
+To install them start VSCode, navigate to the Extensions (Ctrl+Shift+X on Windows) and search for each one. After installing them restart VSCode.
+
+## Additional things enabled by using VSCode
+
+- Code snippets for quickly scaffolding components.
+- Auto-fix eslint errors on file save.
