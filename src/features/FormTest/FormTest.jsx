@@ -7,7 +7,6 @@ export const FormTest = () => {
 	return (
 		<>
 			<TextFormField
-				id="test"
 				label="Test text form field"
 				value={textFormFieldValue}
 				onChange={textFormFieldSetter}/>

@@ -5,18 +5,28 @@ const onTextChange = (onChange) => (evt) => {
 	onChange(evt.target.value)
 }
 
+const genId = (() => {
+	let id = 0
+	return () => {
+		return "textfield-"+(id++)
+	}
+})()
+
 // const {id, label, value, onChange} = props
-export const TextFormField = ({ id, label, value, onChange }) => (
-	<div className="form-group">
-		<label htmlFor={id}>{label}</label>
-		<input
-			className="form-control"
-			id={id}
-			type="text"
-			value={value}
-			onChange={onTextChange(onChange)}/>
-	</div>
-)
+export const TextFormField = ({ id, label, value, onChange }) => {
+	const realId = id || genId()
+	return (
+		<div className="form-group">
+			<label htmlFor={realId}>{label}</label>
+			<input
+				className="form-control"
+				id={realId}
+				type="text"
+				value={value}
+				onChange={onTextChange(onChange)}/>
+		</div>
+	)
+}
 TextFormField.propTypes = {
 	id: PropTypes.string,
 	label: PropTypes.string.isRequired,
