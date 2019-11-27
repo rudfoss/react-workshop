@@ -1,3 +1,18 @@
+Agenda V2:
+
+Day 1 (react):
+Introduction
+	structure
+	content
+	set up dev env
+
+Quick code run-through
+
+
+
+
+
+
 Day 1:
 Introduction
 Build button that alerts
