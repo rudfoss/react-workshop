@@ -1,8 +1,23 @@
-import React from "react"
+import React, { useState } from "react"
 
-const Increment = () => (
-	<div>Hello world</div>
-)
+const Increment = () => {
+	const [count, setCount] = useState(0) // Destructuring
+	// const count = countState[0]
+	// const setCount = countState[1]
+
+	const increment = () => {
+		setCount(count + 1)
+	}
+	const oddOrEven = (count % 2 === 1) ? "odd" : "even"
+	
+	return (
+		<div>
+			<h1>{count}</h1>
+			<p>{oddOrEven}</p>
+			<button onClick={increment}>Increment</button>
+		</div>
+	)
+}
 
 class IncrementClass extends React.PureComponent {
 	state = {
@@ -28,4 +43,4 @@ class IncrementClass extends React.PureComponent {
 	}
 }
 
-export default IncrementClass
+export default Increment
