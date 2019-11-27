@@ -5,7 +5,7 @@ const MiniCSSExtractPlugin = require("mini-css-extract-plugin")
 const OptimizeCssAssetsPlugin = require("optimize-css-assets-webpack-plugin")
 const TerserPlugin = require("terser-webpack-plugin")
 
-const CACHE = true // Control caching for all rules/plugins and optimizers
+const CACHE = false // Control caching for all rules/plugins and optimizers
 
 const ROOT_FOLDER = path.resolve(__dirname, "../")
 const SRC_FOLDER = path.resolve(ROOT_FOLDER, "src")
@@ -65,6 +65,7 @@ module.exports = {
 						loader: "babel-loader",
 						options: {
 							cacheDirectory: CACHE,
+							babelrc: false,
 							presets: [
 								// Adds dynamic imports of the necessary polyfills (see .browserslistrc for spec)
 								["@babel/preset-env", {
@@ -91,6 +92,14 @@ module.exports = {
 					},
 					"css-loader",
 					{
+						loader: "postcss-loader",
+						options: {
+							plugins: [
+								autoprefixer
+							]
+						}
+					},
+					{
 						loader: "sass-loader",
 						options: {
 							sassOptions: {
@@ -111,7 +120,9 @@ module.exports = {
 						loader: "css-loader",
 						options: {
 							importLoaders: 2, // How many loaders should be applied to imported resources before this one
-							modules: true
+							modules: {
+								localIdentName: "[hash:base64]",
+							}
 						}
 					},
 					{

@@ -1,0 +1,46 @@
+Day 1:
+Introduction
+Build button that alerts
+Build button that onClick
+Update button to count clicks
+Pass initialCount in as prop
+Hoist state ui
+Pass props and state down
+Build TextInput
+-lunch-
+(add css for all ui elements to the course branch)
+Build NumericInput
+Review numeric input
+Style numeric input
+Move TextInput into folder
+Style TextInput with divs and scss
+Explain index.js
+Add textarea support to textInput with new prop-types format
+Explain flux pattern and how state changes
+Explore loops with key
+Build radio field task
+
+
+Day 2:
+Review radio field
+New user form (with our previous fields)
+-lunch-
+Routing
+Build system
+13:15
+Redux
+Redux basics (no ducks)
+Dispatch from console
+Create reducers to control new-user form
+Connectors
+
+Day 3:
+Refactor actions and reducers into createAction and handleActions
+Move into createUser.duck
+Fill out createUser.duck
+Ducks
+Code structure
+Create login form (task)
+-lunch-
+Review login form
+Create RoomList
