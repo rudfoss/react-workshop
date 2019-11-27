@@ -1,2 +1,2 @@
-import IncrementDecrement from "./IncrementDecrement"
-export default IncrementDecrement
+import Count from "./Count"
+export default Count
