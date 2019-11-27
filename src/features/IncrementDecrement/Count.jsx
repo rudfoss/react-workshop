@@ -7,7 +7,7 @@ export const Count = () => {
 
 	return (
 		<>
-			<CountValue count={count}/>
+			<CountValue count={count} setCount={setCount}/>
 			<CountController count={count} setCount={setCount}/>
 		</>
 	)
