@@ -7,7 +7,6 @@ This is the code used in the course **Robust web applications with React/Redux**
 - [Node.js](https://nodejs.org/en/)
 - [Git](https://git-scm.com/downloads)
 
-
 Open a terminal and clone this repository into a local folder.
 ```bash
 git clone https://github.com/rudfoss/react-workshop.git
@@ -25,7 +24,7 @@ If you are using VSCode you should also consider installing these extensions:
 
 - ESLint
 - vscode-icons
-- Emojisense 😆
+- Emojisense 😸
 
 To install them start VSCode, navigate to the Extensions (Ctrl+Shift+X on Windows) and search for each one. After installing them restart VSCode.
 
