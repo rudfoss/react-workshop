@@ -6,12 +6,14 @@ import NotFound from "features/NotFound"
 
 import Increment from "features/Increment"
 import IncrementDecrement from "features/IncrementDecrement"
+import FormTest from "features/FormTest"
 
 export const Routes = () => (
 	<Switch>
 		<Route path="/" exact component={Home}/>
 		<Route path="/increment" exact component={Increment}/>
 		<Route path="/incdec" exact component={IncrementDecrement}/>
+		<Route path="/formtest" exact component={FormTest}/>
 		<Route component={NotFound}/>
 	</Switch>
 )
