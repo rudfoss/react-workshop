@@ -16,7 +16,7 @@ const addIdToFirstChild = (children, id) => {
 	]
 }
 
-export const FormFieldTask = ({ id, label, children }) => {
+export const FormField = ({ id, label, children }) => {
 	const realId = id || genId()
 	return (
 		<div className="form-group">
@@ -25,13 +25,13 @@ export const FormFieldTask = ({ id, label, children }) => {
 		</div>
 	)
 }
-FormFieldTask.propTypes = {
+FormField.propTypes = {
 	id: PropTypes.string,
 	label: PropTypes.string.isRequired,
-	children: PropTypes.oneOf(
-		PropTypes.elementType,
-		PropTypes.arrayOf(PropTypes.elementType)
-	)
+	children: PropTypes.oneOfType([
+		PropTypes.element,
+		PropTypes.arrayOf(PropTypes.element)
+	])
 }
 
-export default FormFieldTask
+export default FormField
