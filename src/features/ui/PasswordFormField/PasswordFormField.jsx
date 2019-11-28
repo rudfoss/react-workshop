@@ -1,6 +1,8 @@
 import React, { useState } from "react"
 import PropTypes from "prop-types"
 
+import FormField from "ui/FormField"
+
 const onTextChange = (onChange) => (evt) => {
 	onChange(evt.target.value)
 }
@@ -8,23 +10,13 @@ const onCheckboxChange = (onChange) => (evt) => {
 	onChange(evt.target.checked)
 }
 
-const genId = (() => {
-	let id = 0
-	return () => {
-		return "passwordfield-"+(id++)
-	}
-})()
-
 // const {id, label, value, onChange} = props
 export const PasswordFormField = ({ id, label, canShowPassword, value, onChange }) => {
 	const [showPassword, setShowPassword] = useState(false)
-	const realId = id || genId()
 	return (
-		<div className="form-group">
-			<label htmlFor={realId}>{label}</label>
+		<FormField id={id} label={label}>
 			<input
 				className="form-control"
-				id={realId}
 				type={showPassword ? "text" : "password"}
 				value={value}
 				onChange={onTextChange(onChange)}/>
@@ -34,7 +26,7 @@ export const PasswordFormField = ({ id, label, canShowPassword, value, onChange 
 					value={showPassword}
 					onChange={onCheckboxChange(setShowPassword)}/>
 			)}
-		</div>
+		</FormField>
 	)
 }
 PasswordFormField.propTypes = {

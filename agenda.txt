@@ -7,11 +7,48 @@ Introduction
 	set up dev env
 
 Quick code run-through
+	Starting up react
+	Root component
 
+Create hello world component
+	Explain features and index.js
+Create increment component with state
+Task
+Props
+Elevate state
+Create increment controls and display
+Custom button component with bootstrap class
+Task : TextFormField
+Task : PasswordFormField
 
+(end of day 1)
 
+Day 2:
+Task : FormField abstraction
+Task : Select field
+Unit test components with Jest
+Task : Unit test select
+Task : New User form
 
+REDUX
+Concepts
+	state
+	actions
+	reducers
+	selectors
+Basic set up
+Update incrementer to use redux
+Task: IncrementControls redux
+Task: New user form redux
+Duck pattern
+Move incrementer to duck pattern
+Task : New user form duck pattern
 
+(end of day 2)
+
+Day 3:
+Async with sagas
+Implement read users from server
 
 Day 1:
 Introduction

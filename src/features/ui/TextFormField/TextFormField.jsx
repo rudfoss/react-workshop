@@ -1,32 +1,21 @@
 import React from "react"
 import PropTypes from "prop-types"
 
+import FormField from "ui/FormField"
+
 const onTextChange = (onChange) => (evt) => {
 	onChange(evt.target.value)
 }
-
-const genId = (() => {
-	let id = 0
-	return () => {
-		return "textfield-"+(id++)
-	}
-})()
-
 // const {id, label, value, onChange} = props
-export const TextFormField = ({ id, label, value, onChange }) => {
-	const realId = id || genId()
-	return (
-		<div className="form-group">
-			<label htmlFor={realId}>{label}</label>
-			<input
-				className="form-control"
-				id={realId}
-				type="text"
-				value={value}
-				onChange={onTextChange(onChange)}/>
-		</div>
-	)
-}
+export const TextFormField = ({ id, label, value, onChange }) => (
+	<FormField id={id} label={label}>
+		<input
+			className="form-control"
+			type="text"
+			value={value}
+			onChange={onTextChange(onChange)}/>
+	</FormField>
+)
 TextFormField.propTypes = {
 	id: PropTypes.string,
 	label: PropTypes.string.isRequired,
