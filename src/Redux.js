@@ -8,6 +8,18 @@ const reducer = (state, action) => {
 			count: state.count + 1
 		}
 	}
+	if (action.type === "DECREMENT") {
+		return {
+			...state,
+			count: state.count - 1
+		}
+	}
+	if (action.type === "SET") {
+		return {
+			...state,
+			count: action.payload
+		}
+	}
 	return state
 }
 

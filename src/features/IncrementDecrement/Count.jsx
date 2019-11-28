@@ -1,16 +1,12 @@
-import React, { useState } from "react"
-import CountValue from "./CountValue"
-import CountController from "./CountController"
+import React from "react"
+import CountValue from "./CountValue.connector"
+import CountController from "./CountController.connector"
 
-export const Count = () => {
-	const [count, setCount] = useState(0)
-
-	return (
-		<>
-			<CountValue count={count} setCount={setCount}/>
-			<CountController count={count} setCount={setCount}/>
-		</>
-	)
-}
+export const Count = () => (
+	<>
+		<CountValue/>
+		<CountController/>
+	</>
+)
 
 export default Count

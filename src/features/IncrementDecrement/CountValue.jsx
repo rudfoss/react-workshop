@@ -23,16 +23,16 @@ const onNumericInputChange = (onChange) => (evt) => {
 	onChange(newNumber)
 }
 
-export const CountValue = (props) => {
+export const CountValue = ({ count, setCount }) => {
 	return (
 		<div className="form-group">
 			<label>Count</label>
 			<input
 				type="text"
 				className="form-control"
-				value={props.count}
+				value={count}
 				/* onChange={(evt) => onNumericInputChange(evt, props.setCount)} */
-				onChange={onNumericInputChange(props.setCount)}/>
+				onChange={onNumericInputChange(setCount)}/>
 		</div>
 	)
 }
