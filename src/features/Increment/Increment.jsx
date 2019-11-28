@@ -1,13 +1,11 @@
-import React, { useState } from "react"
+import React from "react"
+import PropTypes from "prop-types"
 
-const Increment = () => {
-	const [count, setCount] = useState(0) // Destructuring
+const Increment = ({ count, increment }) => {
+	// const [count, setCount] = useState(0) // Destructuring
 	// const count = countState[0]
 	// const setCount = countState[1]
 
-	const increment = () => {
-		setCount(count + 1)
-	}
 	const oddOrEven = (count % 2 === 1) ? "odd" : "even"
 	
 	return (
@@ -17,6 +15,10 @@ const Increment = () => {
 			<button onClick={increment}>Increment</button>
 		</div>
 	)
+}
+Increment.propTypes = {
+	count: PropTypes.number.isRequired,
+	increment: PropTypes.func.isRequired
 }
 
 class IncrementClass extends React.PureComponent {
