@@ -1,2 +1,2 @@
-import FormField from "./FormFieldFormField"
+import FormField from "./FormField"
 export default FormField
