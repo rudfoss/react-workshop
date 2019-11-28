@@ -1,4 +1,4 @@
-import { createStore } from "redux"
+import { createStore, compose } from "redux"
 
 const reducer = (state, action) => {
 	console.log("state", state, "action", action)
@@ -23,4 +23,6 @@ const reducer = (state, action) => {
 	return state
 }
 
-export const store = createStore(reducer, { count: 0 })
+const debugComposer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
+
+export const store = createStore(reducer, { count: 0 }, debugComposer())
