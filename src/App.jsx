@@ -14,22 +14,7 @@ export class App extends React.PureComponent {
 	constructor(props) {
 		super(props)
 		window.app = this
-		this.store = createStore({
-			name: "",
-			description: "",
-			role: undefined,
-		
-			roles: [
-				{
-					value: "admin",
-					label: "Administrator"
-				},
-				{
-					value: "user",
-					label: "User"
-				}
-			]
-		})
+		this.store = createStore()
 		this.ducks = duckMap
 	}
 

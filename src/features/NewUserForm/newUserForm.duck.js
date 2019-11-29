@@ -11,14 +11,15 @@ const ROLES = [
 	}
 ]
 
-export const getState = (state) => state.newUserForm || {}
+export const ns = "newUserForm"
+export const getState = (state) => state[ns] || {}
 
 export const getName = (state) => getState(state).name || ""
 export const getDescription = (state) => getState(state).description || ""
 export const getRole = (state) => getState(state).role || ROLES[0]
 export const getRoles = (state) => getState(state).roles || ROLES
 
-export const setName = createAction("SET_NAME")
+export const setName = createAction(ns+"/SET_NAME")
 /*
 	{
 		type: "SET_NAME"
@@ -31,9 +32,9 @@ export const setName = createAction("SET_NAME")
 	setName.toString = () => "SET_NAME"
 */
 
-export const setDescription = createAction("SET_DESCRIPTION")
-export const setRole = createAction("SET_ROLE")
-export const resetNewUserForm = createAction("RESET_NEW_USER_FORM")
+export const setDescription = createAction(ns+"/SET_DESCRIPTION")
+export const setRole = createAction(ns+"/SET_ROLE")
+export const resetNewUserForm = createAction(ns+"/RESET_NEW_USER_FORM")
 
 export const reducer = handleActions({
 	[setName]: (state, action) => {
@@ -42,11 +43,17 @@ export const reducer = handleActions({
 			name: action.payload
 		}
 	},
-	"SET_DESCRIPTION": (state, action) => {
-
+	[setDescription]: (state, action) => {
+		return {
+			...state,
+			description: action.payload
+		}
 	},
-	"SET_ROLE": (state, action) => {
-
+	[setRole]: (state, action) => {
+		return {
+			...state,
+			role: action.payload
+		}
 	}
 }, {
 	roles: ROLES
