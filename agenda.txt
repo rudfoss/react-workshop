@@ -49,9 +49,11 @@ Task : New user form duck pattern
 
 Day 3:
 Review task
+Task : Unit-test and reset
 Introduce duck pattern
 Migrate incrementer to duck pattern
 Task : Migrate new user form to duck pattern
+
 Introduce new useEffects hook to clear New User form on every mount
 	(only if increment page title task not done)
 
@@ -59,6 +61,10 @@ Introduce sagas
 Connect New User form to server
 Task : List users
 Task : Search users
+
+
+====================================================
+
 
 Day 1:
 Introduction

@@ -28,6 +28,11 @@ const mapDispatchToProps = (dispatch) => ({
 	},
 	onSubmit: (values) => {
 		console.log(values)
+	},
+	onReset: () => {
+		dispatch({
+			type: "RESET_NEW_USER_FORM"
+		})
 	}
 })
 export default connect(mapStateToProps, mapDispatchToProps)(NewUserForm)

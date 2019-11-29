@@ -21,7 +21,7 @@ const preventDefault = (onEvent) => (evt) => {
 export const NewUserForm = ({
 	name, description, role, roles,
 	onNameChange, onDescriptionChange, onRoleChange,
-	onSubmit
+	onSubmit, onReset
 }) => {
 	const submitData = () => {
 		onSubmit({
@@ -38,6 +38,7 @@ export const NewUserForm = ({
 				options={roles}
 				onChange={onRoleChange}/>
 			<button>Submit</button>
+			<button type="button" onClick={onReset}>Reset</button>
 		</form>
 	)
 }
@@ -53,7 +54,8 @@ NewUserForm.propTypes = {
 	onDescriptionChange: PropTypes.func.isRequired,
 	onRoleChange: PropTypes.func.isRequired,
 
-	onSubmit: PropTypes.func.isRequired
+	onSubmit: PropTypes.func.isRequired,
+	onReset: PropTypes.func.isRequired
 }
 
 export default NewUserForm

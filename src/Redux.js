@@ -39,6 +39,15 @@ export const reducer = (state, action) => {
 		}
 	}
 
+	if (action.type === "RESET_NEW_USER_FORM") {
+		return {
+			...state,
+			name: "",
+			description: "",
+			role: undefined
+		}
+	}
+
 	return state
 }
 
@@ -46,6 +55,7 @@ const debugComposer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
 
 export const store = createStore(reducer, {
 	count: 0,
+
 	name: "",
 	description: "",
 	role: undefined,
