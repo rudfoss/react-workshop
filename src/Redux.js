@@ -1,6 +1,6 @@
 import { createStore, compose } from "redux"
 
-const reducer = (state, action) => {
+export const reducer = (state, action) => {
 	if (action.type === "INCREMENT") {
 		return {
 			...state,
