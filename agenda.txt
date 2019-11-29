@@ -47,8 +47,15 @@ Task : New user form duck pattern
 (end of day 2)
 
 Day 3:
-Async with sagas
-Implement read users from server
+Review task
+Introduce duck pattern
+Migrate incrementer to duck pattern
+Task : Migrate new user form to duck pattern
+
+Introduce sagas
+Connect New User form to server
+Task : List users
+Task : Search users
 
 Day 1:
 Introduction
