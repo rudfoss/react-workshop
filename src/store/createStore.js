@@ -11,6 +11,7 @@ export const createStore = (initialState = {}) => {
 	for (const duck of ducks) {
 		reducerMap[duck.ns] = duck.reducer
 		if (duck.saga) {
+			console.log(`registering saga for ${duck.ns}`)
 			sagas.push(duck.saga)
 		}
 	}
