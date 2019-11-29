@@ -7,6 +7,7 @@ export const Nav = () => (
 		<Link to="/increment" className="nav-link">Increment</Link>
 		<Link to="/incdec" className="nav-link">IncDec</Link>
 		<Link to="/formtest" className="nav-link">Form Test</Link>
+		<Link to="/newuser" className="nav-link">New User Form</Link>
 	</nav>
 )
 
