@@ -19,6 +19,26 @@ const reducer = (state, action) => {
 			count: action.payload
 		}
 	}
+
+	if (action.type === "SET_NAME") {
+		return {
+			...state,
+			name: action.payload
+		}
+	}
+	if (action.type === "SET_DESCRIPTION") {
+		return {
+			...state,
+			description: action.payload
+		}
+	}
+	if (action.type === "SET_ROLE") {
+		return {
+			...state,
+			role: action.payload
+		}
+	}
+
 	return state
 }
 
