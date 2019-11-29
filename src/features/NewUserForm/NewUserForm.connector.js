@@ -1,38 +1,29 @@
 import { connect } from "react-redux"
 import NewUserForm from "./NewUserForm"
 
+import * as newUserFormDuck from "./newUserForm.duck"
+
 const mapStateToProps = (state) => ({
-	name: state.name,
-	description: state.description,
-	role: state.role || state.roles[1],
-	roles: state.roles
+	name: newUserFormDuck.getName(state),
+	description: newUserFormDuck.getDescription(state),
+	role: newUserFormDuck.getRole(state),
+	roles: newUserFormDuck.getRoles(state)
 })
 const mapDispatchToProps = (dispatch) => ({
 	onNameChange: (newName) => {
-		dispatch({
-			type: "SET_NAME",
-			payload: newName
-		})
+		dispatch(newUserFormDuck.setName(newName))
 	},
 	onDescriptionChange: (newDescription) => {
-		dispatch({
-			type: "SET_DESCRIPTION",
-			payload: newDescription
-		})
+		dispatch(newUserFormDuck.setDescription(newDescription))
 	},
 	onRoleChange: (newRole) => {
-		dispatch({
-			type: "SET_ROLE",
-			payload: newRole
-		})
+		dispatch(newUserFormDuck.setRole(newRole))
 	},
 	onSubmit: (values) => {
 		console.log(values)
 	},
 	onReset: () => {
-		dispatch({
-			type: "RESET_NEW_USER_FORM"
-		})
+		dispatch(newUserFormDuck.resetNewUserForm())
 	}
 })
 export default connect(mapStateToProps, mapDispatchToProps)(NewUserForm)
