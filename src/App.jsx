@@ -8,6 +8,8 @@ import { BrowserRouter } from "react-router-dom"
 
 import AppFrame from "features/AppFrame"
 
+import "./generators"
+
 import "./App.global.scss"
 
 export class App extends React.PureComponent {

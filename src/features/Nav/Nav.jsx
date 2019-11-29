@@ -8,6 +8,8 @@ export const Nav = () => (
 		<Link to="/incdec" className="nav-link">IncDec</Link>
 		<Link to="/formtest" className="nav-link">Form Test</Link>
 		<Link to="/newuser" className="nav-link">New User Form</Link>
+		<Link to="/dev" className="nav-link">Developer Form</Link>
+		<Link to="/search" className="nav-link">Search</Link>
 	</nav>
 )
 

@@ -8,6 +8,8 @@ import Increment from "features/Increment"
 import IncrementDecrement from "features/IncrementDecrement"
 import FormTest from "features/FormTest"
 import NewUserForm from "features/NewUserForm"
+import DeveloperForm from "features/DeveloperForm"
+import Search from "features/Search"
 
 export const Routes = () => (
 	<Switch>
@@ -16,6 +18,8 @@ export const Routes = () => (
 		<Route path="/incdec" exact component={IncrementDecrement}/>
 		<Route path="/formtest" exact component={FormTest}/>
 		<Route path="/newuser" exact component={NewUserForm}/>
+		<Route path="/dev" exact component={DeveloperForm}/>
+		<Route path="/search" exact component={Search}/>
 		<Route component={NotFound}/>
 	</Switch>
 )

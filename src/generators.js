@@ -8,3 +8,5 @@ export function* myFirstGenerator() {
 	console.log("myFirstGenerator finished with data", newValue)
 	return "END"
 }
+
+window.myFirstGenerator = myFirstGenerator
