@@ -13,10 +13,11 @@ Quick code run-through
 Create hello world component
 	Explain features and index.js
 Create increment component with state
-Task
+Task : Increment/decrement
 Props
 Elevate state
-Create increment controls and display
+Task : Increment controls
+Introduce useEffect by setting count in title only when it changes in CountView
 Custom button component with bootstrap class
 Task : TextFormField
 Task : PasswordFormField
@@ -51,6 +52,8 @@ Review task
 Introduce duck pattern
 Migrate incrementer to duck pattern
 Task : Migrate new user form to duck pattern
+Introduce new useEffects hook to clear New User form on every mount
+	(only if increment page title task not done)
 
 Introduce sagas
 Connect New User form to server

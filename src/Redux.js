@@ -24,4 +24,20 @@ const reducer = (state, action) => {
 
 const debugComposer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
 
-export const store = createStore(reducer, { count: 0 }, debugComposer())
+export const store = createStore(reducer, {
+	count: 0,
+	name: "",
+	description: "",
+	role: undefined,
+
+	roles: [
+		{
+			value: "admin",
+			label: "Administrator"
+		},
+		{
+			value: "user",
+			label: "User"
+		}
+	]
+}, debugComposer())
